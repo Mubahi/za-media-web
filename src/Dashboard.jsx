@@ -1,5 +1,10 @@
-
+import React from "react";
+import { useNavigate } from "react-router-dom";
 const Dashboard = () => {
+  const navigate = useNavigate();
+  function goToHomescreen() {
+    navigate('/pages/Homescreen');
+  }
     return (
       <div className="flex justify-center items-center h-screen py-40 bg-gradient-to-b from-yellow-500 to-orange-500">
         <div className="container mx-auto">
@@ -12,22 +17,23 @@ const Dashboard = () => {
             <div className="w-full lg:w-1/2 py-16 px-12">
               <p className='text-3xl mb-6 font-bold'>Welcome</p>
               <form action="#">
-                <div class="relative mt-4">
-                    <input id="userName" type="text" placeholder="" class="text-black peer placeholder-transparent bg-yellow-100 border-l-2 border-red-500 w-full py-2 px-3 focus:outline-none inputFeild"/>
-                    <label class="text-black font-mono peer-placeholder-shown:text-base peer-placeholder-shown:text-black peer-placeholder-shown:top-2 peer-focus:-top-5 peer-focus:text-black peer-focus:text-sm absolute left-2 -top-5 cursor-text transition-all" for="userName" name="userName">
+                <div className="relative mt-4">
+                    <input id="userName" type="text" placeholder="" required class="text-black peer placeholder-transparent bg-yellow-100 border-l-2 border-red-500 w-full py-2 px-3 focus:outline-none inputFeild"/>
+                    <label className="text-black font-mono peer-placeholder-shown:text-base peer-placeholder-shown:text-black peer-placeholder-shown:top-2 peer-focus:-top-5 peer-focus:text-black peer-focus:text-sm absolute left-2 -top-5 cursor-text transition-all" for="userName" name="userName">
                     Username...
                     </label>
                 </div>
-                <div class="relative mt-4">
-                    <input id="password" type="password" placeholder="" class="text-black peer placeholder-transparent bg-yellow-100 border-l-2 border-red-500 w-full py-2 px-3 focus:outline-none inputFeild"/>
-                    <label class="text-black font-mono peer-placeholder-shown:text-base peer-placeholder-shown:text-black peer-placeholder-shown:top-2 peer-focus:-top-5 peer-focus:text-black peer-focus:text-sm absolute left-2 -top-5 cursor-text transition-all" for="password" name="password">
+                <div className="relative mt-4">
+                    <input id="password" type="password" required placeholder="" class="text-black peer placeholder-transparent bg-yellow-100 border-l-2 border-red-500 w-full py-2 px-3 focus:outline-none inputFeild"/>
+                    <label className="text-black font-mono peer-placeholder-shown:text-base peer-placeholder-shown:text-black peer-placeholder-shown:top-2 peer-focus:-top-5 peer-focus:text-black peer-focus:text-sm absolute left-2 -top-5 cursor-text transition-all" for="password" name="password">
                     Password...
                     </label>
                 </div>
                 <div className="mt-5">
-                    <button className="border-2 border-yellow-500 bg-yellow-500 text-white py-1 w-full rounded-md hover:bg-orange-500 hover:text-white hover:border-orange-500 transition duration-300 font-semibold">
+                    <button className="border-2 border-yellow-500 bg-yellow-500 text-white py-1 w-full rounded-md hover:bg-orange-500 hover:text-white hover:border-orange-500 transition duration-300 font-semibold" onClick={goToHomescreen}>
                             Login
                     </button>
+                  
                 </div>
               </form>
             </div>
