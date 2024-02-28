@@ -1,9 +1,5 @@
-import { useNavigate } from "react-router-dom";
+
 const Nav = () => {
-    const navigate = useNavigate();
-    function AllPages() {
-      navigate('/pages/AllShops');
-    }
     return (
         <nav className="bg-gray-400 p-4">
             <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
@@ -11,7 +7,7 @@ const Nav = () => {
                     <img src="/zamedia.png" alt="za-media-Logo" className="w-48"/>
                 </div>
                 <div className="mb-4 md:mb-0">
-                    <button className="border-2 border-yellow-500 bg-yellow-500 text-white py-2 px-2 w-full md:w-auto rounded-md hover:bg-orange-500 hover:text-white hover:border-orange-500 transition duration-300 font-semibold outline-none animate-bounce" onClick={AllPages}>
+                    <button className="border-2 border-yellow-500 bg-yellow-500 text-white py-2 px-2 w-full md:w-auto rounded-md hover:bg-orange-500 hover:text-white hover:border-orange-500 transition duration-300 font-semibold outline-none animate-bounce">
                         All Shops
                     </button>
                 </div>
