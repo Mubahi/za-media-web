@@ -18,19 +18,19 @@ const Dashboard = () => {
               <p className='text-3xl mb-6 font-bold'>Welcome</p>
               <form action="#">
                 <div className="relative mt-4">
-                    <input id="userName" type="text" placeholder="" required class="text-black peer placeholder-transparent bg-yellow-100 border-l-2 border-red-500 w-full py-2 px-3 focus:outline-none inputFeild"/>
-                    <label className="text-black font-mono peer-placeholder-shown:text-base peer-placeholder-shown:text-black peer-placeholder-shown:top-2 peer-focus:-top-5 peer-focus:text-black peer-focus:text-sm absolute left-2 -top-5 cursor-text transition-all" for="userName" name="userName">
+                    <input id="userName" type="text" placeholder="" required className="text-black peer placeholder-transparent bg-yellow-100 border-l-2 border-red-500 w-full py-2 px-3 focus:outline-none inputFeild"/>
+                    <label className="text-black font-mono peer-placeholder-shown:text-base peer-placeholder-shown:text-black peer-placeholder-shown:top-2 peer-focus:-top-5 peer-focus:text-black peer-focus:text-sm absolute left-2 -top-5 cursor-text transition-all" htmlFor="userName" name="userName">
                     Username...
                     </label>
                 </div>
                 <div className="relative mt-4">
-                    <input id="password" type="password" required placeholder="" class="text-black peer placeholder-transparent bg-yellow-100 border-l-2 border-red-500 w-full py-2 px-3 focus:outline-none inputFeild"/>
-                    <label className="text-black font-mono peer-placeholder-shown:text-base peer-placeholder-shown:text-black peer-placeholder-shown:top-2 peer-focus:-top-5 peer-focus:text-black peer-focus:text-sm absolute left-2 -top-5 cursor-text transition-all" for="password" name="password">
+                    <input id="password" type="password" required placeholder="" className="text-black peer placeholder-transparent bg-yellow-100 border-l-2 border-red-500 w-full py-2 px-3 focus:outline-none inputFeild"/>
+                    <label className="text-black font-mono peer-placeholder-shown:text-base peer-placeholder-shown:text-black peer-placeholder-shown:top-2 peer-focus:-top-5 peer-focus:text-black peer-focus:text-sm absolute left-2 -top-5 cursor-text transition-all" htmlFor="password" name="password">
                     Password...
                     </label>
                 </div>
                 <div className="mt-5">
-                    <button className="border-2 border-yellow-500 bg-yellow-500 text-white py-1 w-full rounded-md hover:bg-orange-500 hover:text-white hover:border-orange-500 transition duration-300 font-semibold" onClick={goToHomescreen}>
+                    <button className="border-2 border-yellow-500 bg-yellow-500 text-white py-1 w-full rounded-md hover:bg-orange-500 hover:text-white hover:border-orange-500 transition duration-300 font-semibold animate-bounce" onClick={goToHomescreen}>
                             Login
                     </button>
                   
