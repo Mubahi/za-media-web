@@ -1,0 +1,15 @@
+{
+  "api_url": "https://a9yd2tumde.execute-api.us-east-1.amazonaws.com/dev",
+  "api_url_upload": "https://7dcldl3qo2.execute-api.us-east-1.amazonaws.com/dev/api/uploadImages",
+  "windows_enum": [{ "id": 1, "label": "Window 1" },
+                   { "id": 2, "label": "Window 2" },
+                   { "id": 3, "label": "Window 3" },
+                   { "id": 4, "label": "Window 4" },
+                   { "id": 5, "label": "Window 5" },
+                   { "id": 6, "label": "Window 6" },
+                   { "id": 7, "label": "Window 7" },
+                   { "id": 8, "label": "Window 8" },
+                   { "id": 9, "label": "Window 9" },
+                   { "id": 10, "label": "Window 10" }
+]
+}

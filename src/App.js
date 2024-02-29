@@ -1,20 +1,88 @@
 import './App.css';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Dashboard from './Dashboard';
 import Homescreen from './pages/Homescreen';
-import {useState } from 'react';
 import DataOne from './pages/cardsdata/DataOne';
-import AllShops from './pages/AllShops';
-function App() {
-  const [view , setView] = useState("AllShops");
+import { getData } from "./services/http";
+import useLocalStorage from "./services/useLocalStorage";
+
+export function App() {
+  const [View, setView] = useState("Dashboard");
+  const [Countries, setCountries] = useLocalStorage("zm_countries", []);
+  const [AllShops, setAllShops] = useLocalStorage("zm_shops", []);
+  const [ShopCategories, setShopCategories] = useLocalStorage(
+    "zm_shop_categories",
+    []
+  );
+  const [Brands, setBrands] = useLocalStorage("zm_brands", []);
+  const [Areas, setAreas] = useLocalStorage("zm_areas", []);
+  const [Products, setProducts] = useLocalStorage("zm_products", []);
+  const [SelectedShop, setSelectedShop] = useState({});
+
+  useEffect(() => {
+    const FetchData = async () => {
+      let pk, sk, begin_with, resp;
+
+      // countries data
+      pk = "COUNTRIES#";
+      sk = "COUNTRIES#";
+      begin_with = true;
+      resp = await getData(pk, sk, begin_with);
+      setCountries(resp.Items);
+
+      // shops data
+      pk = "SHOPS#";
+      sk = "SHOPS#";
+      begin_with = true;
+      resp = await getData(pk, sk, begin_with);
+      setAllShops(resp.Items);
+
+      // shops categories data
+      pk = "SHOPCATEGORIES#";
+      sk = "SHOPCATEGORIES#";
+      begin_with = true;
+      resp = await getData(pk, sk, begin_with);
+      setShopCategories(resp.Items);
+
+      // Brands data
+      pk = "BRANDS#";
+      sk = "BRANDS#";
+      begin_with = true;
+      resp = await getData(pk, sk, begin_with);
+      setBrands(resp.Items);
+
+      // Areas data
+      pk = "AREAS#";
+      sk = "AREAS#";
+      begin_with = true;
+      resp = await getData(pk, sk, begin_with);
+      setAreas(resp.Items);
+      console.log(resp.Items);
+
+      // Products data
+      pk = "PRODUCTS#";
+      sk = "PRODUCTS#";
+      begin_with = true;
+      resp = await getData(pk, sk, begin_with);
+      setProducts(resp.Items);
+    };
+
+    FetchData();
+  }, [setCountries]);
+  console.log(AllShops);
+  const handleLogin = () => {
+    setView('Homescreen');
+  }
+  const handleDetailedView = () => {
+    setView('AllShops');
+  }
   return (
     <>
-      {view === "Dashboard" && (<Dashboard/>)}
-      {view === 'Homescreen' && (<Homescreen/>)}
-      {view === 'DataOne' && (<DataOne/>)}
-      {view === 'AllShops' && (<AllShops/>)}
+      {View === 'Dashboard' && (<Dashboard onLogin={handleLogin}/>)}
+      {View === 'Homescreen' && (<Homescreen shops={AllShops} onDetailedView={handleDetailedView}/>)}
+      {View === 'DataOne' && (<DataOne/>)}
+      {View === 'AllShops' && (<AllShops/>)}
     </>
-    
   );
 }
 
