@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 const Shop = () => {
     const navigate = useNavigate();
     function DataOne() {
-      navigate('./pages/cardsdata/Data1');
+      navigate('../pages/cardsdata/DataOne');
     }
     return (
         <div onClick={DataOne} className="flex-shrink-0 bg-white rounded-md shadow-md ml-4 w-48 mt-4 hover:border-2 hover:transition-all hover:duration-100 hover:opacity-75">
