@@ -1,9 +1,58 @@
-import AllDropDown from "./components/AllDropDown";
+import { useState } from "react";
 
-const AllShops = () => {
+const ShopsTable = ({Shops,Brands,Categories,Areas,Countries}) => {
+    const [Cities, setCities] = useState([]);
+    const filterCities=(country_id)=>{
+        const country = Countries.find((c) => c.country_id = country_id);
+        setCities(country.cities);
+    };
     return (
         <div className='pb-1'>
-            <AllDropDown/>
+            <div className='bg-orange-500 flex flex-col sm:flex-row justify-between p-3'>
+                <div className="mb-2 sm:mb-0">
+                    <h1 className='text-white text-3xl'>All Shopes</h1>
+                </div>
+                <div className="mb-4 md:mb-0">
+                    <button className="border-2 border-red-500 animate-bounce bg-red-500 text-white py-1 px-2 w-full md:w-auto rounded-md hover:bg-orange-500 hover:text-white hover:border-white transition duration-300 font-semibold outline-none hover:border-2">
+                        Homepage
+                    </button>
+                </div>
+                <div className='flex flex-wrap'>
+                    <select id="country_name" onChange={(e) => filterCities(e.target.value)} className="text-white mx-2 w-full sm:w-28 mb-2 sm:mb-0 px-1 py-1 bg-transparent outline-none">
+                        {Countries.map(function(country){
+                            return(<option key={country.country_id} value={country.country_id} className="bg-white text-black">{country.country_name}</option>);
+                        })}
+                    </select>
+                    <select id="cityName" className="text-white mx-2 w-full sm:w-28 mb-2 sm:mb-0 px-1 py-1 bg-transparent outline-none">
+                            <option value="" className="bg-white text-black">Cities</option>
+                            {Cities.map(function(City){
+                                return(<option key={City.city_id} value={City.city_id} className="bg-white text-black">{City.city_name}</option>);
+                            })}
+                    </select>
+                    <select id="brandName" className="text-white mx-2 w-full sm:w-28 mb-2 sm:mb-0 px-1 py-1 bg-transparent outline-none">
+                        {Brands.map(function(brand){
+                            return(<option key={brand.id} value={brand.id} className="bg-white text-black">{brand.name}</option>);
+                        })}
+                    </select>
+                    <select id="country_name" className="text-white mx-2 w-full sm:w-28 mb-2 sm:mb-0 px-1 py-1 bg-transparent outline-none">
+                            <option value="" className="bg-white text-black">Categories</option>
+                            {Categories.map(function(Category){
+                                return(<option key={Category.id} value={Category.id} className="bg-white text-black">{Category.name}</option>);
+                            })}
+                    </select>
+                    <select id="area" className="text-white mx-2 w-full sm:w-28 mb-2 sm:mb-0 px-1 py-1 bg-transparent outline-none">
+                        <option value="">Areas</option>
+                        {Areas.map(function(area){
+                            return(<option key={area.id} value={area.id} className="bg-white text-black">{area.name}</option>);
+                        })}
+                    </select>
+                    <select id="country_name" className="text-white mx-2 w-full sm:w-28 mb-2 sm:mb-0 px-1 py-1 bg-transparent outline-none">
+                            <option value="" className="bg-white text-black">Window</option>
+                            <option value="" className="bg-white text-black">Germany</option>
+                            <option value="" className="bg-white text-black">Italy </option>
+                    </select>
+                </div>
+            </div>
             <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <thead className="text-center text-xs text-gray-700 uppercase bg-orange-50 dark:bg-gray-700 dark:text-gray-400">
@@ -27,7 +76,7 @@ const AllShops = () => {
                             Area
                         </th>
                         <th scope="col" className="px-6 py-3">
-                            Window
+                            Windows
                         </th>
                         <th scope="col" className="px-6 py-3">
                             Action
@@ -77,4 +126,4 @@ const AllShops = () => {
         </div>
     );
 }
-export default AllShops;
+export default ShopsTable;

@@ -5,9 +5,10 @@ import Homescreen from './pages/Homescreen';
 import DataOne from './pages/cardsdata/DataOne';
 import { getData } from "./services/http";
 import useLocalStorage from "./services/useLocalStorage";
+import ShopsTable from './pages/ShopsTable';
 
 export function App() {
-  const [View, setView] = useState("Dashboard");
+  const [View, setView] = useState("Homescreen");
   const [Countries, setCountries] = useLocalStorage("zm_countries", []);
   const [AllShops, setAllShops] = useLocalStorage("zm_shops", []);
   const [ShopCategories, setShopCategories] = useLocalStorage(
@@ -16,8 +17,6 @@ export function App() {
   );
   const [Brands, setBrands] = useLocalStorage("zm_brands", []);
   const [Areas, setAreas] = useLocalStorage("zm_areas", []);
-  const [Products, setProducts] = useLocalStorage("zm_products", []);
-  const [SelectedShop, setSelectedShop] = useState({});
 
   useEffect(() => {
     const FetchData = async () => {
@@ -57,19 +56,11 @@ export function App() {
       begin_with = true;
       resp = await getData(pk, sk, begin_with);
       setAreas(resp.Items);
-      console.log(resp.Items);
 
-      // Products data
-      pk = "PRODUCTS#";
-      sk = "PRODUCTS#";
-      begin_with = true;
-      resp = await getData(pk, sk, begin_with);
-      setProducts(resp.Items);
     };
 
     FetchData();
-  }, [setCountries]);
-  console.log(AllShops);
+  }, [setCountries,setAllShops,setAreas,setBrands,setShopCategories]);
   const handleLogin = () => {
     setView('Homescreen');
   }
@@ -79,9 +70,17 @@ export function App() {
   return (
     <>
       {View === 'Dashboard' && (<Dashboard onLogin={handleLogin}/>)}
-      {View === 'Homescreen' && (<Homescreen shops={AllShops} onDetailedView={handleDetailedView}/>)}
+      {View === 'Homescreen' && (<Homescreen shops={AllShops} Countries={Countries} onDetailedView={handleDetailedView}/>)}
       {View === 'DataOne' && (<DataOne/>)}
-      {View === 'AllShops' && (<AllShops/>)}
+      {View === 'AllShops' && (
+        <ShopsTable 
+          shops={AllShops} 
+          Countries={Countries} 
+          Categories={ShopCategories} 
+          Areas={Areas} 
+          Brands={Brands}
+        />
+      )}
     </>
   );
 }
