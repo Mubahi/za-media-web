@@ -2,10 +2,10 @@ import './App.css';
 import React, { useEffect, useState } from 'react';
 import Dashboard from './Dashboard';
 import Homescreen from './pages/Homescreen';
-import DataOne from './pages/cardsdata/DataOne';
 import { getData } from "./services/http";
 import useLocalStorage from "./services/useLocalStorage";
 import ShopsTable from './pages/ShopsTable';
+import Data from './pages/cardsdata/Data';
 
 export function App() {
   const [View, setView] = useState("Dashboard");
@@ -69,12 +69,19 @@ export function App() {
   }
   const GotoHome = () => {
     setView('Homescreen');
-  } 
+  }
+  const handleViewShop = () => {
+    setView('Data');
+  }
   return (
     <>
       {View === 'Dashboard' && (<Dashboard onLogin={handleLogin}/>)}
-      {View === 'Homescreen' && (<Homescreen shops={AllShops} Countries={Countries} onDetailedView={handleDetailedView}/>)}
-      {View === 'DataOne' && (<DataOne/>)}
+      {View === 'Homescreen' && (<Homescreen shops={AllShops} Countries={Countries} onDetailedView={handleDetailedView} ViewShop={handleViewShop}/>)}
+      {View === 'Data' && (
+        <Data 
+          GotoHome={GotoHome}
+        />
+      )}
       {View === 'AllShops' && (
         <ShopsTable 
           Shops={AllShops} 

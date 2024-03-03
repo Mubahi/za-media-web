@@ -1,10 +1,10 @@
 import React from "react";
-const DataOne = () => {
+const Data = ({GotoHome}) => {
     return (
         <div className="flex justify-center h-screen">
             <div className="container mx-auto p-6 bg-orange-100 text-center">
             <div className="mb-4 md:mb-4">
-                    <button className="border-2 border-yellow-500 bg-yellow-500 text-white py-2 px-2 w-full md:w-auto rounded-md hover:bg-orange-500 hover:text-white hover:border-orange-500 transition duration-300 font-semibold outline-none">
+                    <button onClick={GotoHome} className="border-2 border-yellow-500 bg-yellow-500 text-white py-2 px-2 w-full md:w-auto rounded-md hover:bg-orange-500 hover:text-white hover:border-orange-500 transition duration-300 font-semibold outline-none">
                         HomePage
                     </button>
                 </div>
@@ -28,4 +28,4 @@ const DataOne = () => {
         </div>
     );
 }
-export default DataOne;
+export default Data;

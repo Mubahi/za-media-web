@@ -1,5 +1,5 @@
 
-const Shop = ({shop , Countries}) => {
+const Shop = ({shop , Countries,ViewShop}) => {
     const {shop_city_id,shop_country_id,shop_name} = shop;
     const GetCountryAndCity = (country_id,city_id) => {
         const country = Countries.find((c) => c.country_id === country_id);
@@ -16,7 +16,7 @@ const Shop = ({shop , Countries}) => {
             <p className="text-gray-500 roboto-mono">{GetCountryAndCity(shop_country_id,shop_city_id)}</p>
             <div className="border-b border-blue-400 mt-2 mx-2"></div>
             <div className="mt-5">
-                <button className="border-2 border-orange-400 bg-orange-400 text-white py-1 w-full rounded-md hover:bg-orange-600 hover:text-white hover:border-orange-600 transition duration-300 font-semibold font-sans">
+                <button onClick={ViewShop} className="border-2 border-orange-400 bg-orange-400 text-white py-1 w-full rounded-md hover:bg-orange-600 hover:text-white hover:border-orange-600 transition duration-300 font-semibold font-sans">
                     View
                 </button>
             </div>

@@ -35,7 +35,7 @@ export default function ShopRow({shop , Countries , Areas}) {
             {GetAreaName(shop.shop_area_id)}
         </td>
         <td className="px-6 py-4">
-            {shop.shop_opening_hours+ ' to ' + shop.shop_closing_hours || ''} 
+            {shop.shop_opening_hours ? shop.shop_opening_hours+ ' to ' + shop.shop_closing_hours : ''  } 
         </td>
         <td className="px-6 py-4">
             {shop.shop_owner_name}
