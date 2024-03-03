@@ -8,7 +8,7 @@ import useLocalStorage from "./services/useLocalStorage";
 import ShopsTable from './pages/ShopsTable';
 
 export function App() {
-  const [View, setView] = useState("Homescreen");
+  const [View, setView] = useState("Dashboard");
   const [Countries, setCountries] = useLocalStorage("zm_countries", []);
   const [AllShops, setAllShops] = useLocalStorage("zm_shops", []);
   const [ShopCategories, setShopCategories] = useLocalStorage(
@@ -67,6 +67,9 @@ export function App() {
   const handleDetailedView = () => {
     setView('AllShops');
   }
+  const GotoHome = () => {
+    setView('Homescreen');
+  } 
   return (
     <>
       {View === 'Dashboard' && (<Dashboard onLogin={handleLogin}/>)}
@@ -76,9 +79,10 @@ export function App() {
         <ShopsTable 
           Shops={AllShops} 
           Countries={Countries} 
-          Categories={ShopCategories} 
           Areas={Areas} 
+          Categories={ShopCategories} 
           Brands={Brands}
+          GotoHome={GotoHome}
         />
       )}
     </>

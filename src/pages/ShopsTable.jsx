@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ShopRow from "./components/ShopRow";
 
-const ShopsTable = ({Shops,Brands,Categories,Areas,Countries}) => {
+const ShopsTable = ({Shops,Brands,Categories,Areas,Countries,GotoHome}) => {
     const [selectedCountry, setSelectedCountry] = useState('');
     const [selectedArea, setSelectedArea] = useState('all');
     const [selectedWindows, setSelectedWindows] = useState('all');
@@ -50,7 +50,7 @@ const ShopsTable = ({Shops,Brands,Categories,Areas,Countries}) => {
                     <h1 className='text-white text-3xl'>All Shopes</h1>
                 </div>
                 <div className="mb-4 md:mb-0">
-                    <button className="border-2 border-red-500 animate-bounce bg-red-500 text-white py-1 px-2 w-full md:w-auto rounded-md hover:bg-orange-500 hover:text-white hover:border-white transition duration-300 font-semibold outline-none hover:border-2">
+                    <button onClick={GotoHome} className="border-2 border-red-500 animate-bounce bg-red-500 text-white py-1 px-2 w-full md:w-auto rounded-md hover:bg-orange-500 hover:text-white hover:border-white transition duration-300 font-semibold outline-none hover:border-2">
                         Homepage
                     </button>
                 </div>
@@ -160,6 +160,9 @@ const ShopsTable = ({Shops,Brands,Categories,Areas,Countries}) => {
                         </th>
                         <th scope="col" className="px-6 py-3">
                             Shop Email
+                        </th>
+                        <th scope="col" className="px-6 py-3">
+                            Shop Social Media
                         </th>
                         <th scope="col" className="px-6 py-3">
                             Power days Reach
