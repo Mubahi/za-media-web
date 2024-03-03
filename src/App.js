@@ -74,7 +74,7 @@ export function App() {
       {View === 'DataOne' && (<DataOne/>)}
       {View === 'AllShops' && (
         <ShopsTable 
-          shops={AllShops} 
+          Shops={AllShops} 
           Countries={Countries} 
           Categories={ShopCategories} 
           Areas={Areas} 
