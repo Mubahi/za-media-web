@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ShopsTable from '../pages/ShopsTable';
 import Data from '../pages/cardsdata/Data';
-import Homescreen from '../pages/Homescreen';
+// import Homescreen from '../pages/Homescreen';
 import Nav from '../pages/components/Nav';
 import Footer from '../pages/components/Footer';
 const Home = (Shops,Countries ,ViewShop,Brands,Categories,Areas) => {
