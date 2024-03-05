@@ -6,6 +6,7 @@ import { getData } from "./services/http";
 import useLocalStorage from "./services/useLocalStorage";
 import ShopsTable from './pages/ShopsTable';
 import Data from './pages/cardsdata/Data';
+import Home from './Home/Home';
 
 export function App() {
   const [View, setView] = useState("Dashboard");
@@ -62,36 +63,21 @@ export function App() {
     FetchData();
   }, [setCountries,setAllShops,setAreas,setBrands,setShopCategories]);
   const handleLogin = () => {
-    setView('Homescreen');
+    setView('Home');
   }
-  const handleDetailedView = () => {
-    setView('AllShops');
-  }
-  const GotoHome = () => {
-    setView('Homescreen');
-  }
-  const handleViewShop = () => {
-    setView('Data');
-  }
+  
   return (
     <>
       {View === 'Dashboard' && (<Dashboard onLogin={handleLogin}/>)}
-      {View === 'Homescreen' && (<Homescreen shops={AllShops} Countries={Countries} onDetailedView={handleDetailedView} ViewShop={handleViewShop}/>)}
-      {View === 'Data' && (
-        <Data 
-          GotoHome={GotoHome}
-        />
-      )}
-      {View === 'AllShops' && (
-        <ShopsTable 
-          Shops={AllShops} 
-          Countries={Countries} 
-          Areas={Areas} 
-          Categories={ShopCategories} 
-          Brands={Brands}
-          GotoHome={GotoHome}
-        />
-      )}
+      {View === 'Home' && (<Home 
+        onLogin={handleLogin}
+        Shops={AllShops} 
+        Countries={Countries} 
+        Areas={Areas} 
+        Categories={ShopCategories} 
+        Brands={Brands}
+        />)}
+
     </>
   );
 }

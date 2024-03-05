@@ -1,19 +1,23 @@
-import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 import Shop from "./components/Shop";
 
-const Homescreen = ({onDetailedView, shops,Countries ,ViewShop}) => {
+const Homescreen = ({shops,Countries ,ViewShop}) => {
    
     return (
-       <div className="min-h-screen bg-orange-200">
-            <Nav onDetailedView={onDetailedView}/>
-            <div className="container mx-auto flex justify-center flex-wrap mt-5 pb-5">
-                {
-                    shops.map(function(shop,index){
-                        return(<Shop key={shop.shop_id} shop={shop} Countries={Countries} ViewShop={ViewShop}/>);
-                    })
-                }
-            </div>
-       </div>
+        <>
+        <div className="max-h-screen bg-orange-200 h-auto pb-2">
+                <div className="flex justify-center flex-wrap ">
+                    {
+                        shops.map(function(shop,index){
+                            return(
+                            <Shop key={shop.shop_id} shop={shop} Countries={Countries} ViewShop={ViewShop}/>
+                            );
+                        })
+                    }
+                </div>
+        </div>
+        <Footer/>
+       </>
     );
 }
 export default Homescreen;
