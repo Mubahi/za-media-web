@@ -1,11 +1,8 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
 import Dashboard from './Dashboard';
-import Homescreen from './pages/Homescreen';
 import { getData } from "./services/http";
 import useLocalStorage from "./services/useLocalStorage";
-import ShopsTable from './pages/ShopsTable';
-import Data from './pages/cardsdata/Data';
 import Home from './Home/Home';
 
 export function App() {
@@ -65,17 +62,19 @@ export function App() {
   const handleLogin = () => {
     setView('Home');
   }
-  
+  const handleLogout = () => {
+    setView('Dashboard');
+  }
   return (
     <>
       {View === 'Dashboard' && (<Dashboard onLogin={handleLogin}/>)}
       {View === 'Home' && (<Home 
-        onLogin={handleLogin}
         Shops={AllShops} 
         Countries={Countries} 
         Areas={Areas} 
         Categories={ShopCategories} 
         Brands={Brands}
+        onLogout={handleLogout}
         />)}
 
     </>

@@ -1,30 +1,44 @@
 import React, { useState } from 'react';
 import ShopsTable from '../pages/ShopsTable';
-import Data from '../pages/cardsdata/Data';
-// import Homescreen from '../pages/Homescreen';
 import Nav from '../pages/components/Nav';
 import Footer from '../pages/components/Footer';
-const Home = (Shops,Countries ,ViewShop,Brands,Categories,Areas) => {
-  const [View, setView] = useState("Homescreen");
-    
-  console.log(Shops)
-  
+import Homescreen from '../pages/Homescreen';
+import ShopData from '../pages/ShopData/ShopData';
+const Home = ({Shops,Countries,Brands,Categories,Areas,onLogout}) => {
+  const [View, setView] = useState("Home");
+  const [Shop, setShop] = useState([]);
+  const HandleActivePage =(page)=>{
+    setView(page);
+  }
+  const HandleViewShop = (shop) => {
+    setShop(shop);
+    setView("ShopData");
+  }
     return (
         <>
-            <Nav/>
-            {/* {View === 'Homescreen' && (<Homescreen shops={Shops} Countries={Countries}  />)} */}
-            {View === 'Data' && (
-                <Data 
+            <Nav setActive={HandleActivePage}  View={View} onLogout={onLogout}/>
+            {View === 'Home' && (
+                <Homescreen 
+                    shops={Shops} 
+                    Countries={Countries}
+                    ViewShop={HandleViewShop} 
+                />
+            )}
+            {View === 'ShopData' && (
+                <ShopData 
+                    shop={Shop}
+                    Countries={Countries} 
+                    Areas={Areas} 
                 />
             )}
             {View === 'AllShops' && (
                 <ShopsTable 
-                Shops={Shops} 
-                Countries={Countries} 
-                Areas={Areas} 
-                Categories={Categories} 
-                Brands={Brands}
-            />
+                    Shops={Shops} 
+                    Countries={Countries} 
+                    Areas={Areas} 
+                    Categories={Categories} 
+                    Brands={Brands}
+                />
             )}
             <Footer/>
         </>

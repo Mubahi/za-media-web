@@ -1,5 +1,5 @@
 import Footer from "./components/Footer";
-import Shop from "./components/Shop";
+import ShopCard from "./components/ShopCard";
 
 const Homescreen = ({shops,Countries ,ViewShop}) => {
    
@@ -10,7 +10,7 @@ const Homescreen = ({shops,Countries ,ViewShop}) => {
                     {
                         shops.map(function(shop,index){
                             return(
-                            <Shop key={shop.shop_id} shop={shop} Countries={Countries} ViewShop={ViewShop}/>
+                            <ShopCard key={shop.shop_id} shop={shop} Countries={Countries} ViewShop={ViewShop}/>
                             );
                         })
                     }
