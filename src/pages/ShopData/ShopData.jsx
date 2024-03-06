@@ -14,7 +14,7 @@ const ShopData = ({shop, Countries , Areas}) => {
         return area ? area.name : '';
     };
     return (
-        <div className="flex justify-center min-h-screen bg-orange-100">
+        <div className="flex justify-center min-h-screen bg-orange-100 pt-16">
             <div className="container p-6 text-center ">
                 <div className="min-h-screen flex items-start justify-center">
                     <div className="bg-white p-6 rounded-lg w-full shadow-md flex border-t-4 border-orange-500">
@@ -31,55 +31,55 @@ const ShopData = ({shop, Countries , Areas}) => {
                             {/* <!-- Table Body --> */}
                             <tbody>
                                 <tr>
-                                    <td className="font-bold flex justify-start text-orange-600 border-b  border-orange-500 pb-2">Shop Name:</td>
+                                    <td className="font-bold flex justify-start text-orange-600 border-b  border-orange-500 pb-2">SHOP NAME</td>
                                     <td className="text-orange-600 border-b text-start border-orange-500 pb-2 pl-5">{shop.shop_name}  </td>
                                 </tr>
                                 <tr>
-                                    <td className="font-bold text-orange-600 flex justify-start border-b  border-orange-500 pb-2">Country:</td>
+                                    <td className="font-bold text-orange-600 flex justify-start border-b  border-orange-500 pb-2">COUNTRY</td>
                                     <td className="text-orange-600 border-b text-start border-orange-500 pb-2 pl-5">{country.country_name}</td>
                                 </tr>
                                 <tr>
-                                    <td className="font-bold text-orange-600 flex justify-start border-b  border-orange-500 pb-2">City:</td>
+                                    <td className="font-bold text-orange-600 flex justify-start border-b  border-orange-500 pb-2">CITY</td>
                                     <td className="text-orange-600 border-b text-start border-orange-500 pb-2 pl-5">{GetCityName(shop.shop_city_id)}</td>
                                 </tr>
                                 <tr>
-                                    <td className="font-bold text-orange-600 flex justify-start border-b  border-orange-500 pb-2">Company Name:</td>
+                                    <td className="font-bold text-orange-600 flex justify-start border-b  border-orange-500 pb-2">COMPANY NAME</td>
                                     <td className="text-orange-600 border-b text-start border-orange-500 pb-2 pl-5">{shop.shop_company_name}</td>
                                 </tr>
                                 <tr>
-                                    <td className="font-bold text-orange-600 flex justify-start border-b  border-orange-500 pb-2">Address:</td>
+                                    <td className="font-bold text-orange-600 flex justify-start border-b  border-orange-500 pb-2">ADDRESS</td>
                                     <td className="text-orange-600 border-b text-start border-orange-500 pb-2 pl-5">{shop.shop_address}</td>
                                 </tr>
                                 <tr>
-                                    <td className="font-bold text-orange-600 flex justify-start border-b  border-orange-500 pb-2">Area:</td>
+                                    <td className="font-bold text-orange-600 flex justify-start border-b  border-orange-500 pb-2">AREA</td>
                                     <td className="text-orange-600 border-b text-start border-orange-500 pb-2 pl-5">{GetAreaName(shop.shop_area_id)}</td>
                                 </tr>
                                 <tr>
-                                    <td className="font-bold text-orange-600 flex justify-start border-b  border-orange-500 pb-2">Shop Hours:</td>
+                                    <td className="font-bold text-orange-600 flex justify-start border-b  border-orange-500 pb-2">SHOP HOURS</td>
                                     <td className="text-orange-600 border-b text-start border-orange-500 pb-2 pl-5">{shop.shop_opening_hours ? shop.shop_opening_hours+ ' to ' + shop.shop_closing_hours : ''  } </td>
                                 </tr>
                                 <tr>
-                                    <td className="font-bold text-orange-600 flex justify-start border-b  border-orange-500 pb-2">Owner Name:</td>
+                                    <td className="font-bold text-orange-600 flex justify-start border-b  border-orange-500 pb-2">OWNER NAME</td>
                                     <td className="text-orange-600 border-b text-start border-orange-500 pb-2 pl-5">{shop.shop_owner_name}</td>
                                 </tr>
                                 <tr>
-                                    <td className="font-bold text-orange-600 flex justify-start border-b  border-orange-500 pb-2">Owner Nationality:</td>
+                                    <td className="font-bold text-orange-600 flex justify-start border-b  border-orange-500 pb-2">OWNER NATIONALITY</td>
                                     <td className="text-orange-600 border-b text-start border-orange-500 pb-2 pl-5">{shop.shop_owner_nationality}</td>
                                 </tr>
                                 <tr>
-                                    <td className="font-bold text-orange-600 flex justify-start border-b  border-orange-500 pb-2">Owner Phone:</td>
+                                    <td className="font-bold text-orange-600 flex justify-start border-b  border-orange-500 pb-2">OWNER PHONE</td>
                                     <td className="text-orange-600 border-b text-start border-orange-500 pb-2 pl-5">{shop.shop_owner_phone}</td>
                                 </tr>
                                 <tr>
-                                    <td className="font-bold text-orange-600 flex justify-start border-b  border-orange-500 pb-2">Owner whatsapp:</td>
+                                    <td className="font-bold text-orange-600 flex justify-start border-b  border-orange-500 pb-2">OWNER WHATSAPP</td>
                                     <td className="text-orange-600 border-b text-start border-orange-500 pb-2 pl-5">{shop.shop_owner_whatsapp}</td>
                                 </tr>
                                 <tr>
-                                    <td className="font-bold text-orange-600 flex justify-start border-b  border-orange-500 pb-2">Manager Name:</td>
+                                    <td className="font-bold text-orange-600 flex justify-start border-b  border-orange-500 pb-2">MANAGER NAME</td>
                                     <td className="text-orange-600 border-b text-start border-orange-500 pb-2 pl-5">{shop.shop_manager_name}</td>
                                 </tr>
                                 <tr>
-                                    <td className="font-bold text-orange-600 flex justify-start border-b  border-orange-500 pb-2">Manager Contact:</td>
+                                    <td className="font-bold text-orange-600 flex justify-start border-b  border-orange-500 pb-2">MANAGER CONTACT</td>
                                     <td className="text-orange-600 border-b text-start border-orange-500 pb-2 pl-5">{shop.shop_manager_contact}</td>
                                 </tr>
                                 <tr>
@@ -116,7 +116,7 @@ const ShopData = ({shop, Countries , Areas}) => {
                                     </td>
                                 </tr>
                                 <tr className="border-b border-orange-500">
-                                    <td className="font-bold text-orange-600 flex justify-start pb-2">Products</td>
+                                    <td className="font-bold text-orange-600 flex justify-start pb-2">PRODUCTS</td>
                                     <td className="text-orange-600 text-start border-b border-orange-500 pb-2">
                                        <table className="table-auto w-full">
                                             <thead>
@@ -145,7 +145,7 @@ const ShopData = ({shop, Countries , Areas}) => {
                                     </td>
                                 </tr>
                                 <tr className="border-b border-orange-500">
-                                    <td className="font-bold text-orange-600 flex justify-start pb-2">Categories</td>
+                                    <td className="font-bold text-orange-600 flex justify-start pb-2">CATEGORIES</td>
                                     <td className="text-orange-600 border-b text-start border-orange-500 pb-2">
                                         <table className="table-auto w-full">
                                             <thead>

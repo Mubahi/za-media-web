@@ -1,12 +1,11 @@
-import Footer from "./components/Footer";
 import ShopCard from "./components/ShopCard";
 
 const Homescreen = ({shops,Countries ,ViewShop}) => {
    
     return (
         <>
-        <div className="max-h-screen bg-orange-200 h-auto pb-2">
-                <div className="flex justify-center flex-wrap ">
+        <div className="max-h-screen bg-orange-200 ">
+                <div className="flex justify-center items-center flex-wrap pt-16 pb-20">
                     {
                         shops.map(function(shop,index){
                             return(
@@ -16,7 +15,6 @@ const Homescreen = ({shops,Countries ,ViewShop}) => {
                     }
                 </div>
         </div>
-        <Footer/>
        </>
     );
 }

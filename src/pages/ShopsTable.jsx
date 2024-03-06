@@ -42,43 +42,40 @@ const ShopsTable = ({Shops,Brands,Categories,Areas,Countries}) => {
 
 
     return (
-        <div className='pb-1'>
-            <div className='bg-orange-500 flex flex-col sm:flex-row justify-between p-3'>
-                <div className="mb-2 sm:mb-0">
-                    <h1 className='text-white text-3xl'>All Shopes</h1>
-                </div>
-                <div className='flex flex-wrap'>
-                    <select  onChange={(e) => filterCities(e.target.value)} className="text-white mx-2 w-full sm:w-28 mb-2 sm:mb-0 px-1 py-1 bg-transparent outline-none" value={selectedCountry}>
+        <div className='pt-16'>
+            <div className='border-b border-orange-500 flex flex-col sm:flex-row justify-around pt-1 bg-yellow-100'>
+                {/* <div className='flex flex-wrap bg-yellow-300 rounded-md py-1'> */}
+                    <select  onChange={(e) => filterCities(e.target.value)} className="text-black mx-2 w-full sm:w-28 mb-2 sm:mb-0 py-1 bg-transparent outline-none " value={selectedCountry}>
                         <option value="" className="bg-white text-black">All Countries</option>
                         {Countries.map(function(country){
                             return(<option key={country.country_id} value={country.country_id} className="bg-white text-black">{country.country_name}</option>);
                         })}
                     </select>
-                    <select  onChange={(e) => setSelectedCity(e.target.value)} value={selectedCity} className="text-white mx-2 w-full sm:w-28 mb-2 sm:mb-0 px-1 py-1 bg-transparent outline-none">
+                    <select  onChange={(e) => setSelectedCity(e.target.value)} value={selectedCity} className="text-black mx-2 w-full sm:w-28 mb-2 sm:mb-0 py-1 bg-transparent outline-none">
                         <option value="all" className="bg-white text-black">All Cities </option>
                         {Cities.map(function(City){
                             return(<option key={City.city_id} value={City.city_id} className="bg-white text-black">{City.city_name}</option>);
                         })}
                     </select>
-                    <select  className="text-white mx-2 w-full sm:w-28 mb-2 sm:mb-0 px-1 py-1 bg-transparent outline-none">
+                    <select  className="text-black mx-2 w-full sm:w-28 mb-2 sm:mb-0 py-1 bg-transparent outline-none">
                         <option value="all" className="bg-white text-black">All Brands</option>
                         {Brands.map(function(brand){
                             return(<option key={brand.id} value={brand.id} className="bg-white text-black">{brand.name}</option>);
                         })}
                     </select>
-                    <select  className="text-white mx-2 w-full sm:w-28 mb-2 sm:mb-0 px-1 py-1 bg-transparent outline-none">
+                    <select  className="text-black mx-2 w-full sm:w-28 mb-2 sm:mb-0 py-1 bg-transparent outline-none">
                         <option value="all" className="bg-white text-black">Categories</option>
                         {Categories.map(function(Category){
                             return(<option key={Category.id} value={Category.id} className="bg-white text-black">{Category.name}</option>);
                         })}
                     </select>
-                    <select  value={selectedArea}  onChange={(e) => setSelectedArea(e.target.value)} className="text-white mx-2 w-full sm:w-28 mb-2 sm:mb-0 px-1 py-1 bg-transparent outline-none">
+                    <select  value={selectedArea}  onChange={(e) => setSelectedArea(e.target.value)} className="text-black mx-2 w-full sm:w-28 mb-2 sm:mb-0 py-1 bg-transparent outline-none">
                         <option value="all" className="bg-white text-black">All Areas</option>
                         {Areas.map(function(area){
                             return(<option key={area.id} value={area.id} className="bg-white text-black">{area.name}</option>);
                         })}
                     </select>
-                    <select  value={selectedWindows} onChange={(e) => setSelectedWindows(e.target.value)} className="text-white mx-2 w-full sm:w-28 mb-2 sm:mb-0 px-1 py-1 bg-transparent outline-none">
+                    <select  value={selectedWindows} onChange={(e) => setSelectedWindows(e.target.value)} className="text-black mx-2 w-full sm:w-28 mb-2 sm:mb-0 py-1 bg-transparent outline-none">
                         <option value="all" className="bg-white text-black">Window</option>
                         <option value="1" className="bg-white text-black">1</option>
                         <option value="2" className="bg-white text-black">2 </option>
@@ -91,9 +88,9 @@ const ShopsTable = ({Shops,Brands,Categories,Areas,Countries}) => {
                         <option value="9" className="bg-white text-black">9 </option>
                         <option value="10" className="bg-white text-black">10 </option>
                     </select>
-                </div>
+                {/* </div> */}
             </div>
-            <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+            <div className="overflow-x-auto shadow-md sm:rounded-lg">
             <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <thead className="text-center text-xs text-gray-700 uppercase bg-orange-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
