@@ -17,7 +17,9 @@ export default function ShopRow({shop , Countries , Areas}) {
   return (
     <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-orange-50 dark:hover:bg-gray-600 text-center">
         <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+            <p className="hover:bg-orange-500 hover:text-white hover:transition-all hover:duration-300 cursor-pointer py-2 rounded-md">
             {shop.shop_name}
+            </p>
         </th>
         <td className="px-6 py-4">
             {country.country_name}

@@ -90,90 +90,90 @@ const ShopsTable = ({Shops,Brands,Categories,Areas,Countries}) => {
                     </select>
                 {/* </div> */}
             </div>
-            <div className="overflow-x-auto shadow-md sm:rounded-lg">
-            <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <thead className="text-center text-xs text-gray-700 uppercase bg-orange-50 dark:bg-gray-700 dark:text-gray-400">
-                    <tr>
-                        <th scope="col" className="px-6 py-3">
+            <div className="overflow-x-auto shadow-md sm:rounded-lg h-screen">
+                <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                    <thead className="text-center text-xs text-gray-700 uppercase bg-orange-50 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <th key="ShopName" scope="col" className="px-6 py-3">
                             Shop Name
-                        </th>
-                        <th scope="col" className="px-6 py-3">
-                            Country
-                        </th>
-                        <th scope="col" className="px-6 py-3">
-                            City
-                        </th>
-                        <th scope="col" className="px-6 py-3">
-                            Company Name
-                        </th>
-                        <th scope="col" className="px-6 py-3">
-                            Address
-                        </th>
-                        <th scope="col" className="px-6 py-3">
-                            Area
-                        </th>
-                        <th scope="col" className="px-6 py-3">
-                            Shop Hours
-                        </th>
-                        <th scope="col" className="px-6 py-3">
-                            Owner Name
-                        </th>
-                        <th scope="col" className="px-6 py-3">
-                            Owner Nationality
-                        </th>
-                        <th scope="col" className="px-6 py-3">
-                            Owner Phone
-                        </th>
-                        <th scope="col" className="px-6 py-3">
-                            Owner Whatsapp
-                        </th>
-                        <th scope="col" className="px-6 py-3">
-                            Manager Name
-                        </th>
-                        <th scope="col" className="px-6 py-3">
-                            Manager Contact
-                        </th>
-                        <th scope="col" className="px-6 py-3">
-                            Staff Uniform Color
-                        </th>
-                        <th scope="col" className="px-6 py-3">
-                            Brands
-                        </th>
-                        <th scope="col" className="px-6 py-3">
-                            Categories
-                        </th>
-                        <th scope="col" className="px-6 py-3">
-                            Products
-                        </th>
-                        <th scope="col" className="px-6 py-3">
-                            Shop Website
-                        </th>
-                        <th scope="col" className="px-6 py-3">
-                            Shop Email
-                        </th>
-                        <th scope="col" className="px-6 py-3">
-                            Shop Social Media
-                        </th>
-                        <th scope="col" className="px-6 py-3">
-                            Power days Reach
-                        </th>
-                        <th scope="col" className="px-6 py-3">
-                            Normal Days Reach
-                        </th>
-                        <th scope="col" className="px-6 py-3">
-                            Windows
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {filteredShops.map(function(shop) {
-                        // Pass shop data as props to ShopRow
-                        return <ShopRow key={shop.shop_id} shop={shop} Countries={Countries} Areas={Areas} />;
-                    })}
-                    
-                </tbody>
-            </table>
-        </div>
+                            </th>
+                            <th key="Country" scope="col" className="px-6 py-3">
+                                Country
+                            </th>
+                            <th key="City" scope="col" className="px-6 py-3">
+                                City
+                            </th>
+                            <th key="CompanyName" scope="col" className="px-6 py-3">
+                                Company Name
+                            </th>
+                            <th key="Address" scope="col" className="px-6 py-3">
+                                Address
+                            </th>
+                            <th key="Area" scope="col" className="px-6 py-3">
+                                Area
+                            </th>
+                            <th key="ShopHours" scope="col" className="px-6 py-3">
+                                Shop Hours
+                            </th>
+                            <th key="OwnerName" scope="col" className="px-6 py-3">
+                                Owner Name
+                            </th>
+                            <th key="OwnerNationality" scope="col" className="px-6 py-3">
+                                Owner Nationality
+                            </th>
+                            <th key="OwnerPhone" scope="col" className="px-6 py-3">
+                                Owner Phone
+                            </th>
+                            <th key="OwnerWhatsapp" scope="col" className="px-6 py-3">
+                                Owner Whatsapp
+                            </th>
+                            <th key="ManagerName" scope="col" className="px-6 py-3">
+                                Manager Name
+                            </th>
+                            <th key="ManagerContact" scope="col" className="px-6 py-3">
+                                Manager Contact
+                            </th>
+                            <th key="StaffUniformColor" scope="col" className="px-6 py-3">
+                                Staff Uniform Color
+                            </th>
+                            <th key="Brands" scope="col" className="px-6 py-3">
+                                Brands
+                            </th>
+                            <th key="Categories" scope="col" className="px-6 py-3">
+                                Categories
+                            </th>
+                            <th key="Products" scope="col" className="px-6 py-3">
+                                Products
+                            </th>
+                            <th key="ShopWebsite" scope="col" className="px-6 py-3">
+                                Shop Website
+                            </th>
+                            <th key="ShopEmail" scope="col" className="px-6 py-3">
+                                Shop Email
+                            </th>
+                            <th key="ShopSocialMedia" scope="col" className="px-6 py-3">
+                                Shop Social Media
+                            </th>
+                            <th key="PowerdaysReach" scope="col" className="px-6 py-3">
+                                Power days Reach
+                            </th>
+                            <th key="NormalDaysReach" scope="col" className="px-6 py-3">
+                                Normal Days Reach
+                            </th>
+                            <th key="Windows" scope="col" className="px-6 py-3">
+                                Windows
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {filteredShops.map(function(shop) {
+                            // Pass shop data as props to ShopRow
+                            return <ShopRow key={shop.shop_id} shop={shop} Countries={Countries} Areas={Areas} />;
+                        })}
+                        
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 }
