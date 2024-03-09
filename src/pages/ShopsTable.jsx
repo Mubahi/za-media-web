@@ -90,7 +90,7 @@ const ShopsTable = ({Shops,Brands,Categories,Areas,Countries}) => {
                     </select>
                 {/* </div> */}
             </div>
-            <div className="overflow-x-auto shadow-md sm:rounded-lg h-screen">
+            <div className="overflow-x-auto shadow-md sm:rounded-lg min-h-screen">
                 <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                     <thead className="text-center text-xs text-gray-700 uppercase bg-orange-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
