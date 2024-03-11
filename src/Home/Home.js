@@ -4,6 +4,8 @@ import Nav from '../pages/components/Nav';
 import Footer from '../pages/components/Footer';
 import Homescreen from '../pages/Homescreen';
 import ShopData from '../pages/ShopData/ShopData';
+import RolesandUsers from '../pages/RolesandUsers';
+import Modules from '../pages/Modules';
 const Home = ({Shops,Countries,Brands,Categories,Areas,onLogout}) => {
   const [View, setView] = useState("Home");
   const [Shop, setShop] = useState([]);
@@ -12,7 +14,7 @@ const Home = ({Shops,Countries,Brands,Categories,Areas,onLogout}) => {
   }
   const HandleViewShop = (shop) => {
     setShop(shop);
-    setView("ShopData");
+    HandleActivePage("ShopData");
   }
     return (
         <>
@@ -39,6 +41,12 @@ const Home = ({Shops,Countries,Brands,Categories,Areas,onLogout}) => {
                     Categories={Categories} 
                     Brands={Brands}
                 />
+            )}
+            {View === 'RolesandUsers' && (
+                <RolesandUsers onClick={RolesandUsers}/>
+            )}
+            {View === 'Modules' && (
+                <Modules onClick={Modules}/>
             )}
             <Footer/>
         </>

@@ -76,7 +76,6 @@ export function App() {
         Brands={Brands}
         onLogout={handleLogout}
         />)}
-
     </>
   );
 }

@@ -9,7 +9,7 @@ const Homescreen = ({shops,Countries ,ViewShop}) => {
       })
     return (
         <>
-            <div className="h-screen flex items-center justify-center bg-gradient-to-b from-indigo-300 via-orange-300 to-pink-300">
+            <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-indigo-300 via-orange-300 to-pink-300">
                     {/* {
                         shops.map(function(shop,index){
                             return(

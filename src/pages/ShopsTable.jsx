@@ -42,8 +42,8 @@ const ShopsTable = ({Shops,Brands,Categories,Areas,Countries}) => {
 
 
     return (
-        <div className='pt-16'>
-            <div className='border-b border-orange-500 flex flex-col sm:flex-row justify-around pt-1 bg-yellow-100'>
+        <div className='pt-16 bg-gradient-to-b from-indigo-300 via-orange-300 to-pink-300'>
+            <div className='border-b fixed w-full border-orange-500 flex flex-col sm:flex-row justify-around pt-1 bg-yellow-100'>
                 {/* <div className='flex flex-wrap bg-yellow-300 rounded-md py-1'> */}
                     <select  onChange={(e) => filterCities(e.target.value)} className="text-black mx-2 w-full sm:w-28 mb-2 sm:mb-0 py-1 bg-transparent outline-none " value={selectedCountry}>
                         <option value="" className="bg-white text-black">All Countries</option>
@@ -90,7 +90,7 @@ const ShopsTable = ({Shops,Brands,Categories,Areas,Countries}) => {
                     </select>
                 {/* </div> */}
             </div>
-            <div className="overflow-x-auto shadow-md sm:rounded-lg min-h-screen">
+            <div className="overflow-x-auto shadow-md min-h-screen pt-8">
                 <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                     <thead className="text-center text-xs text-gray-700 uppercase bg-orange-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
