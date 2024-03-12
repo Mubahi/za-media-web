@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ShopsTable from '../pages/ShopsTable';
+import AllShops from './AllShops';
 import Nav from '../pages/components/Nav';
 import Footer from '../pages/components/Footer';
 import Homescreen from '../pages/Homescreen';
@@ -34,7 +34,7 @@ const Pages = ({Shops,Countries,Brands,Categories,Areas,onLogout}) => {
                 />
             )}
             {View === 'AllShops' && (
-                <ShopsTable 
+                <AllShops 
                     Shops={Shops} 
                     Countries={Countries} 
                     Areas={Areas} 

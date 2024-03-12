@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import ShopRow from "./components/ShopRow";
 
-const ShopsTable = ({Shops,Brands,Categories,Areas,Countries}) => {
-    const [selectedCountry, setSelectedCountry] = useState('');
-    const [selectedArea, setSelectedArea] = useState('all');
-    const [selectedWindows, setSelectedWindows] = useState('all');
-    const [selectedCity, setSelectedCity] = useState('all');
-    const [filteredShops, setFilteredShops] = useState([]);
+const AllShops = ({Shops,Brands,Categories,Areas,Countries}) => {
+    const [SelectedCountry, setSelectedCountry] = useState('');
+    const [SelectedArea, setSelectedArea] = useState('all');
+    const [SelectedWindows, setSelectedWindows] = useState('all');
+    const [SelectedCity, setSelectedCity] = useState('all');
+    const [FilteredShops, setFilteredShops] = useState([]);
     const [Cities, setCities] = useState([]);
     const filterCities = (country_id) => {
         const country = Countries.find((c) => c.country_id === country_id);
@@ -15,43 +15,43 @@ const ShopsTable = ({Shops,Brands,Categories,Areas,Countries}) => {
         setSelectedCity('all'); // Reset city selection when country changes
     };
     const filterShops = () => {
-        let filteredShops = Shops;
-        // Filter based on selected country
-        if (selectedCountry) {
-            filteredShops = filteredShops.filter((shop) => shop.shop_country_id === selectedCountry);
+        let FilteredShops = Shops;
+        // Filter based on Selected country
+        if (SelectedCountry) {
+            FilteredShops = FilteredShops.filter((shop) => shop.shop_country_id === SelectedCountry);
         }
-        // Filter based on selected city
-        if (selectedCity !== 'all') {
-            filteredShops = filteredShops.filter((shop) => shop.shop_city_id === selectedCity);
+        // Filter based on Selected city
+        if (SelectedCity !== 'all') {
+            FilteredShops = FilteredShops.filter((shop) => shop.shop_city_id === SelectedCity);
         }
-        // Filter based on selected Area
-        if (selectedArea !=='all') {
-            filteredShops = filteredShops.filter((shop) => shop.shop_area_id === selectedArea);
+        // Filter based on Selected Area
+        if (SelectedArea !=='all') {
+            FilteredShops = FilteredShops.filter((shop) => shop.shop_area_id === SelectedArea);
         }
-        // Filter based on selected Area
-        if (selectedWindows !=='all') {
-            filteredShops = filteredShops.filter((shop) => shop.shop_windows === selectedWindows);
+        // Filter based on Selected Area
+        if (SelectedWindows !=='all') {
+            FilteredShops = FilteredShops.filter((shop) => shop.shop_windows === SelectedWindows);
         }
-        setFilteredShops(filteredShops);
+        setFilteredShops(FilteredShops);
     };
 
     useEffect(() => {
-        // Update filtered shops whenever a filter changes
+        // Update Filtered shops whenever a filter changes
         filterShops();
-    }, [selectedCountry, selectedCity, selectedArea, selectedWindows , Shops ]);
+    }, [SelectedCountry, SelectedCity, SelectedArea, SelectedWindows , Shops ]);
 
 
     return (
         <div className='pt-16 bg-gradient-to-b from-indigo-300 via-orange-300 to-pink-300'>
             <div className='border-b fixed w-full border-orange-500 flex flex-col sm:flex-row justify-around pt-1 bg-yellow-100'>
                 {/* <div className='flex flex-wrap bg-yellow-300 rounded-md py-1'> */}
-                    <select  onChange={(e) => filterCities(e.target.value)} className="text-black mx-2 w-full sm:w-28 mb-2 sm:mb-0 py-1 bg-transparent outline-none " value={selectedCountry}>
+                    <select  onChange={(e) => filterCities(e.target.value)} className="text-black mx-2 w-full sm:w-28 mb-2 sm:mb-0 py-1 bg-transparent outline-none " value={SelectedCountry}>
                         <option value="" className="bg-white text-black">All Countries</option>
                         {Countries.map(function(country){
                             return(<option key={country.country_id} value={country.country_id} className="bg-white text-black">{country.country_name}</option>);
                         })}
                     </select>
-                    <select  onChange={(e) => setSelectedCity(e.target.value)} value={selectedCity} className="text-black mx-2 w-full sm:w-28 mb-2 sm:mb-0 py-1 bg-transparent outline-none">
+                    <select  onChange={(e) => setSelectedCity(e.target.value)} value={SelectedCity} className="text-black mx-2 w-full sm:w-28 mb-2 sm:mb-0 py-1 bg-transparent outline-none">
                         <option value="all" className="bg-white text-black">All Cities </option>
                         {Cities.map(function(City){
                             return(<option key={City.city_id} value={City.city_id} className="bg-white text-black">{City.city_name}</option>);
@@ -69,13 +69,13 @@ const ShopsTable = ({Shops,Brands,Categories,Areas,Countries}) => {
                             return(<option key={Category.id} value={Category.id} className="bg-white text-black">{Category.name}</option>);
                         })}
                     </select>
-                    <select  value={selectedArea}  onChange={(e) => setSelectedArea(e.target.value)} className="text-black mx-2 w-full sm:w-28 mb-2 sm:mb-0 py-1 bg-transparent outline-none">
+                    <select  value={SelectedArea}  onChange={(e) => setSelectedArea(e.target.value)} className="text-black mx-2 w-full sm:w-28 mb-2 sm:mb-0 py-1 bg-transparent outline-none">
                         <option value="all" className="bg-white text-black">All Areas</option>
                         {Areas.map(function(area){
                             return(<option key={area.id} value={area.id} className="bg-white text-black">{area.name}</option>);
                         })}
                     </select>
-                    <select  value={selectedWindows} onChange={(e) => setSelectedWindows(e.target.value)} className="text-black mx-2 w-full sm:w-28 mb-2 sm:mb-0 py-1 bg-transparent outline-none">
+                    <select  value={SelectedWindows} onChange={(e) => setSelectedWindows(e.target.value)} className="text-black mx-2 w-full sm:w-28 mb-2 sm:mb-0 py-1 bg-transparent outline-none">
                         <option value="all" className="bg-white text-black">Window</option>
                         <option value="1" className="bg-white text-black">1</option>
                         <option value="2" className="bg-white text-black">2 </option>
@@ -166,7 +166,7 @@ const ShopsTable = ({Shops,Brands,Categories,Areas,Countries}) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {filteredShops.map(function(shop) {
+                        {FilteredShops.map(function(shop) {
                             // Pass shop data as props to ShopRow
                             return <ShopRow key={shop.shop_id} shop={shop} Countries={Countries} Areas={Areas} />;
                         })}
@@ -177,4 +177,4 @@ const ShopsTable = ({Shops,Brands,Categories,Areas,Countries}) => {
         </div>
     );
 }
-export default ShopsTable;
+export default AllShops;
