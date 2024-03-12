@@ -4,7 +4,7 @@ import Aos from "aos";
 import { useEffect,useState } from "react";
 
 const Nav = ({setActive, View, onLogout}) => {
-    const [scrolled, setScrolled] = useState(false);
+    const [Scrolled, setScrolled] = useState(false);
     
     useEffect(() => {
         Aos.init({ duration: 1000 });
@@ -20,7 +20,7 @@ const Nav = ({setActive, View, onLogout}) => {
           window.removeEventListener('scroll', handleScroll);
         };
       }, []);
-      const navbarClass = `bg-${scrolled ? 'slate' : 'blue'}-400 py-2 px-4 fixed w-full z-10`;
+      const navbarClass = `bg-${Scrolled ? 'slate' : 'blue'}-400 py-2 px-4 fixed w-full z-10`;
     return (
         <nav className={navbarClass} data-aos="fade-down">
             <div className="flex flex-col md:flex-row items-center justify-between">

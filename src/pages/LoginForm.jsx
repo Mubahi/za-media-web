@@ -2,7 +2,7 @@ import React from "react";
 import Aos from "aos";
 import 'aos/dist/aos.css';
 import { useEffect } from "react";
-const Dashboard = ({onLogin}) => {
+const LoginForm = ({onLogin}) => {
   useEffect(() => {
     Aos.init({duration:1000});
   })
@@ -46,4 +46,4 @@ const Dashboard = ({onLogin}) => {
       </div>
     );
 }
-export default Dashboard;
+export default LoginForm;

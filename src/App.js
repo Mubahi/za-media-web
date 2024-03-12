@@ -1,12 +1,12 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
-import Dashboard from './Dashboard';
+import LoginForm from './pages/LoginForm';
 import { getData } from "./services/http";
 import useLocalStorage from "./services/useLocalStorage";
 import Home from './Home/Home';
 
 export function App() {
-  const [View, setView] = useState("Dashboard");
+  const [View, setView] = useState("LoginForm");
   const [Countries, setCountries] = useLocalStorage("zm_countries", []);
   const [AllShops, setAllShops] = useLocalStorage("zm_shops", []);
   const [ShopCategories, setShopCategories] = useLocalStorage(
@@ -63,11 +63,11 @@ export function App() {
     setView('Home');
   }
   const handleLogout = () => {
-    setView('Dashboard');
+    setView('LoginForm');
   }
   return (
     <>
-      {View === 'Dashboard' && (<Dashboard onLogin={handleLogin}/>)}
+      {View === 'LoginForm' && (<LoginForm onLogin={handleLogin}/>)}
       {View === 'Home' && (<Home 
         Shops={AllShops} 
         Countries={Countries} 

@@ -3,14 +3,14 @@ import 'aos/dist/aos.css'
 import Aos from "aos";
 const RolesandUsers = () => {
     const [Role, setRole] = useState("");
-    const [showUserForm, setShowUserForm] = useState(false);
-    const [showModuleTable, setShowModuleTable] = useState(false);
-    const [username, setUsername] = useState("");
-    const [email, setEmail] = useState("");
-    const [rolesList, setRolesList] = useState([]);
-    const [selectedRoleIndex, setSelectedRoleIndex] = useState(null);
-    const [selectedUserRole, setSelectedUserRole] = useState("");
-    const [moduleData, setModuleData] = useState([]);
+    const [ShowUserForm, setShowUserForm] = useState(false);
+    const [ShowModuleTable, setShowModuleTable] = useState(false);
+    const [Username, setUsername] = useState("");
+    const [Email, setEmail] = useState("");
+    const [RolesList, setRolesList] = useState([]);
+    const [SelectedRoleIndex, setSelectedRoleIndex] = useState(null);
+    const [SelectedUserRole, setSelectedUserRole] = useState("");
+    const [ModuleData, setModuleData] = useState([]);
 
     useEffect(() => {
         Aos.init({duration:2000});
@@ -29,10 +29,10 @@ const RolesandUsers = () => {
     }
 
     const handleAddRole = () => {
-        if (selectedRoleIndex !== null) {
+        if (SelectedRoleIndex !== null) {
             // Editing existing role
-            const updatedRoles = [...rolesList];
-            updatedRoles[selectedRoleIndex] = Role;
+            const updatedRoles = [...RolesList];
+            updatedRoles[SelectedRoleIndex] = Role;
             setRolesList(updatedRoles);
             setRole("");
             setSelectedRoleIndex(null);
@@ -49,7 +49,7 @@ const RolesandUsers = () => {
     }
 
     const handleEditRole = (index) => {
-        setRole(rolesList[index]);
+        setRole(RolesList[index]);
         setSelectedRoleIndex(index);
     }
 
@@ -60,7 +60,7 @@ const RolesandUsers = () => {
 
     const handleModuleButtonClick = (index) => {
         setShowUserForm(false);
-        setSelectedUserRole(rolesList[index]);
+        setSelectedUserRole(RolesList[index]);
         setShowModuleTable(true);
     }
 
@@ -72,21 +72,21 @@ const RolesandUsers = () => {
     return (
         <div className="pt-20 min-h-screen flex justify-center items-center bg-gradient-to-b from-indigo-300 via-orange-300 to-pink-300">
             <div data-aos="fade-down" className="bg-white p-8 rounded-md shadow-lg w-2/6 ">
-                {showUserForm ? (
+                {ShowUserForm ? (
                     // Display User Form
                     <div className="flex flex-col justify-center items-center">
-                        <h1 className="text-3xl font-bold mb-4 text-center"> User: {selectedUserRole}</h1>
+                        <h1 className="text-3xl font-bold mb-4 text-center"> User: {SelectedUserRole}</h1>
                         <div className="w-1/2 mx-auto mb-6">
                             <div className="border-b-2 border-orange-500 rounded-md mx-auto"></div>
                         </div>
                         <div className="relative w-full">
-                            <input value={username} onChange={handleUsernameChange} id="userName" type="text" placeholder="" required className="text-black peer placeholder-transparent bg-yellow-100 border-l-2 border-red-500 w-full py-2 px-3 focus:outline-none inputFeild"/>
+                            <input value={Username} onChange={handleUsernameChange} id="userName" type="text" placeholder="" required className="text-black peer placeholder-transparent bg-yellow-100 border-l-2 border-red-500 w-full py-2 px-3 focus:outline-none inputFeild"/>
                             <label className="text-black font-mono peer-placeholder-shown:text-base peer-placeholder-shown:text-black peer-placeholder-shown:top-2 peer-focus:-top-5 peer-focus:text-black peer-focus:text-sm absolute left-2 -top-5 cursor-text transition-all" htmlFor="userName" name="userName">
                             Username...
                             </label>
                         </div>
                         <div className="relative mt-4 w-full">
-                            <input value={email} onChange={handleEmailChange} id="email" type="email" placeholder="" required className="text-black peer placeholder-transparent bg-yellow-100 border-l-2 border-red-500 w-full py-2 px-3 focus:outline-none inputFeild"/>
+                            <input value={Email} onChange={handleEmailChange} id="email" type="email" placeholder="" required className="text-black peer placeholder-transparent bg-yellow-100 border-l-2 border-red-500 w-full py-2 px-3 focus:outline-none inputFeild"/>
                             <label className="text-black font-mono peer-placeholder-shown:text-base peer-placeholder-shown:text-black peer-placeholder-shown:top-2 peer-focus:-top-5 peer-focus:text-black peer-focus:text-sm absolute left-2 -top-5 cursor-text transition-all" htmlFor="email" name="email">
                             Enter Your Email
                             </label>
@@ -95,10 +95,10 @@ const RolesandUsers = () => {
                             BACK
                         </button>
                     </div>
-                ) : showModuleTable ? (
+                ) : ShowModuleTable ? (
                     // Display Module Table
                     <div>
-                        <h1 className="text-3xl font-bold mb-4 text-center text-orange-800">Module Table for {selectedUserRole}</h1>
+                        <h1 className="text-3xl font-bold mb-4 text-center text-orange-800">Module Table for {SelectedUserRole}</h1>
                         <table className="w-full border-collapse border border-orange-400">
                             <thead>
                                 <tr>
@@ -212,7 +212,7 @@ const RolesandUsers = () => {
                             Enter role
                             </label>
                             <button onClick={handleAddRole} className="border-2 border-yellow-500 bg-yellow-500 text-white py-1 px-3 rounded-md hover:bg-orange-500 hover:text-white hover:border-orange-500 transition duration-300 font-semibold roboto-mono flex justify-center items-center">
-                                {selectedRoleIndex !== null ? "UPDATE " : "ADD"}
+                                {SelectedRoleIndex !== null ? "UPDATE " : "ADD"}
                             </button>
                         </div>
                         <div>
@@ -226,7 +226,7 @@ const RolesandUsers = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {rolesList.map((r, index) => (
+                                    {RolesList.map((r, index) => (
                                         <tr key={index}>
                                             <td className="border border-slate-300">{r}</td>
                                             <td className="border border-slate-300">
