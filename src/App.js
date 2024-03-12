@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import LoginForm from './pages/LoginForm';
 import { getData } from "./services/http";
 import useLocalStorage from "./services/useLocalStorage";
-import Home from './Home/Home';
+import Pages from './pages';
 
 export function App() {
   const [View, setView] = useState("LoginForm");
@@ -15,6 +15,7 @@ export function App() {
   );
   const [Brands, setBrands] = useLocalStorage("zm_brands", []);
   const [Areas, setAreas] = useLocalStorage("zm_areas", []);
+  const [Roles, setRoles] = useLocalStorage("zm_roles", []);
 
   useEffect(() => {
     const FetchData = async () => {
@@ -54,13 +55,20 @@ export function App() {
       begin_with = true;
       resp = await getData(pk, sk, begin_with);
       setAreas(resp.Items);
+      
+      // Roles data
+      pk = "ROLES#";
+      sk = "ROLES#";
+      begin_with = true;
+      resp = await getData(pk, sk, begin_with);
+      setRoles(resp.Items);
 
     };
 
     FetchData();
-  }, [setCountries,setAllShops,setAreas,setBrands,setShopCategories]);
+  }, [setCountries,setAllShops,setAreas,setBrands,setShopCategories,setRoles]);
   const handleLogin = () => {
-    setView('Home');
+    setView('Pages');
   }
   const handleLogout = () => {
     setView('LoginForm');
@@ -68,7 +76,7 @@ export function App() {
   return (
     <>
       {View === 'LoginForm' && (<LoginForm onLogin={handleLogin}/>)}
-      {View === 'Home' && (<Home 
+      {View === 'Pages' && (<Pages 
         Shops={AllShops} 
         Countries={Countries} 
         Areas={Areas} 

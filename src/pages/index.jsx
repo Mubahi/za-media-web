@@ -6,7 +6,7 @@ import Homescreen from '../pages/Homescreen';
 import ShopData from '../pages/ShopData/ShopData';
 import RolesandUsers from '../pages/RolesandUsers';
 import Modules from '../pages/Modules';
-const Home = ({Shops,Countries,Brands,Categories,Areas,onLogout}) => {
+const Pages = ({Shops,Countries,Brands,Categories,Areas,onLogout}) => {
   const [View, setView] = useState("Home");
   const [Shop, setShop] = useState([]);
   const HandleActivePage =(page)=>{
@@ -52,4 +52,4 @@ const Home = ({Shops,Countries,Brands,Categories,Areas,onLogout}) => {
         </>
     );
 }
-export default Home;
+export default Pages;
