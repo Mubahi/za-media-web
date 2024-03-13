@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ShopRow from "./components/ShopRow";
+import ShopRow from "../components/ShopRow";
 
 const AllShops = ({Shops,Brands,Categories,Areas,Countries}) => {
     const [SelectedCountry, setSelectedCountry] = useState('');

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import AllShops from './AllShops';
-import Nav from '../pages/components/Nav';
-import Footer from '../pages/components/Footer';
+import Nav from '../components/Nav';
+import Footer from '../components/Footer';
 import Homescreen from '../pages/Homescreen';
-import ShopData from '../pages/ShopData/ShopData';
+import ShopData from '../Individual Shop Data/ShopData';
 import RolesandUsers from '../pages/RolesandUsers';
 import Modules from '../pages/Modules';
 const Pages = ({Shops,Countries,Brands,Categories,Areas,onLogout}) => {
