@@ -3,7 +3,7 @@ import AllShops from './AllShops';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import Homescreen from '../pages/Homescreen';
-import ShopData from '../Individual Shop Data/ShopData';
+import ShopData from '../IndividualShopData/ShopData';
 import RolesandUsers from '../pages/RolesandUsers';
 import Modules from '../pages/Modules';
 const Pages = ({Shops,Countries,Brands,Categories,Areas,onLogout}) => {
