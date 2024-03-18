@@ -6,7 +6,7 @@ import PageHeading from "../components/PageHeadng";
 import Divider from "../components/Divider";
 import FormButton from "../components/FomButton";
 import FormFields from "../components/FormFields";
-const Modules = (Title) => {
+const Users = (Title) => {
   useEffect(() => {
     Aos.init({ duration: 2000 });
   });
@@ -14,26 +14,24 @@ const Modules = (Title) => {
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-b from-indigo-300 via-orange-300 to-pink-300">
       <div
         data-aos="fade-down"
-        className="bg-white p-8 rounded-md shadow-md w-96"
+        className="bg-white p-8 rounded-md shadow-lg w-2/6"
       >
-        <PageHeading Title="Modules" />
+        <PageHeading Title="Users" />
         <Divider />
-        <form>
-          <FormFields
-            name="Module Title"
-            placeholder="Module Title"
-            required={true}
-          />
-          <FormFields
-            name="Module Name"
-            placeholder="Module Name"
-            required={true}
-            className="mt-4"
-          />
-        </form>
+        <FormFields
+          name="Username..."
+          placeholder="Username..."
+          required={true}
+        />
+        <FormFields
+          name="Username..."
+          placeholder="Username..."
+          required={true}
+          className="mt-4"
+        />
         <FormButton Title="Submit" />
       </div>
     </div>
   );
 };
-export default Modules;
+export default Users;
