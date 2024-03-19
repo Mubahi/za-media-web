@@ -7,6 +7,7 @@ import ShopData from "../ShopData/ShopData";
 import Roles from "../pages/Roles";
 import Modules from "../pages/Modules";
 import Users from "./Users";
+import Events from "./Events";
 const Pages = ({ Shops, Countries, Brands, Categories, Areas, onLogout }) => {
   const [View, setView] = useState("Home");
   const [Shop, setShop] = useState([]);
@@ -39,6 +40,7 @@ const Pages = ({ Shops, Countries, Brands, Categories, Areas, onLogout }) => {
           Brands={Brands}
         />
       )}
+      {View === "Events" && <Events />}
       {View === "Roles" && <Roles onClick={Roles} />}
       {View === "Modules" && <Modules onClick={Modules} />}
       {View === "Users" && <Users onClick={Users} />}
