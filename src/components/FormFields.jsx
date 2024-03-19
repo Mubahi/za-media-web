@@ -1,6 +1,6 @@
 const FormFields = ({ onChange, name, value, placeholder, className }) => {
   return (
-    <div className={`relative ${className}`}>
+    <div className={`relative ${className} mt-5 `}>
       <input
         onChange={onChange}
         id={name}

@@ -5,10 +5,19 @@ import Footer from "../components/Footer";
 import Homescreen from "../pages/Homescreen";
 import ShopData from "../ShopData/ShopData";
 import Roles from "../pages/Roles";
-import Modules from "../pages/Modules";
 import Users from "./Users";
 import Events from "./Events";
-const Pages = ({ Shops, Countries, Brands, Categories, Areas, onLogout }) => {
+import ModulesAdd from "./ModulesAdd";
+const Pages = ({
+  Shops,
+  Countries,
+  Brands,
+  Categories,
+  Areas,
+  onLogout,
+  Modules,
+  onItemAdded,
+}) => {
   const [View, setView] = useState("Home");
   const [Shop, setShop] = useState([]);
   const HandleActivePage = (page) => {
@@ -41,9 +50,11 @@ const Pages = ({ Shops, Countries, Brands, Categories, Areas, onLogout }) => {
         />
       )}
       {View === "Events" && <Events />}
-      {View === "Roles" && <Roles onClick={Roles} />}
-      {View === "Modules" && <Modules onClick={Modules} />}
-      {View === "Users" && <Users onClick={Users} />}
+      {View === "Roles" && <Roles onClick={Roles} onItemAdded={onItemAdded} />}
+      {View === "ModulesAdd" && (
+        <ModulesAdd Modules={Modules} onItemAdded={onItemAdded} />
+      )}
+      {View === "Users" && <Users onClick={Users} onItemAdded={onItemAdded} />}
       <Footer />
     </>
   );

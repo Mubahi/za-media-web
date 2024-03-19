@@ -117,13 +117,13 @@ export function App() {
         }
         console.log(resp);
         break;
-      case "modules":
+      case "module":
         PK = "MODULES#";
         SK = `MODULES#${item.id}`;
         item_data = { ...item };
         resp = await saveData(PK, SK, item_data);
         if (resp.success) {
-          setRoles((prevItem) => [item, ...prevItem]);
+          setModules((prevItem) => [item, ...prevItem]);
         }
         console.log(resp);
         break;
@@ -150,6 +150,7 @@ export function App() {
           Brands={Brands}
           onItemAdded={handleItemAdded}
           onLogout={handleLogout}
+          Modules={Modules}
         />
       )}
     </>

@@ -110,7 +110,7 @@ const Nav = ({ setActive, View, onLogout }) => {
               <option value="Roles" className="bg-red-500 text-white">
                 Rolls
               </option>
-              <option value="Modules" className="bg-red-500 text-white">
+              <option value="ModulesAdd" className="bg-red-500 text-white">
                 Modules
               </option>
             </select>
