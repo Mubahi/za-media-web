@@ -95,22 +95,22 @@ const Nav = ({ setActive, View, onLogout }) => {
           </button>
         </div>
         <div className="mb-4 md:mb-0 flex items-center justify-center">
-          <button className="bg-red-500 rounded-md">
+          <button className="bg-gray-500 w-full md:w-auto rounded-md pr-1">
             <select
               onChange={(e) => setActive(e.target.value)}
               value=""
               className="text-white mx-1 w-full sm:w-28 mb-1 sm:mb-0 py-1 bg-transparent outline-none"
             >
-              <option value="" className="bg-red-500 text-white">
+              <option value="" className="bg-gray-500 text-white">
                 Settings
               </option>
-              <option value="Users" className="bg-red-500 text-white">
+              <option value="Users" className="bg-gray-500 text-white">
                 Users
               </option>
-              <option value="Roles" className="bg-red-500 text-white">
-                Rolls
+              <option value="Roles" className="bg-gray-500 text-white">
+                Roles
               </option>
-              <option value="ModulesAdd" className="bg-red-500 text-white">
+              <option value="ModulesAdd" className="bg-gray-500 text-white">
                 Modules
               </option>
             </select>

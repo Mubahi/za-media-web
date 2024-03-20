@@ -4,7 +4,7 @@ import Aos from "aos";
 import { useEffect } from "react";
 import PageHeading from "../components/PageHeadng";
 import Divider from "../components/Divider";
-import FormFields from "../components/FormFields";
+import FormField from "../components/FormField";
 const { v4: uuidv4 } = require("uuid");
 
 const ModulesAdd = ({ Modules, onItemAdded }) => {
@@ -25,7 +25,7 @@ const ModulesAdd = ({ Modules, onItemAdded }) => {
         <PageHeading Title="Modules" />
         <Divider />
         <form>
-          <FormFields
+          <FormField
             name="module_title"
             placeholder="Module Title"
             required={true}
@@ -36,7 +36,7 @@ const ModulesAdd = ({ Modules, onItemAdded }) => {
               })
             }
           />
-          <FormFields
+          <FormField
             name="module_name"
             placeholder="Module Name"
             required={true}

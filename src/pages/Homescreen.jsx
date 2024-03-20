@@ -11,7 +11,7 @@ const Homescreen = () => {
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-indigo-300 via-orange-300 to-pink-300">
         <div className="text-center">
           <h1
-            className="text-8xl font-bold font-serif text-white"
+            className="text-4xl sm:text-6xl md:text-8xl font-bold font-serif text-white"
             data-aos="zoom-in"
           >
             Welcome To

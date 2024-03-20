@@ -1,12 +1,12 @@
-const FormFields = ({ onChange, name, value, placeholder, className }) => {
+const FormField = ({ onChange, name, value, placeholder, type }) => {
   return (
-    <div className={`relative ${className} mt-5 `}>
+    <div className="relative mt-5">
       <input
         onChange={onChange}
         id={name}
         name={name}
         value={value}
-        type="text"
+        type={type}
         placeholder={placeholder}
         required
         className="text-black peer placeholder-transparent bg-yellow-100 border-l-2 border-red-500 w-full py-2 px-3 focus:outline-none inputFeild"
@@ -20,4 +20,4 @@ const FormFields = ({ onChange, name, value, placeholder, className }) => {
     </div>
   );
 };
-export default FormFields;
+export default FormField;

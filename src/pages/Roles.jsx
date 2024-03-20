@@ -4,7 +4,7 @@ import Aos from "aos";
 import PageHeading from "../components/PageHeadng";
 import Divider from "../components/Divider";
 import FormButton from "../components/FomButton";
-import FormFields from "../components/FormFields";
+import FormField from "../components/FormField";
 import SelectModule from "../components/SelectModule";
 const Roles = (Title) => {
   const [Role, setRole] = useState("");
@@ -54,7 +54,7 @@ const Roles = (Title) => {
     <div className="pt-20 min-h-screen flex justify-center items-center bg-gradient-to-b from-indigo-300 via-orange-300 to-pink-300">
       <div
         data-aos="fade-down"
-        className="bg-white p-8 rounded-md shadow-lg w-2/6 "
+        className="bg-white p-8 rounded-md shadow-lg w-96 "
       >
         {ShowModuleTable ? (
           // Display Module Table
@@ -69,7 +69,7 @@ const Roles = (Title) => {
           <div>
             <PageHeading Title="Roles" />
             <Divider />
-            <FormFields
+            <FormField
               onChange={EnterRole}
               name="userRole"
               value={Role}

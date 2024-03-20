@@ -3,7 +3,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import FormButton from "../components/FomButton";
-import FormFields from "../components/FormFields";
+import FormField from "../components/FormField";
 import PageHeading from "../components/PageHeadng";
 const LoginForm = ({ onLogin }) => {
   useEffect(() => {
@@ -21,16 +21,18 @@ const LoginForm = ({ onLogin }) => {
           <div className="w-full lg:w-1/2 py-16 px-12">
             <PageHeading Title="Enter Your Credentials" />
             <form action="#">
-              <FormFields
+              <FormField
                 name="Username..."
                 placeholder="Username..."
                 required={true}
+                type="text"
               />
-              <FormFields
+              <FormField
                 name="Password......"
                 placeholder="Password......"
                 required={true}
                 className="mt-4"
+                type="Password"
               />
             </form>
             <FormButton onClick={onLogin} Title="Login"></FormButton>
