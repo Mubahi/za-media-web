@@ -109,7 +109,7 @@ export function App() {
 
       case "roles":
         PK = "ROLES#";
-        SK = `ROLES#${item.id}`;
+        SK = `ROLES#${item.role_id}`;
         item_data = { ...item };
         resp = await saveData(PK, SK, item_data);
         if (resp.success) {
@@ -119,7 +119,7 @@ export function App() {
         break;
       case "module":
         PK = "MODULES#";
-        SK = `MODULES#${item.id}`;
+        SK = `MODULES#${item.module_id}`;
         item_data = { ...item };
         resp = await saveData(PK, SK, item_data);
         if (resp.success) {
@@ -151,6 +151,7 @@ export function App() {
           onItemAdded={handleItemAdded}
           onLogout={handleLogout}
           Modules={Modules}
+          Roles={Roles}
         />
       )}
     </>

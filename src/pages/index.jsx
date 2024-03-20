@@ -4,10 +4,10 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Homescreen from "../pages/Homescreen";
 import ShopData from "../ShopData/ShopData";
-import Roles from "../pages/Roles";
 import Users from "./Users";
 import Events from "./Events";
 import ModulesAdd from "./ModulesAdd";
+import RolesAdd from "./RolesAdd";
 const Pages = ({
   Shops,
   Countries,
@@ -16,6 +16,7 @@ const Pages = ({
   Areas,
   onLogout,
   Modules,
+  Roles,
   onItemAdded,
 }) => {
   const [View, setView] = useState("Home");
@@ -50,7 +51,7 @@ const Pages = ({
         />
       )}
       {View === "Events" && <Events />}
-      {View === "Roles" && <Roles onClick={Roles} onItemAdded={onItemAdded} />}
+      {View === "Roles" && <RolesAdd Modules={Modules} Roles={Roles} />}
       {View === "ModulesAdd" && (
         <ModulesAdd Modules={Modules} onItemAdded={onItemAdded} />
       )}
