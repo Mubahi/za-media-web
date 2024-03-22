@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import PageHeading from "../../components/PageHeadng";
 import FormField from "../../components/FormField";
 import Divider from "../../components/Divider";
@@ -13,7 +12,7 @@ const AddNew = ({ Roles, View }) => {
         <div>
           <PageHeading Title="Roles" />
           <Divider />
-          <FormField name="userRole" placeholder="Enter role" required={true} />
+          <FormField name="userRole" placeholder="Enter role" />
           <FormButton Title={"submit"} />
           <div>
             <table className="border-collapse border  border-slate-400 w-full mt-5 text-center">
