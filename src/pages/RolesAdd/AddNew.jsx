@@ -2,7 +2,23 @@ import PageHeading from "../../components/PageHeadng";
 import FormField from "../../components/FormField";
 import Divider from "../../components/Divider";
 import FormButton from "../../components/FomButton";
-const AddNew = ({ Roles, View }) => {
+import { useState } from "react";
+const { v4: uuidv4 } = require("uuid");
+const AddNew = ({ Roles, View, onSetPerm, onItemAdded }) => {
+  const role_id = uuidv4();
+  const [Role, setRole] = useState({ role_id });
+  const handleSubmit = () => {
+    if (Role.role_name) {
+      if (Role.role_id) {
+        onItemAdded("role", Role);
+      }
+      setRole({ role_id });
+    }
+  };
+  const handleEdit = (role) => {
+    setRole(role);
+  };
+
   return (
     <div className="pt-20 min-h-screen flex justify-center items-center bg-gradient-to-b from-indigo-300 via-orange-300 to-pink-300">
       <div
@@ -12,8 +28,15 @@ const AddNew = ({ Roles, View }) => {
         <div>
           <PageHeading Title="Roles" />
           <Divider />
-          <FormField name="userRole" placeholder="Enter role" />
-          <FormButton Title={"submit"} />
+          <FormField
+            value={Role.role_name ? Role.role_name : ""}
+            name="role_name"
+            placeholder="Enter role"
+            onChange={(e) =>
+              setRole({ ...Role, [e.target.name]: e.target.value })
+            }
+          />
+          <FormButton Title={"submit"} onClick={handleSubmit} />
           <div>
             <table className="border-collapse border  border-slate-400 w-full mt-5 text-center">
               <thead>
@@ -30,7 +53,7 @@ const AddNew = ({ Roles, View }) => {
                       {role.role_name}
                     </td>
                     <td className="border border-slate-300">
-                      <button>
+                      <button onClick={() => handleEdit(role)}>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="16"
@@ -45,7 +68,7 @@ const AddNew = ({ Roles, View }) => {
                     </td>
                     <td>
                       <button
-                        onClick={() => View("SelectModule")}
+                        onClick={() => onSetPerm(role)}
                         className="bg-orange-400 px-2 rounded-md hover:bg-orange-600 transition-all duration-300 my-1 text-white"
                       >
                         M

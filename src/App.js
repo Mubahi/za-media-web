@@ -107,13 +107,24 @@ export function App() {
         console.log(resp);
         break;
 
-      case "roles":
+      case "role":
         PK = "ROLES#";
         SK = `ROLES#${item.role_id}`;
         item_data = { ...item };
         resp = await saveData(PK, SK, item_data);
         if (resp.success) {
-          setRoles((prevItem) => [item, ...prevItem]);
+          let roles = [...Roles];
+          if (item.role_id) {
+            const found = roles.find((role) => role.role_id === item.role_id);
+            const index = roles.indexOf(found);
+            roles[index] = item;
+            console.log("old");
+          } else {
+            roles = [resp.data, ...roles];
+            console.log("new");
+          }
+
+          setRoles(roles);
         }
         console.log(resp);
         break;
