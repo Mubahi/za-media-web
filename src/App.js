@@ -4,6 +4,8 @@ import LoginForm from "./pages/LoginForm";
 import { getData, saveData } from "./services/http";
 import useLocalStorage from "./services/useLocalStorage";
 import Pages from "./pages";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export function App() {
   const [View, setView] = useState("LoginForm");
@@ -111,32 +113,43 @@ export function App() {
         PK = "ROLES#";
         SK = `ROLES#${item.role_id}`;
         item_data = { ...item };
-        resp = await saveData(PK, SK, item_data);
-        if (resp.success) {
-          let roles = [...Roles];
-          if (item.role_id) {
-            const found = roles.find((role) => role.role_id === item.role_id);
-            const index = roles.indexOf(found);
-            roles[index] = item;
-            console.log("old");
-          } else {
-            roles = [resp.data, ...roles];
-            console.log("new");
-          }
 
-          setRoles(roles);
+        try {
+          resp = await saveData(PK, SK, item_data);
+          if (resp.success) {
+            let roles = [...Roles];
+            if (item.role_id) {
+              const found = roles.find((role) => role.role_id === item.role_id);
+              const index = roles.indexOf(found);
+              roles[index] = item;
+              console.log("old");
+            } else {
+              roles = [resp.data, ...roles];
+              console.log("new");
+            }
+
+            setRoles(roles);
+          }
+          console.log(resp);
+        } catch (e) {
+          console.log(e);
         }
-        console.log(resp);
         break;
       case "module":
-        PK = "MODULES#";
-        SK = `MODULES#${item.module_id}`;
-        item_data = { ...item };
-        resp = await saveData(PK, SK, item_data);
-        if (resp.success) {
-          setModules((prevItem) => [item, ...prevItem]);
+        try {
+          PK = "MODULES#";
+          SK = `MODULES#${item.module_id}`;
+          item_data = { ...item };
+          resp = await saveData(PK, SK, item_data);
+          if (resp.success) {
+            setModules((prevItem) => [item, ...prevItem]);
+            toast.success("Module is saved.");
+          }
+          console.log(resp);
+        } catch (e) {
+          console.log(e.message);
+          toast.error(e.message);
         }
-        console.log(resp);
         break;
 
       default:
@@ -165,6 +178,7 @@ export function App() {
           Roles={Roles}
         />
       )}
+      <ToastContainer />
     </>
   );
 }
