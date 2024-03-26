@@ -3,23 +3,39 @@ import Divider from "../../components/Divider";
 import FormButton from "../../components/FomButton";
 import PageHeading from "../../components/PageHeadng";
 
-const SelectModule = ({ Modules, View, SelectedRole, onSavePerm }) => {
+const SetPermissions = ({ Modules, View, SelectedRole, onSavePerm }) => {
   const [Perm, setPerm] = useState({ ...SelectedRole.permissions });
-
+  const handleChange = (e, id) => {
+    const updatedPerm = Perm.map((permission) => {
+      if (permission.module_id === id) {
+        return { ...permission, [e.target.name]: e.target.value };
+      } else {
+        return permission;
+      }
+    });
+    setPerm(updatedPerm);
+  };
+  const getValue = (name, id) => {
+    const foundPerm = Perm.find((permission) => permission.module_id === id);
+    if (foundPerm) {
+      return foundPerm[name] || false;
+    }
+    return false;
+  };
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-indigo-300 via-orange-300 to-pink-300">
       <div
         data-aos="fade-down"
         className="bg-white p-8 rounded-md shadow-lg w-11/12 "
       >
-        <PageHeading Title="Permission" />
+        <PageHeading Title={"Premissions for : " + SelectedRole.role_name} />
         <Divider />
 
         <table className="w-full border-collapse border border-orange-400">
           <thead>
             <tr>
               <th className="border border-orange-300 bg-orange-500 text-white">
-                Name
+                Module
               </th>
               <th className="border border-orange-300 bg-orange-500 text-white">
                 View
@@ -48,6 +64,7 @@ const SelectModule = ({ Modules, View, SelectedRole, onSavePerm }) => {
                         id="view-checkbox"
                         name="view"
                         checked={Perm[module.module_id]?.view === true}
+                        // checked={getValue(e.target.name , module_id)}
                         type="checkbox"
                         onChange={(e) =>
                           setPerm({
@@ -58,6 +75,7 @@ const SelectModule = ({ Modules, View, SelectedRole, onSavePerm }) => {
                             },
                           })
                         }
+                        // onChange={(e) => handleChange(module.module_id, e)}
                         className="w-4 h-4 text-orange-600 bg-orange-100 border-orange-300 rounded focus:ring-orange-500 focus:ring-2 dark:bg-orange-700 dark:border-orange-600"
                       />
                     </div>
@@ -132,4 +150,4 @@ const SelectModule = ({ Modules, View, SelectedRole, onSavePerm }) => {
     </div>
   );
 };
-export default SelectModule;
+export default SetPermissions;

@@ -6,6 +6,7 @@ import useLocalStorage from "./services/useLocalStorage";
 import Pages from "./pages";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { FetchData } from "./services/load.data";
 
 export function App() {
   const [View, setView] = useState("LoginForm");
@@ -21,79 +22,50 @@ export function App() {
   const [Users, setUsers] = useLocalStorage("zm_users", []);
   const [Modules, setModules] = useLocalStorage("zm_module", []);
 
+  const LoadInitialData = async () => {
+    return await FetchData();
+  };
+
   useEffect(() => {
-    const FetchData = async () => {
-      let pk, sk, begin_with, resp;
+    const fetchData = async () => {
+      try {
+        const {
+          countries,
+          shops,
+          shopcategories,
+          brands,
+          areas,
+          roles,
+          users,
+          modules,
+        } = await FetchData();
 
-      // countries data
-      pk = "COUNTRIES#";
-      sk = "COUNTRIES#";
-      begin_with = true;
-      resp = await getData(pk, sk, begin_with);
-      setCountries(resp.Items);
-
-      // shops data
-      pk = "SHOPS#";
-      sk = "SHOPS#";
-      begin_with = true;
-      resp = await getData(pk, sk, begin_with);
-      setAllShops(resp.Items);
-
-      // shops categories data
-      pk = "SHOPCATEGORIES#";
-      sk = "SHOPCATEGORIES#";
-      begin_with = true;
-      resp = await getData(pk, sk, begin_with);
-      setShopCategories(resp.Items);
-
-      // Brands data
-      pk = "BRANDS#";
-      sk = "BRANDS#";
-      begin_with = true;
-      resp = await getData(pk, sk, begin_with);
-      setBrands(resp.Items);
-
-      // Areas data
-      pk = "AREAS#";
-      sk = "AREAS#";
-      begin_with = true;
-      resp = await getData(pk, sk, begin_with);
-      setAreas(resp.Items);
-
-      // Roles data
-      pk = "ROLES#";
-      sk = "ROLES#";
-      begin_with = true;
-      resp = await getData(pk, sk, begin_with);
-      setRoles(resp.Items);
-
-      // Users data
-      pk = "USERS#";
-      sk = "USERS#";
-      begin_with = true;
-      resp = await getData(pk, sk, begin_with);
-      setUsers(resp.Items);
-
-      // Modules data
-      pk = "MODULES#";
-      sk = "MODULES#";
-      begin_with = true;
-      resp = await getData(pk, sk, begin_with);
-      setModules(resp.Items);
+        setCountries(countries);
+        setAllShops(shops);
+        setShopCategories(shopcategories);
+        setBrands(brands);
+        setAreas(areas);
+        setRoles(roles);
+        setUsers(users);
+        setModules(modules);
+      } catch (error) {
+        console.error("Error fetching initial data:", error);
+      }
     };
 
-    FetchData();
+    fetchData();
   }, [
     setCountries,
     setAllShops,
-    setAreas,
-    setBrands,
     setShopCategories,
+    setBrands,
+    setAreas,
     setRoles,
-    setModules,
     setUsers,
+    setModules,
   ]);
 
+  console.log(Countries);
   const handleItemAdded = async (type, item) => {
     // setItems((prevItems) => [...prevItems, item]);
     let PK, SK, item_data, resp;

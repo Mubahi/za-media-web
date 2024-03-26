@@ -1,6 +1,6 @@
 import { useState } from "react";
 import AddNew from "./AddNew";
-import SelectModule from "./SelectModule";
+import SetPermissions from "./SetPermissions";
 
 const RolesAdd = ({ Roles, Modules, onItemAdded }) => {
   const [View, setView] = useState("AddNew");
@@ -12,8 +12,9 @@ const RolesAdd = ({ Roles, Modules, onItemAdded }) => {
   const onSavePerm = (perm) => {
     const role = { ...SelectedRole, permissions: perm };
     // setSelectedRole(role);
-    onItemAdded("role", role);
-    setView("AddNew");
+    // onItemAdded("role", role);
+    // setView("AddNew");
+    console.log(role);
   };
   return (
     <>
@@ -26,7 +27,7 @@ const RolesAdd = ({ Roles, Modules, onItemAdded }) => {
         />
       )}
       {View === "SelectModule" && (
-        <SelectModule
+        <SetPermissions
           Modules={Modules}
           Roles={Roles}
           View={setView}
