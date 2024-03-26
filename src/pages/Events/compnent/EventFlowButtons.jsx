@@ -1,43 +1,67 @@
-import React from "react";
-import Divider from "../../../components/Divider";
+import React, { useState } from "react";
+
 const EventFlowButtons = ({ view }) => {
+  const [selectedButton, setSelectedButton] = useState("Event");
+
+  const handleClick = (selected) => {
+    setSelectedButton(selected);
+    view(selected);
+  };
+
   return (
-    <div class="flex justify-center items-end">
+    <div className="flex flex-col justify-between p-2">
       <button
-        onClick={() => view("Event")}
-        class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-1 px-2 rounded"
+        onClick={() => handleClick("Event")}
+        className={`font-bold px-1 my-5 py-1 rounded-t-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50 transition-colors duration-300 ${
+          selectedButton === "Event"
+            ? "bg-orange-500  text-white"
+            : " text-black border-b-2 border-orange-500 hover:bg-orange-200"
+        }`}
       >
-        R
-      </button>
-      <Divider />
+        Event
+      </button>{" "}
       <button
-        onClick={() => view("Organizer")}
-        class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-1 px-2 rounded"
+        onClick={() => handleClick("Organizer")}
+        className={`font-bold px-1 my-5 py-1 rounded-t-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50 transition-colors duration-300 ${
+          selectedButton === "Organizer"
+            ? "bg-orange-500  text-white"
+            : " text-black border-b-2 border-orange-500 hover:bg-orange-200"
+        }`}
       >
-        O
-      </button>
-      <Divider />
+        Organizer
+      </button>{" "}
       <button
-        onClick={() => view("Visitor")}
-        class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-1 px-2 rounded"
+        onClick={() => handleClick("Visitor")}
+        className={`font-bold px-1 my-5 py-1 rounded-t-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50 transition-colors duration-300 ${
+          selectedButton === "Visitor"
+            ? "bg-orange-500  text-white"
+            : " text-black border-b-2 border-orange-500 hover:bg-orange-200"
+        }`}
       >
-        V
-      </button>
-      <Divider />
+        Visitor
+      </button>{" "}
       <button
-        onClick={() => view("Parking")}
-        class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-1 px-2 rounded"
+        onClick={() => handleClick("Parking")}
+        className={`font-bold px-1 my-5 py-1 rounded-t-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50 transition-colors duration-300 ${
+          selectedButton === "Parking"
+            ? "bg-orange-500  text-white"
+            : " text-black border-b-2 border-orange-500 hover:bg-orange-200"
+        }`}
       >
-        P
-      </button>
-      <Divider />
+        Parking
+      </button>{" "}
       <button
-        onClick={() => view("DigitalInfo")}
-        class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-1 px-2 rounded"
+        onClick={() => handleClick("DigitalInfo")}
+        className={`font-bold px-1 my-5 py-1 rounded-t-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50 transition-colors duration-300 ${
+          selectedButton === "DigitalInfo"
+            ? "bg-orange-500  text-white"
+            : " text-black border-b-2 border-orange-500 hover:bg-orange-200"
+        }`}
       >
-        d
+        Digital
       </button>
     </div>
   );
 };
+
 export default EventFlowButtons;

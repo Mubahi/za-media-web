@@ -10,16 +10,16 @@ const SelectModule = ({ Modules, View, SelectedRole, onSavePerm }) => {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-indigo-300 via-orange-300 to-pink-300">
       <div
         data-aos="fade-down"
-        className="bg-white p-8 rounded-md shadow-lg w-96 "
+        className="bg-white p-8 rounded-md shadow-lg w-11/12 "
       >
-        <PageHeading Title="Modules" />
+        <PageHeading Title="Permission" />
         <Divider />
 
         <table className="w-full border-collapse border border-orange-400">
           <thead>
             <tr>
               <th className="border border-orange-300 bg-orange-500 text-white">
-                Modules
+                Name
               </th>
               <th className="border border-orange-300 bg-orange-500 text-white">
                 View
