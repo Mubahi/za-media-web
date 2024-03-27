@@ -5,7 +5,7 @@ import FormField from "../../components/FormField";
 const Visitor = () => {
   return (
     <>
-      <PageHeading Title="Visitor Data" />
+      <PageHeading Title="Visitor Form" />
       <Divider />
       <FormField
         name="total_visitors"

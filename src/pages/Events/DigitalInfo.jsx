@@ -5,7 +5,7 @@ import FormField from "../../components/FormField";
 const DigitalInfo = () => {
   return (
     <>
-      <PageHeading Title="Digital Data" />
+      <PageHeading Title="Digital Form" />
       <Divider />
       <FormField name="event_website" placeholder="Event website" type="text" />
       <FormField name="event_twitter" placeholder="Event twitter" type="text" />

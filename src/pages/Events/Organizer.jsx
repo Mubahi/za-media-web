@@ -6,7 +6,7 @@ import FormField from "../../components/FormField";
 const Organizer = () => {
   return (
     <>
-      <PageHeading Title="Organizer Data" />
+      <PageHeading Title="Organizer Form" />
       <Divider />
       <FormField
         name="organizer_name"

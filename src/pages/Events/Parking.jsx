@@ -5,7 +5,7 @@ import FormField from "../../components/FormField";
 const Parking = () => {
   return (
     <>
-      <PageHeading Title="Parking Data" />
+      <PageHeading Title="Parking Form" />
       <Divider />
       <FormField
         name="parking_slots"

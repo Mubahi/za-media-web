@@ -85,7 +85,7 @@ const Nav = ({ setActive, View, onLogout }) => {
               width="16"
               height="16"
               fill="currentColor"
-              class="bi bi-calendar4-event"
+              className="bi bi-calendar4-event"
               viewBox="0 0 16 16"
             >
               <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M2 2a1 1 0 0 0-1 1v1h14V3a1 1 0 0 0-1-1zm13 3H1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z" />
@@ -95,29 +95,29 @@ const Nav = ({ setActive, View, onLogout }) => {
           </button>
         </div>
         <div className="mb-4 md:mb-0 flex items-center justify-center">
-          <button className="bg-gray-500 w-full md:w-auto rounded-md pr-1">
+          <button className="bg-orange-500 w-full md:w-auto rounded-md pr-1 h-[36px]">
             <select
               onChange={(e) => setActive(e.target.value)}
               value=""
-              className="text-white mx-1 w-full sm:w-28 mb-1 sm:mb-0 py-1 bg-transparent outline-none"
+              className="text-white cursor-pointer mx-1 w-full sm:w-28 mb-1 sm:mb-0 py-1 bg-transparent outline-none"
             >
-              <option value="" className="bg-gray-500 text-white">
+              <option value="" className="bg-orange-500 text-white">
                 Settings
               </option>
-              <option value="Users" className="bg-gray-500 text-white">
+              <option value="Users" className="bg-orange-500 text-white">
                 Users
               </option>
-              <option value="Roles" className="bg-gray-500 text-white">
+              <option value="Roles" className="bg-orange-500 text-white">
                 Roles
               </option>
-              <option value="ModulesAdd" className="bg-gray-500 text-white">
+              <option value="ModulesAdd" className="bg-orange-500 text-white">
                 Modules
               </option>
             </select>
           </button>
           <button
             onClick={onLogout}
-            className="border-2 border-red-500 bg-red-500 text-white py-1 px-2 w-full md:w-auto rounded-md hover:bg-white hover:text-red-500 hover:border-red-500 outline-none ml-2 flex items-center bona-nova-regular"
+            className="border-2 border-red-500 bg-red-500 text-white py-1 px-6 w-full md:w-auto rounded-md outline-none ml-2 flex items-center bona-nova-regular transition duration-300 ease-in-out hover:bg-white hover:text-red-500 hover:border-red-500"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

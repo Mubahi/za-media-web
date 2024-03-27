@@ -5,7 +5,7 @@ import FormField from "../../components/FormField";
 const Event = () => {
   return (
     <>
-      <PageHeading Title="Event Data" />
+      <PageHeading Title="Event Form" />
       <Divider />
       <FormField name="event_address" placeholder="Event address" type="text" />
       <FormField name="event_date" type="date" />

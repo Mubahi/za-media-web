@@ -15,7 +15,7 @@ const Homescreen = () => {
             data-aos="zoom-in"
           >
             Welcome To
-            <span className="text-black ml-2">Za:Media</span>
+            <span className="text-black ml-5">Za:Media</span>
           </h1>
         </div>
       </div>
