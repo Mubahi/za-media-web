@@ -20,7 +20,7 @@ const AddNew = ({ Roles, onSetPerm, onItemAdded }) => {
   };
 
   return (
-    <div className="pt-20 min-h-screen flex justify-center items-center bg-gradient-to-b from-indigo-300 via-orange-300 to-pink-300">
+    <div className="min-h-screen flex justify-center items-center bg-gradient-to-b from-indigo-300 via-orange-300 to-pink-300">
       <div
         data-aos="fade-down"
         className="bg-white p-8 rounded-md shadow-lg w-4/5 flex flex-col md:flex-row"
@@ -46,16 +46,18 @@ const AddNew = ({ Roles, onSetPerm, onItemAdded }) => {
           <table className="w-full text-center">
             <thead>
               <tr className="bg-orange-300">
-                <th>Name</th>
-                <th>Edit</th>
-                <th>Permissions</th>
+                <th className="border-b border-orange-500">Name</th>
+                <th className="border-b border-orange-500">Edit</th>
+                <th className="border-b border-orange-500">Permissions</th>
               </tr>
             </thead>
             <tbody>
               {Roles.map((role, index) => (
                 <tr key={index}>
-                  <td>{role.role_name}</td>
-                  <td>
+                  <td className="border-b border-orange-500">
+                    {role.role_name}
+                  </td>
+                  <td className="border-b border-orange-500">
                     <button onClick={() => handleEdit(role)}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +71,7 @@ const AddNew = ({ Roles, onSetPerm, onItemAdded }) => {
                       </svg>
                     </button>
                   </td>
-                  <td>
+                  <td className="border-b border-orange-500">
                     <button
                       onClick={() => onSetPerm(role)}
                       className="bg-orange-400 px-2 rounded-md hover:bg-orange-600 transition-all duration-300 pb-2 my-1 text-black font-bold"
