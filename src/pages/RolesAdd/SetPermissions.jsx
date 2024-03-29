@@ -1,25 +1,63 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Divider from "../../components/Divider";
 import FormButton from "../../components/FomButton";
 import PageHeading from "../../components/PageHeadng";
 
 const SetPermissions = ({ Modules, View, SelectedRole, onSavePerm }) => {
-  const [Perm, setPerm] = useState({ ...SelectedRole.permissions });
-  const handleChange = (e, id) => {
+  const [Perm, setPerm] = useState(
+    SelectedRole.permission ? [...SelectedRole.permissions] : []
+  );
+  const allPermName = ["add", "edit", "delete", "view"];
+  const initializePermissions = () => {
+    if (Modules && Modules.length) {
+      const initialPermissions = Modules.reduce((permArray, module) => {
+        const moduleObj = {
+          module_id: module.module_id,
+
+          view: false,
+          add: false,
+          edit: false,
+          delete: false,
+        };
+        return [...permArray, moduleObj];
+      }, []);
+      setPerm(initialPermissions);
+    }
+  };
+
+  useEffect(() => {
+    initializePermissions();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [Modules]);
+  const handleChange = (id, e) => {
+    let addNewPerm = true;
     const updatedPerm = Perm.map((permission) => {
       if (permission.module_id === id) {
-        return { ...permission, [e.target.name]: e.target.value };
+        addNewPerm = false;
+        return { ...permission, [e.target.name]: e.target.checked };
+        console.log("entered new");
       } else {
         return permission;
       }
+      console.log("permissions");
     });
+    // If the module is not in the list then we need to add it to the list
+    if (addNewPerm) {
+      updatedPerm.push({ module_id: id, [e.target.name]: e.target.checked });
+      console.log("entered new");
+    }
     setPerm(updatedPerm);
   };
+  console.log(Perm);
+
   const getValue = (name, id) => {
     const foundPerm = Perm.find((permission) => permission.module_id === id);
     if (foundPerm) {
+      console.log(foundPerm[name]);
       return foundPerm[name] || false;
+      console.log("false");
     }
+    console.log("true");
     return false;
   };
   return (
@@ -52,9 +90,9 @@ const SetPermissions = ({ Modules, View, SelectedRole, onSavePerm }) => {
             </tr>
           </thead>
           <tbody className="text-center">
-            {Modules.map((module) => {
+            {Modules.map((module, index) => {
               return (
-                <tr>
+                <tr key={index}>
                   <td className="border border-orange-300 bg-orange-100">
                     {module.module_name}
                   </td>
@@ -63,19 +101,12 @@ const SetPermissions = ({ Modules, View, SelectedRole, onSavePerm }) => {
                       <input
                         id="view-checkbox"
                         name="view"
-                        checked={Perm[module.module_id]?.view === true}
-                        // checked={getValue(e.target.name , module_id)}
+                        // checked={Perm[module.module_id]?.view === true}
+                        // checked={(e) =>
+                        //   getValue(e.target.name, module.module_id)
+                        // }
                         type="checkbox"
-                        onChange={(e) =>
-                          setPerm({
-                            ...Perm,
-                            [module.module_id]: {
-                              ...Perm[module.module_id],
-                              [e.target.name]: e.target.checked,
-                            },
-                          })
-                        }
-                        // onChange={(e) => handleChange(module.module_id, e)}
+                        onChange={(e) => handleChange(module.module_id, e)}
                         className="w-4 h-4 text-orange-600 bg-orange-100 border-orange-300 rounded focus:ring-orange-500 focus:ring-2 dark:bg-orange-700 dark:border-orange-600"
                       />
                     </div>
@@ -85,17 +116,9 @@ const SetPermissions = ({ Modules, View, SelectedRole, onSavePerm }) => {
                       <input
                         id="edit-checkbox"
                         name="edit"
-                        checked={Perm[module.module_id]?.edit === true}
+                        // checked={Perm[module.module_id]?.edit === true}
                         type="checkbox"
-                        onChange={(e) =>
-                          setPerm({
-                            ...Perm,
-                            [module.module_id]: {
-                              ...Perm[module.module_id],
-                              [e.target.name]: e.target.checked,
-                            },
-                          })
-                        }
+                        onChange={(e) => handleChange(module.module_id, e)}
                         className="w-4 h-4 text-orange-600 bg-orange-100 border-orange-300 rounded focus:ring-orange-500 focus:ring-2 dark:bg-orange-700 dark:border-orange-600"
                       />
                     </div>
@@ -106,16 +129,8 @@ const SetPermissions = ({ Modules, View, SelectedRole, onSavePerm }) => {
                         id="delete-checkbox"
                         name="delete"
                         type="checkbox"
-                        checked={Perm[module.module_id]?.delete === true}
-                        onChange={(e) =>
-                          setPerm({
-                            ...Perm,
-                            [module.module_id]: {
-                              ...Perm[module.module_id],
-                              [e.target.name]: e.target.checked,
-                            },
-                          })
-                        }
+                        // checked={Perm[module.module_id]?.delete === true}
+                        onChange={(e) => handleChange(module.module_id, e)}
                         className="w-4 h-4 text-orange-600 bg-orange-100 border-orange-300 rounded focus:ring-orange-500 focus:ring-2 dark:bg-orange-700 dark:border-orange-600"
                       />
                     </div>
@@ -126,16 +141,8 @@ const SetPermissions = ({ Modules, View, SelectedRole, onSavePerm }) => {
                         id="add-checkbox"
                         name="add"
                         type="checkbox"
-                        checked={Perm[module.module_id]?.add === true}
-                        onChange={(e) =>
-                          setPerm({
-                            ...Perm,
-                            [module.module_id]: {
-                              ...Perm[module.module_id],
-                              [e.target.name]: e.target.checked,
-                            },
-                          })
-                        }
+                        // checked={Perm[module.module_id]?.add === true}
+                        onChange={(e) => handleChange(module.module_id, e)}
                         className="w-4 h-4 text-orange-600 bg-orange-100 border-orange-300 rounded focus:ring-orange-500 focus:ring-2 dark:bg-orange-700 dark:border-orange-600"
                       />
                     </div>

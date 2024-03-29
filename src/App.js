@@ -1,7 +1,7 @@
 import "./App.css";
 import React, { useEffect, useState } from "react";
 import LoginForm from "./pages/LoginForm";
-import { getData, saveData } from "./services/http";
+import { saveData } from "./services/http";
 import useLocalStorage from "./services/useLocalStorage";
 import Pages from "./pages";
 import { ToastContainer, toast } from "react-toastify";
@@ -21,10 +21,6 @@ export function App() {
   const [Roles, setRoles] = useLocalStorage("zm_roles", []);
   const [Users, setUsers] = useLocalStorage("zm_users", []);
   const [Modules, setModules] = useLocalStorage("zm_module", []);
-
-  const LoadInitialData = async () => {
-    return await FetchData();
-  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -65,7 +61,6 @@ export function App() {
     setModules,
   ]);
 
-  console.log(Countries);
   const handleItemAdded = async (type, item) => {
     // setItems((prevItems) => [...prevItems, item]);
     let PK, SK, item_data, resp;

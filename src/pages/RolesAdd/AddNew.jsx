@@ -18,6 +18,7 @@ const AddNew = ({ Roles, onSetPerm, onItemAdded }) => {
   const handleEdit = (role) => {
     setRole(role);
   };
+  console.log(Role);
 
   return (
     <div className="pt-20 min-h-screen flex justify-center items-center bg-gradient-to-b from-indigo-300 via-orange-300 to-pink-300">
