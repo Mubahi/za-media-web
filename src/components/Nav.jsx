@@ -1,10 +1,34 @@
 import React from "react";
 import "aos/dist/aos.css";
 import Aos from "aos";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const Nav = ({ setActive, View, onLogout }) => {
   const [Scrolled, setScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef(null);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
+  // Close the menu when clicking outside of it
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        closeMenu();
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuRef]);
 
   useEffect(() => {
     Aos.init({ duration: 1000 });
@@ -27,30 +51,14 @@ const Nav = ({ setActive, View, onLogout }) => {
     <nav className={navbarClass} data-aos="fade-down">
       <div className="flex flex-col md:flex-row items-center justify-between">
         <div className="mb-4 md:mb-0">
-          <img src="/zamedia.png" alt="za-media-Logo" className="w-48" />
+          <img
+            onClick={() => setActive("Home")}
+            src="/zamedia.png"
+            alt="za-media-Logo"
+            className="w-48"
+          />
         </div>
         <div className="flex items-center">
-          <button
-            onClick={() => setActive("Home")}
-            className={
-              View === "Home"
-                ? "bg-orange-500 flex items-center text-white py-1 px-2 w-full md:w-auto rounded-md transition duration-300 font-semibold outline-none ml-4 bona-nova-regular-italic"
-                : "text-white cursor-pointer mx-2 flex items-center transition-all duration-300 bona-nova-regular-italic"
-            }
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              className="bi bi-house-fill"
-              viewBox="0 0 16 16"
-            >
-              <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z" />
-              <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293z" />
-            </svg>
-            <p className="ml-1">Home</p>
-          </button>
           <button
             onClick={() => setActive("AllShops")}
             className={
@@ -70,7 +78,7 @@ const Nav = ({ setActive, View, onLogout }) => {
               <path d="M12.354 4.354a.5.5 0 0 0-.708-.708L5 10.293 1.854 7.146a.5.5 0 1 0-.708.708l3.5 3.5a.5.5 0 0 0 .708 0zm-4.208 7-.896-.897.707-.707.543.543 6.646-6.647a.5.5 0 0 1 .708.708l-7 7a.5.5 0 0 1-.708 0" />
               <path d="m5.354 7.146.896.897-.707.707-.897-.896a.5.5 0 1 1 .708-.708" />
             </svg>
-            <p className="ml-1">All Shops</p>
+            <p className="ml-1">Shops</p>
           </button>
           <button
             onClick={() => setActive("Events")}
@@ -94,8 +102,71 @@ const Nav = ({ setActive, View, onLogout }) => {
             <p className="ml-1">Events</p>
           </button>
         </div>
-        <div className="mb-4 md:mb-0 flex items-center justify-center">
-          <button className="bg-orange-500 w-full md:w-auto rounded-md pr-1 h-[36px]">
+        <div
+          className=" relative mb-4 md:mb-0 flex items-center justify-center"
+          ref={menuRef}
+        >
+          <button
+            id="dropdownHoverButton"
+            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            type="button"
+            onClick={toggleMenu}
+          >
+            Dropdown hover{" "}
+            <svg
+              className="w-2.5 h-2.5 ms-3"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 10 6"
+            >
+              <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="m1 1 4 4 4-4"
+              />
+            </svg>
+          </button>
+          {/* Dropdown menu */}
+          {isOpen && (
+            <div
+              id="dropdownHover"
+              className="z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 absolute top-full mt-1"
+            >
+              <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
+                <li>
+                  <a
+                    href=""
+                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    onClick={closeMenu} // Close menu on item selection
+                  >
+                    Users
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href=""
+                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    onClick={closeMenu} // Close menu on item selection
+                  >
+                    Roles
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href=""
+                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    onClick={closeMenu} // Close menu on item selection
+                  >
+                    ModelsAdd
+                  </a>
+                </li>
+              </ul>
+            </div>
+          )}
+          {/* <button className="bg-orange-500 w-full md:w-auto rounded-md pr-1 h-[36px]">
             <select
               onChange={(e) => setActive(e.target.value)}
               value=""
@@ -114,7 +185,7 @@ const Nav = ({ setActive, View, onLogout }) => {
                 Modules
               </option>
             </select>
-          </button>
+          </button> */}
           <button
             onClick={onLogout}
             className="border-2 border-red-500 bg-red-500 text-white py-1 px-6 w-full md:w-auto rounded-md outline-none ml-2 flex items-center bona-nova-regular transition duration-300 ease-in-out hover:bg-white hover:text-red-500 hover:border-red-500"

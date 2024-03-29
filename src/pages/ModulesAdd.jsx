@@ -21,10 +21,10 @@ const ModulesAdd = ({ Modules, onItemAdded }) => {
   console.log(CurrentModule);
   console.log(Modules);
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-b from-indigo-300 via-orange-300 to-pink-300">
+    <div className="min-h-screen flex justify-center items-center bg-gradient-to-b from-indigo-300 via-orange-300 to-pink-300">
       <div
         data-aos="fade-down"
-        className="bg-white p-8 rounded-md shadow-md w-full md:max-w-3xl md:mt-20 flex flex-col md:flex-row"
+        className="bg-white p-8 rounded-md shadow-lg w-4/5 flex flex-col md:flex-row"
       >
         <div className="flex-1 border-r border-orange-500 pr-5">
           <div>
@@ -63,18 +63,22 @@ const ModulesAdd = ({ Modules, onItemAdded }) => {
           </div>
         </div>
         <div className="bg-orange-100 rounded-lg overflow-hidden ml-4 flex-1">
-          <table className="w-full max-w-md mx-auto text-center">
-            <thead className="bg-orange-200">
+          <table className="w-full text-center">
+            <thead className="bg-orange-300">
               <tr>
-                <th className="py-2 px-4">Name</th>
-                <th className="py-2 px-4">Title</th>
+                <th className="border-b border-orange-500">Name</th>
+                <th className="border-b border-orange-500">Title</th>
               </tr>
             </thead>
             <tbody>
               {Modules.map((module, index) => (
                 <tr key={index}>
-                  <td className="py-2 px-4">{module.module_name}</td>
-                  <td className="py-2 px-4">{module.module_title}</td>
+                  <td className="border-b border-orange-500">
+                    {module.module_name}
+                  </td>
+                  <td className="border-b border-orange-500">
+                    {module.module_title}
+                  </td>
                 </tr>
               ))}
             </tbody>
