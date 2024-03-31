@@ -8,16 +8,10 @@ const Homescreen = () => {
   });
   return (
     <>
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-indigo-300 via-orange-300 to-pink-300">
-        <div className="text-center">
-          <h1
-            className="text-4xl sm:text-6xl md:text-8xl font-bold font-serif text-white"
-            data-aos="zoom-in"
-          >
-            Welcome To
-            <span className="text-black ml-5">Za:Media</span>
-          </h1>
-        </div>
+      <div className="min-h-screen font-bold font-base flex items-center justify-center bg-white text-center">
+        <h1 className="text-4xl sm:text-6xl md:text-8xl " data-aos="zoom-in">
+          Welcome To Za:Media
+        </h1>
       </div>
     </>
   );

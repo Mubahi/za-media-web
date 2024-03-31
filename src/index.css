@@ -1,29 +1,36 @@
 /* src/index.css */
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 .roboto-mono {
-    font-family: "Roboto Mono", monospace;
-    font-optical-sizing: auto;
-    font-weight: weight;
-    font-style: normal;
-  }
-  .bona-nova-regular {
-    font-family: "Bona Nova", serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  .bona-nova-bold {
-    font-family: "Bona Nova", serif;
-    font-weight: 700;
-    font-style: normal;
-  }
-  
-  .bona-nova-regular-italic {
-    font-family: "Bona Nova", serif;
-    font-weight: 400;
-    font-style: italic;
-  }
-  
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+}
+.bona-nova-regular {
+  font-family: "Bona Nova", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.bona-nova-bold {
+  font-family: "Bona Nova", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.bona-nova-regular-italic {
+  font-family: "Bona Nova", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+.custom-rotate {
+  transform: rotate(40deg) !important;
+  transition: all 1s ease !important;
+}
+.custom-rotate-reverse {
+  transform: rotate(-40deg) !important;
+  transition: all 1s ease !important;
+}

@@ -4,19 +4,32 @@ import Aos from "aos";
 import { useEffect, useState, useRef } from "react";
 
 const Nav = ({ setActive, View, onLogout }) => {
-  const [Scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef(null);
+  const buttonRef = useRef(null);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+    setIsMenuOpen(!isMenuOpen);
   };
+  const handleClickOutside = (event) => {
+    if (buttonRef.current && !buttonRef.current.contains(event.target)) {
+      setIsMenuOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const closeMenu = () => {
     setIsOpen(false);
   };
-
-  // Close the menu when clicking outside of it
   useEffect(() => {
     function handleClickOutside(event) {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -32,23 +45,10 @@ const Nav = ({ setActive, View, onLogout }) => {
 
   useEffect(() => {
     Aos.init({ duration: 1000 });
-
-    const handleScroll = () => {
-      const isScrolled = window.scrollY > 0;
-      setScrolled(isScrolled);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
   }, []);
-  const navbarClass = `bg-${
-    Scrolled ? "slate" : "blue"
-  }-400 py-2 px-4 fixed w-full z-10`;
+
   return (
-    <nav className={navbarClass} data-aos="fade-down">
+    <nav className="py-2 px-4 fixed w-full z-10 bg-white" data-aos="fade-down">
       <div className="flex flex-col md:flex-row items-center justify-between">
         <div className="mb-4 md:mb-0">
           <img
@@ -58,13 +58,13 @@ const Nav = ({ setActive, View, onLogout }) => {
             className="w-48"
           />
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center text-black hover:text-gray-400">
           <button
             onClick={() => setActive("AllShops")}
             className={
               View === "AllShops"
-                ? "bg-orange-500 flex items-center text-white py-1 px-2 w-full md:w-auto rounded-md transition duration-300 font-semibold outline-none ml-4 bona-nova-regular-italic"
-                : "text-white cursor-pointer mx-2 flex items-center transition-all duration-300 bona-nova-regular-italic"
+                ? "bg-orange-500 flex items-center text-white py-1 px-2 w-full md:w-auto rounded-md transition duration-300 font-semibold outline-none ml-4 font-base"
+                : " cursor-pointer mx-2 flex items-center transition-all duration-300 font-base"
             }
           >
             <svg
@@ -72,11 +72,10 @@ const Nav = ({ setActive, View, onLogout }) => {
               width="16"
               height="16"
               fill="currentColor"
-              className="bi bi-check2-all"
+              class="bi bi-shop"
               viewBox="0 0 16 16"
             >
-              <path d="M12.354 4.354a.5.5 0 0 0-.708-.708L5 10.293 1.854 7.146a.5.5 0 1 0-.708.708l3.5 3.5a.5.5 0 0 0 .708 0zm-4.208 7-.896-.897.707-.707.543.543 6.646-6.647a.5.5 0 0 1 .708.708l-7 7a.5.5 0 0 1-.708 0" />
-              <path d="m5.354 7.146.896.897-.707.707-.897-.896a.5.5 0 1 1 .708-.708" />
+              <path d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.37 2.37 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0M1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5M4 15h3v-5H4zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1zm3 0h-2v3h2z" />
             </svg>
             <p className="ml-1">Shops</p>
           </button>
@@ -84,8 +83,8 @@ const Nav = ({ setActive, View, onLogout }) => {
             onClick={() => setActive("Events")}
             className={
               View === "Events"
-                ? "bg-orange-500 flex items-center text-white py-1 px-2 w-full md:w-auto rounded-md transition duration-300 font-semibold outline-none ml-4 bona-nova-regular-italic"
-                : "text-white cursor-pointer mx-2 flex items-center transition-all duration-300 bona-nova-regular-italic"
+                ? "bg-orange-500 flex items-center text-white py-1 px-2 w-full md:w-auto rounded-md transition duration-300 font-semibold outline-none ml-4 font-base"
+                : " cursor-pointer mx-2 flex items-center transition-all duration-300 font-base"
             }
           >
             <svg
@@ -107,88 +106,71 @@ const Nav = ({ setActive, View, onLogout }) => {
           ref={menuRef}
         >
           <button
+            ref={buttonRef}
             id="dropdownHoverButton"
-            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            type="button"
+            className={`text-black ${
+              isMenuOpen ? " custom-rotate	" : "custom-rotate-reverse"
+            } text-base font-bold rounded-lg py-1 px-2 text-center inline-flex items-center  transition-colors duration-500`}
+            blacke="button"
             onClick={toggleMenu}
           >
-            Dropdown hover{" "}
             <svg
-              className="w-2.5 h-2.5 ms-3"
-              aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 10 6"
+              width="20"
+              height="20"
+              fill="currentColor"
+              className="bi bi-gear text-black"
+              viewBox="0 0 16 16"
             >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="m1 1 4 4 4-4"
-              />
+              <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0" />
+              <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z" />
             </svg>
           </button>
-          {/* Dropdown menu */}
           {isOpen && (
             <div
               id="dropdownHover"
-              className="z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 absolute top-full mt-1"
+              className="z-10 bg-orange-500 divide-y rounded-lg shadow w-44 absolute top-full border border-gray-300 "
             >
-              <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
+              <ul className="py-2 text-base font-semibold text-white">
                 <li>
-                  <a
-                    href=""
-                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                    onClick={closeMenu} // Close menu on item selection
+                  <button
+                    onClick={() => {
+                      setActive("Users");
+                      closeMenu();
+                    }}
+                    className="block px-4 hover:bg-gray-400 hover:text-white w-full text-left"
                   >
-                    Users
-                  </a>
+                    Users Add
+                  </button>
                 </li>
                 <li>
-                  <a
-                    href=""
-                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                    onClick={closeMenu} // Close menu on item selection
+                  <button
+                    onClick={() => {
+                      setActive("Roles");
+                      closeMenu();
+                    }}
+                    className="block px-4 hover:bg-gray-400 hover:text-white w-full text-left"
                   >
-                    Roles
-                  </a>
+                    Roles Add
+                  </button>
                 </li>
                 <li>
-                  <a
-                    href=""
-                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                    onClick={closeMenu} // Close menu on item selection
+                  <button
+                    onClick={() => {
+                      setActive("ModulesAdd");
+                      closeMenu();
+                    }}
+                    className="block px-4 hover:bg-gray-400 hover:text-white w-full text-left"
                   >
-                    ModelsAdd
-                  </a>
+                    Modules Add
+                  </button>
                 </li>
               </ul>
             </div>
           )}
-          {/* <button className="bg-orange-500 w-full md:w-auto rounded-md pr-1 h-[36px]">
-            <select
-              onChange={(e) => setActive(e.target.value)}
-              value=""
-              className="text-white cursor-pointer mx-1 w-full sm:w-28 mb-1 sm:mb-0 py-1 bg-transparent outline-none"
-            >
-              <option value="" className="bg-orange-500 text-white">
-                Settings
-              </option>
-              <option value="Users" className="bg-orange-500 text-white">
-                Users
-              </option>
-              <option value="Roles" className="bg-orange-500 text-white">
-                Roles
-              </option>
-              <option value="ModulesAdd" className="bg-orange-500 text-white">
-                Modules
-              </option>
-            </select>
-          </button> */}
           <button
             onClick={onLogout}
-            className="border-2 border-red-500 bg-red-500 text-white py-1 px-6 w-full md:w-auto rounded-md outline-none ml-2 flex items-center bona-nova-regular transition duration-300 ease-in-out hover:bg-white hover:text-red-500 hover:border-red-500"
+            className="border-2 border-gray-500 bg-gray-500 text-white py-1 px-2 w-full md:w-auto rounded-md outline-none ml-2 flex items-center font-base font-bold transition duration-500 ease-in-out hover:bg-orange-500 hover:text-white hover:border-orange-500"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

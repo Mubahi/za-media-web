@@ -49,7 +49,7 @@ const AllShops = ({ Shops, Brands, Categories, Areas, Countries }) => {
   }, [SelectedCountry, SelectedCity, SelectedArea, SelectedWindows, Shops]);
 
   return (
-    <div className="pt-16 bg-gradient-to-b from-indigo-300 via-orange-300 to-pink-300">
+    <div className="pt-16 bg-slate-900">
       <div className="border-b fixed w-full border-orange-500 flex flex-col sm:flex-row justify-around pt-1 bg-yellow-100">
         <select
           onChange={(e) => filterCities(e.target.value)}

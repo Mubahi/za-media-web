@@ -61,7 +61,7 @@ const SetPermissions = ({ Modules, View, SelectedRole, onSavePerm }) => {
     return false;
   };
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-indigo-300 via-orange-300 to-pink-300">
+    <div className="min-h-screen flex items-center justify-center bg-slate-900">
       <div
         data-aos="fade-down"
         className="bg-white p-8 rounded-md shadow-lg w-11/12 "

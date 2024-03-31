@@ -21,10 +21,10 @@ const ModulesAdd = ({ Modules, onItemAdded }) => {
   console.log(CurrentModule);
   console.log(Modules);
   return (
-    <div className="min-h-screen flex justify-center items-center bg-gradient-to-b from-indigo-300 via-orange-300 to-pink-300">
+    <div className="min-h-screen flex justify-center items-center bg-slate-900">
       <div
         data-aos="fade-down"
-        className="bg-white p-8 rounded-md shadow-lg w-4/5 flex flex-col md:flex-row"
+        className="bg-[#D8D9DA] p-8 rounded-md shadow-lg w-4/5 flex flex-col md:flex-row"
       >
         <div className="flex-1 border-r border-orange-500 pr-5">
           <div>
