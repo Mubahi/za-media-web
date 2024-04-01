@@ -15,7 +15,7 @@ export default function ShopRow({ shop, Countries, Areas }) {
     return area ? area.name : "";
   };
   return (
-    <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-orange-50 dark:hover:bg-gray-600 text-center">
+    <tr className="bg-white border-b hover:bg-orange-50 text-center">
       <th
         scope="row"
         className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
