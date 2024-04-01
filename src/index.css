@@ -34,3 +34,7 @@
   transform: rotate(-40deg) !important;
   transition: all 1s ease !important;
 }
+.menu-item {
+  font-size: 19px;
+  font-weight: 500;
+}

@@ -1,7 +1,7 @@
 const PageHeading = ({ Title }) => {
   return (
     <>
-      <h1 className="text-3xl font-bold mb-4 text-center text-orange-800">
+      <h1 className="text-3xl font-bold text-[#FF7D31] mb-4 text-center">
         {Title}
       </h1>
     </>

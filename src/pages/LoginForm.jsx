@@ -10,7 +10,7 @@ const LoginForm = ({ onLogin }) => {
     Aos.init({ duration: 1000 });
   });
   return (
-    <div className="container mx-auto flex justify-center items-center h-screen py-40 bg-slate-900">
+    <div className="container mx-auto flex justify-center items-center h-screen py-40 bg-slate-100">
       <div className="flex flex-col lg:flex-row w-10/12 lg:w-8/12 bg-[#D8D9DA] rounded-xl mx-auto shadow-lg overflow-hidden">
         <div className="w-full lg:w-1/2 flex flex-col items-center justify-center p-12 bg-no-repeat bg-cover bg-center bg-gradient-to-b from-slate-300 to-slate-400 rounded-ee-full">
           <div className="" data-aos="zoom-out">

@@ -49,7 +49,7 @@ const AllShops = ({ Shops, Brands, Categories, Areas, Countries }) => {
   }, [SelectedCountry, SelectedCity, SelectedArea, SelectedWindows, Shops]);
 
   return (
-    <div className="pt-16 bg-slate-900">
+    <div className="pt-16">
       <div className="border-b fixed w-full border-orange-500 flex flex-col sm:flex-row justify-around pt-1 bg-yellow-100">
         <select
           onChange={(e) => filterCities(e.target.value)}
@@ -155,31 +155,31 @@ const AllShops = ({ Shops, Brands, Categories, Areas, Countries }) => {
             1
           </option>
           <option value="2" className="bg-white text-black">
-            2{" "}
+            2
           </option>
           <option value="3" className="bg-white text-black">
-            3{" "}
+            3
           </option>
           <option value="4" className="bg-white text-black">
-            4{" "}
+            4
           </option>
           <option value="5" className="bg-white text-black">
-            5{" "}
+            5
           </option>
           <option value="6" className="bg-white text-black">
-            6{" "}
+            6
           </option>
           <option value="7" className="bg-white text-black">
-            7{" "}
+            7
           </option>
           <option value="8" className="bg-white text-black">
-            8{" "}
+            8
           </option>
           <option value="9" className="bg-white text-black">
-            9{" "}
+            9
           </option>
           <option value="10" className="bg-white text-black">
-            10{" "}
+            10
           </option>
         </select>
       </div>

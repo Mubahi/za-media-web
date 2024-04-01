@@ -61,42 +61,32 @@ const SetPermissions = ({ Modules, View, SelectedRole, onSavePerm }) => {
     return false;
   };
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-900">
+    <div className="min-h-screen flex items-center justify-center">
       <div
         data-aos="fade-down"
-        className="bg-white p-8 rounded-md shadow-lg w-11/12 "
+        className="bg-[#D8D9DA] p-8 rounded-md shadow-lg w-11/12 "
       >
         <PageHeading Title={"Premissions for : " + SelectedRole.role_name} />
         <Divider />
 
         <table className="w-full border-collapse border border-orange-400">
           <thead>
-            <tr>
-              <th className="border border-orange-300 bg-orange-500 text-white">
-                Module
-              </th>
-              <th className="border border-orange-300 bg-orange-500 text-white">
-                View
-              </th>
-              <th className="border border-orange-300 bg-orange-500 text-white">
-                Edit
-              </th>
-              <th className="border border-orange-300 bg-orange-500 text-white">
-                Delete
-              </th>
-              <th className="border border-orange-300 bg-orange-500 text-white">
-                Add
-              </th>
+            <tr className="bg-[#CECFD1] text-[#FF7D31]">
+              <th className="border border-orange-300">Module</th>
+              <th className="border border-orange-300">View</th>
+              <th className="border border-orange-300">Edit</th>
+              <th className="border border-orange-300">Delete</th>
+              <th className="border border-orange-300">Add</th>
             </tr>
           </thead>
           <tbody className="text-center">
             {Modules.map((module, index) => {
               return (
                 <tr key={index}>
-                  <td className="border border-orange-300 bg-orange-100">
+                  <td className="border border-orange-300">
                     {module.module_name}
                   </td>
-                  <td className="border border-orange-300 bg-orange-100">
+                  <td className="border border-orange-300">
                     <div className="flex items-center justify-center">
                       <input
                         id="view-checkbox"
@@ -107,11 +97,11 @@ const SetPermissions = ({ Modules, View, SelectedRole, onSavePerm }) => {
                         // }
                         type="checkbox"
                         onChange={(e) => handleChange(module.module_id, e)}
-                        className="w-4 h-4 text-orange-600 bg-orange-100 border-orange-300 rounded focus:ring-orange-500 focus:ring-2 dark:bg-orange-700 dark:border-orange-600"
+                        className="w-4 h-4 text-orange-600 border-orange-300 rounded focus:ring-orange-500 focus:ring-2 dark:bg-orange-700 dark:border-orange-600"
                       />
                     </div>
                   </td>
-                  <td className="border border-orange-300 bg-orange-100">
+                  <td className="border border-orange-300">
                     <div className="flex items-center justify-center">
                       <input
                         id="edit-checkbox"
@@ -119,11 +109,11 @@ const SetPermissions = ({ Modules, View, SelectedRole, onSavePerm }) => {
                         // checked={Perm[module.module_id]?.edit === true}
                         type="checkbox"
                         onChange={(e) => handleChange(module.module_id, e)}
-                        className="w-4 h-4 text-orange-600 bg-orange-100 border-orange-300 rounded focus:ring-orange-500 focus:ring-2 dark:bg-orange-700 dark:border-orange-600"
+                        className="w-4 h-4 text-orange-600 border-orange-300 rounded focus:ring-orange-500 focus:ring-2 dark:bg-orange-700 dark:border-orange-600"
                       />
                     </div>
                   </td>
-                  <td className="border border-orange-300 bg-orange-100">
+                  <td className="border border-orange-300">
                     <div className="flex items-center justify-center">
                       <input
                         id="delete-checkbox"
@@ -131,11 +121,11 @@ const SetPermissions = ({ Modules, View, SelectedRole, onSavePerm }) => {
                         type="checkbox"
                         // checked={Perm[module.module_id]?.delete === true}
                         onChange={(e) => handleChange(module.module_id, e)}
-                        className="w-4 h-4 text-orange-600 bg-orange-100 border-orange-300 rounded focus:ring-orange-500 focus:ring-2 dark:bg-orange-700 dark:border-orange-600"
+                        className="w-4 h-4 text-orange-600 border-orange-300 rounded focus:ring-orange-500 focus:ring-2 dark:bg-orange-700 dark:border-orange-600"
                       />
                     </div>
                   </td>
-                  <td className="border border-orange-300 bg-orange-100">
+                  <td className="border border-orange-300">
                     <div className="flex items-center justify-center">
                       <input
                         id="add-checkbox"
@@ -143,7 +133,7 @@ const SetPermissions = ({ Modules, View, SelectedRole, onSavePerm }) => {
                         type="checkbox"
                         // checked={Perm[module.module_id]?.add === true}
                         onChange={(e) => handleChange(module.module_id, e)}
-                        className="w-4 h-4 text-orange-600 bg-orange-100 border-orange-300 rounded focus:ring-orange-500 focus:ring-2 dark:bg-orange-700 dark:border-orange-600"
+                        className="w-4 h-4 text-orange-600 border-orange-300 rounded focus:ring-orange-500 focus:ring-2 dark:bg-orange-700 dark:border-orange-600"
                       />
                     </div>
                   </td>

@@ -11,7 +11,7 @@ const Users = (Title) => {
     Aos.init({ duration: 2000 });
   });
   return (
-    <div className="min-h-screen flex justify-center items-center bg-slate-900">
+    <div className="min-h-screen flex justify-center items-center">
       <div
         data-aos="fade-down"
         className="bg-[#D8D9DA] p-8 rounded-md shadow-lg w-4/5 flex flex-col md:flex-row"
@@ -33,21 +33,27 @@ const Users = (Title) => {
             <FormButton Title="Submit" />
           </form>
         </div>
-        <div className="bg-orange-100 rounded-lg overflow-hidden ml-4 flex-1">
-          <table className="w-full text-center">
-            <thead className="bg-orange-300">
+        <div className="bg-[#D8D9DA] overflow-hidden ml-4 flex-1">
+          <table className="w-full text-center border border-orange-500">
+            <thead className=" bg-[#CECFD1] text-[#FF7D31]">
               <tr>
                 <th className="border-b border-orange-500">Name</th>
                 <th className="border-b border-orange-500">Title</th>
               </tr>
             </thead>
-            <tbody>
-              {/* {Modules.map((module, index) => ( */}
+            <tbody className="border border-orange-500">
               <tr>
                 <td className="border-b border-orange-500">users</td>
                 <td className="border-b border-orange-500">frontend</td>
               </tr>
-              {/* ))} */}
+              <tr>
+                <td className="border-b border-orange-500">users</td>
+                <td className="border-b border-orange-500">frontend</td>
+              </tr>
+              <tr>
+                <td className="border-b border-orange-500">users</td>
+                <td className="border-b border-orange-500">frontend</td>
+              </tr>
             </tbody>
           </table>
         </div>

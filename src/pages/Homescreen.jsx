@@ -9,9 +9,12 @@ const Homescreen = () => {
   return (
     <>
       <div className="min-h-screen font-bold font-base flex items-center justify-center bg-white text-center">
-        <h1 className="text-4xl sm:text-6xl md:text-8xl " data-aos="zoom-in">
+        <p
+          className="text-4xl sm:text-6xl md:text-8xl text-[#000000]"
+          data-aos="zoom-in"
+        >
           Welcome To Za:Media
-        </h1>
+        </p>
       </div>
     </>
   );

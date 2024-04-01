@@ -6,6 +6,7 @@ import PageHeading from "../components/PageHeadng";
 import Divider from "../components/Divider";
 import FormField from "../components/FormField";
 import { hasFormSubmit } from "@testing-library/user-event/dist/utils";
+import FormButton from "../components/FomButton";
 const { v4: uuidv4 } = require("uuid");
 
 const ModulesAdd = ({ Modules, onItemAdded }) => {
@@ -21,7 +22,7 @@ const ModulesAdd = ({ Modules, onItemAdded }) => {
   console.log(CurrentModule);
   console.log(Modules);
   return (
-    <div className="min-h-screen flex justify-center items-center bg-slate-900">
+    <div className="min-h-screen flex justify-center items-center">
       <div
         data-aos="fade-down"
         className="bg-[#D8D9DA] p-8 rounded-md shadow-lg w-4/5 flex flex-col md:flex-row"
@@ -54,18 +55,14 @@ const ModulesAdd = ({ Modules, onItemAdded }) => {
                 }
               />
             </form>
-            <button
-              onClick={handleSubmit}
-              className="border-2 border-yellow-500 bg-yellow-500 text-white py-1 w-full rounded-md hover:bg-orange-500 hover:text-white hover:border-orange-500 transition duration-300 font-semibold roboto-mono mt-3"
-            >
-              Submit
-            </button>
+
+            <FormButton Title="Submit" />
           </div>
         </div>
-        <div className="bg-orange-100 rounded-lg overflow-hidden ml-4 flex-1">
-          <table className="w-full text-center">
-            <thead className="bg-orange-300">
-              <tr>
+        <div className="bg-[#D8D9DA] overflow-hidden ml-4 flex-1">
+          <table className="w-full text-center border border-orange-500">
+            <thead>
+              <tr className="bg-[#CECFD1] text-[#FF7D31]">
                 <th className="border-b border-orange-500">Name</th>
                 <th className="border-b border-orange-500">Title</th>
               </tr>

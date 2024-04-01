@@ -21,7 +21,7 @@ const AddNew = ({ Roles, onSetPerm, onItemAdded }) => {
   console.log(Role);
 
   return (
-    <div className="min-h-screen flex justify-center items-center bg-slate-900">
+    <div className="min-h-screen flex justify-center items-center">
       <div
         data-aos="fade-down"
         className="bg-[#D8D9DA] p-8 rounded-md shadow-lg w-4/5 flex flex-col md:flex-row"
@@ -43,10 +43,10 @@ const AddNew = ({ Roles, onSetPerm, onItemAdded }) => {
             </form>
           </div>
         </div>
-        <div className="bg-orange-100 rounded-lg overflow-hidden ml-4 flex-1">
-          <table className="w-full text-center">
+        <div className="bg-[#D8D9DA]  overflow-hidden ml-4 flex-1">
+          <table className="w-full text-center border border-orange-500">
             <thead>
-              <tr className="bg-orange-300">
+              <tr className="bg-[#CECFD1] text-[#FF7D31]">
                 <th className="border-b border-orange-500">Name</th>
                 <th className="border-b border-orange-500">Edit</th>
                 <th className="border-b border-orange-500">Permissions</th>
@@ -75,7 +75,7 @@ const AddNew = ({ Roles, onSetPerm, onItemAdded }) => {
                   <td className="border-b border-orange-500">
                     <button
                       onClick={() => onSetPerm(role)}
-                      className="bg-orange-400 px-2 rounded-md hover:bg-orange-600 transition-all duration-300 pb-2 my-1 text-black font-bold"
+                      className="bg-orange-400 px-2 rounded-md hover:bg-orange-600 transition-all duration-300 pb-2 my-1 text-white font-bold"
                     >
                       p
                     </button>
