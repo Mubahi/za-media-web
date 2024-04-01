@@ -159,7 +159,7 @@ const Nav = ({ setActive, View, onLogout }) => {
           )}
           <button
             onClick={onLogout}
-            className="border-2  bg-orange-500 text-white py-1 px-2 w-full md:w-auto rounded-md outline-none ml-2 flex items-center font-base font-bold transition duration-500 ease-in-out hover:bg-red-600 hover:text-white hover:border-red-600">
+            className="  bg-orange-500 text-white py-1 px-2 w-full md:w-auto rounded-md outline-none ml-2 flex items-center font-base font-bold transition duration-500 ease-in-out hov hover:text-white hover:bg-orange-400">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
