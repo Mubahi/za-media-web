@@ -63,7 +63,7 @@ const Nav = ({ setActive, View, onLogout }) => {
             onClick={() => setActive("AllShops")}
             className={` ${
               View === "AllShops"
-                ? "bg-orange-500 flex items-center text-white py-1 px-2 w-full md:w-auto rounded-md transition duration-300 font-bold outline-none ml-4 font-base"
+                ? "bg-white text-black flex items-center py-1 px-2 w-full md:w-auto rounded-md transition duration-300 font-bold outline-none ml-4 font-base"
                 : "hover:text-black cursor-pointer mx-2 flex items-center transition-all duration-300 font-base"
             } text-base font-bold rounded-lg py-1 px-2 text-center inline-flex items-center  transition-colors duration-500 `}
           >
@@ -83,7 +83,7 @@ const Nav = ({ setActive, View, onLogout }) => {
             onClick={() => setActive("Events")}
             className={` ${
               View === "Events"
-                ? "bg-orange-500 flex items-center text-white py-1 px-2 w-full md:w-auto rounded-md transition duration-300 font-bold outline-none ml-4 font-base"
+                ? "bg-white text-black flex items-center py-1 px-2 w-full md:w-auto rounded-md transition duration-300 font-bold outline-none ml-4 font-base"
                 : "hover:text-black cursor-pointer mx-2 flex items-center transition-all duration-300 font-base"
             } text-base font-bold rounded-lg py-1 px-2 text-center inline-flex items-center  transition-colors duration-500 `}
           >
@@ -129,28 +129,18 @@ const Nav = ({ setActive, View, onLogout }) => {
           {isOpen && (
             <div
               id="dropdownHover"
-              className="z-10 divide-y rounded-lg shadow w-44 mt-1 bg-[#D8D9DA] absolute top-full border border-gray-300 "
+              className="z-10 divide-y rounded-lg shadow w-44 bg-[#D8D9DA] absolute top-full border border-gray-300 mr-60"
             >
-              <ul className="py-2 text-base font-bold text-black">
+              <ul className="font-semibold text-black">
                 <li>
                   <button
                     onClick={() => {
                       setActive("Users");
                       closeMenu();
                     }}
-                    className="px-4 flex items-center hover:bg-gray-400 hover:text-white w-full text-left"
+                    className=" pb-1 px-4 flex items-center hover:bg-gray-400 hover:rounded-md hover:text-white w-full text-left"
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      className="bi bi-person-fill"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
-                    </svg>
-                    Users Add
+                    Users
                   </button>
                 </li>
                 <li>
@@ -159,9 +149,9 @@ const Nav = ({ setActive, View, onLogout }) => {
                       setActive("Roles");
                       closeMenu();
                     }}
-                    className="flex items-center px-4 hover:bg-gray-400 hover:text-white w-full text-left"
+                    className="pb-1 flex items-center px-4 hover:bg-gray-400 hover:rounded-md hover:text-white w-full text-left"
                   >
-                    Roles Add
+                    Roles
                   </button>
                 </li>
                 <li>
@@ -170,9 +160,9 @@ const Nav = ({ setActive, View, onLogout }) => {
                       setActive("ModulesAdd");
                       closeMenu();
                     }}
-                    className="flex items-center px-4 hover:bg-gray-400 hover:text-white w-full text-left"
+                    className="pb-1 flex items-center px-4 hover:bg-gray-400 hover:rounded-md hover:text-white w-full text-left"
                   >
-                    Modules Add
+                    Modules
                   </button>
                 </li>
               </ul>
@@ -180,7 +170,7 @@ const Nav = ({ setActive, View, onLogout }) => {
           )}
           <button
             onClick={onLogout}
-            className="border-2 border-gray-500 bg-gray-500 text-white py-1 px-2 w-full md:w-auto rounded-md outline-none ml-2 flex items-center font-base font-bold transition duration-500 ease-in-out hover:bg-orange-500 hover:text-white hover:border-orange-500"
+            className="border-2 border-red-500 bg-red-500 text-white py-1 px-2 w-full md:w-auto rounded-md outline-none ml-2 flex items-center font-base font-bold transition duration-500 ease-in-out hover:bg-red-600 hover:text-white hover:border-red-600"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

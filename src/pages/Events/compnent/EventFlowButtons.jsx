@@ -18,7 +18,7 @@ const EventFlowButtons = ({ view }) => {
             : " text-black border-orange-500 hover:bg-orange-200"
         } `}
       >
-        Event
+        Basic
       </button>{" "}
       <button
         onClick={() => handleClick("Organizer")}

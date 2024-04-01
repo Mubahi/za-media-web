@@ -8,9 +8,9 @@ const Homescreen = () => {
   });
   return (
     <>
-      <div className="min-h-screen font-bold font-base flex items-center justify-center bg-white text-center">
+      <div className="min-h-screen font-bold font-serif flex items-center justify-center bg-white text-center">
         <p
-          className="text-4xl sm:text-6xl md:text-8xl text-[#000000]"
+          className="text-4xl sm:text-6xl md:text-8xl text-[#FF7D31]"
           data-aos="zoom-in"
         >
           Welcome To Za:Media
