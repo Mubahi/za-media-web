@@ -13,7 +13,7 @@ const RolesAdd = ({ Roles, Modules, onItemAdded }) => {
     const role = { ...SelectedRole, permissions: perm };
     setSelectedRole(role);
     onItemAdded("role", role);
-    // setView("AddNew");
+    setView("AddNew");
     console.log(role);
   };
   return (

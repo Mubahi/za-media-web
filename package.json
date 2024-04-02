@@ -8,7 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "aos": "^2.3.4",
     "autoprefixer": "^10.4.17",
-    "axios": "^1.6.7",
+    "axios": "^1.6.8",
     "postcss": "^8.4.35",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

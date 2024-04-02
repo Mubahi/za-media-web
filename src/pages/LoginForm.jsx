@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
@@ -9,6 +9,9 @@ const LoginForm = ({ onLogin }) => {
   useEffect(() => {
     Aos.init({ duration: 1000 });
   });
+  const [Email, setEmail] = useState("");
+  const [Password, setPassword] = useState("");
+  const [Role, setRole] = useState("001");
   return (
     <div className="container mx-auto flex justify-center items-center h-screen py-40 bg-slate-100">
       <div className="flex flex-col lg:flex-row w-10/12 lg:w-8/12 bg-[#D8D9DA] rounded-xl mx-auto shadow-lg overflow-hidden">
@@ -21,20 +24,25 @@ const LoginForm = ({ onLogin }) => {
           <PageHeading Title="Enter Your Credentials" />
           <form action="#">
             <FormField
-              name="username"
-              placeholder="Username"
+              name="Email"
+              placeholder="Email"
               required={true}
               type="text"
+              onChange={(e) => setEmail(e.target.value)}
             />
             <FormField
-              name="password"
+              name="Password"
               placeholder="Password"
               required={true}
               className="mt-4"
               type="Password"
+              onChange={(e) => setPassword(e.target.value)}
             />
           </form>
-          <FormButton onClick={onLogin} Title="LOGIN"></FormButton>
+          <FormButton
+            onClick={() => onLogin(Email, Password, Role)}
+            Title="LOGIN"
+          ></FormButton>
         </div>
       </div>
     </div>
