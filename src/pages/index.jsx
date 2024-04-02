@@ -50,7 +50,7 @@ const Pages = ({
           Brands={Brands}
         />
       )}
-      {View === "Events" && <Events />}
+      {View === "Events" && <Events onItemAdded={onItemAdded} />}
       {View === "Roles" && (
         <RolesAdd onItemAdded={onItemAdded} Modules={Modules} Roles={Roles} />
       )}

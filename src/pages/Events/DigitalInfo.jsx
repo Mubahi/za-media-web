@@ -2,7 +2,8 @@ import React from "react";
 import PageHeading from "../../components/PageHeadng";
 import Divider from "../../components/Divider";
 import FormField from "../../components/FormField";
-const DigitalInfo = () => {
+import FormButton from "../../components/FomButton";
+const DigitalInfo = ({ onItemAdded, Event }) => {
   return (
     <>
       <PageHeading Title="Digital Form" />
@@ -20,6 +21,11 @@ const DigitalInfo = () => {
         type="text"
       />
       <FormField name="event_email" placeholder="Event email" type="text" />
+      <FormButton
+        Title={"submit"}
+        name="save_btn"
+        onClick={() => onItemAdded("Event", Event)}
+      />
     </>
   );
 };

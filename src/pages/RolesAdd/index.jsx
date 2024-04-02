@@ -11,8 +11,8 @@ const RolesAdd = ({ Roles, Modules, onItemAdded }) => {
   };
   const onSavePerm = (perm) => {
     const role = { ...SelectedRole, permissions: perm };
-    // setSelectedRole(role);
-    // onItemAdded("role", role);
+    setSelectedRole(role);
+    onItemAdded("role", role);
     // setView("AddNew");
     console.log(role);
   };

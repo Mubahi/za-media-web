@@ -1,13 +1,20 @@
 import React from "react";
 import { useState } from "react";
-import Event from "./Event";
 import Organizer from "./Organizer";
 import Visitor from "./Visitor";
 import Parking from "./Parking";
 import DigitalInfo from "./DigitalInfo";
 import EventFlowButtons from "./compnent/EventFlowButtons";
-const AllEvents = () => {
+import Basic from "./Basic";
+const { v4: uuidv4 } = require("uuid");
+
+const AllEvents = ({ onItemAdded }) => {
   const [view, setView] = useState("Event");
+  const [Event, setEvent] = useState({ id: uuidv4() });
+  const handleChange = (e) => {
+    setEvent({ ...Event, [e.target.name]: e.target.value });
+  };
+  console.log(Event);
   return (
     <>
       <div className="pt-28 min-h-screen flex justify-center bg-white pb-10">
@@ -19,11 +26,19 @@ const AllEvents = () => {
             <EventFlowButtons view={setView} />
           </div>
           <div className="w-full md:w-5/6 ml-0 md:ml-5 my-5 md:my-10">
-            {view === "Event" && <Event view={setView} />}
-            {view === "Organizer" && <Organizer view={setView} />}
-            {view === "Visitor" && <Visitor view={setView} />}
-            {view === "Parking" && <Parking view={setView} />}
-            {view === "DigitalInfo" && <DigitalInfo view={setView} />}
+            {view === "Event" && (
+              <Basic view={setView} Event={Event} onChange={handleChange} />
+            )}
+            {view === "Organizer" && <Organizer view={setView} Event={Event} />}
+            {view === "Visitor" && <Visitor view={setView} Event={Event} />}
+            {view === "Parking" && <Parking view={setView} Event={Event} />}
+            {view === "DigitalInfo" && (
+              <DigitalInfo
+                view={setView}
+                onItemAdded={onItemAdded}
+                Event={Event}
+              />
+            )}
           </div>
         </div>
       </div>

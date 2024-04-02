@@ -119,6 +119,17 @@ export function App() {
         }
         break;
 
+      case "Event":
+        PK = "EVENTS#";
+        SK = `EVENTS#${item.id}`;
+        item_data = { ...item };
+        // resp = await saveData(PK, SK, item_data);
+        // if (resp.success) {
+        //   setUsers((prevItem) => [item, ...prevItem]);
+        // }
+        console.log(item_data, PK, SK);
+        break;
+
       default:
       //do nothing
     }

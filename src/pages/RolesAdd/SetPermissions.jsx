@@ -7,7 +7,6 @@ const SetPermissions = ({ Modules, View, SelectedRole, onSavePerm }) => {
   const [Perm, setPerm] = useState(
     SelectedRole.permission ? [...SelectedRole.permissions] : []
   );
-  const allPermName = ["add", "edit", "delete", "view"];
   const initializePermissions = () => {
     if (Modules && Modules.length) {
       const initialPermissions = Modules.reduce((permArray, module) => {
