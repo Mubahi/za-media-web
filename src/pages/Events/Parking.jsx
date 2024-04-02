@@ -2,7 +2,7 @@ import React from "react";
 import PageHeading from "../../components/PageHeadng";
 import Divider from "../../components/Divider";
 import FormField from "../../components/FormField";
-const Parking = () => {
+const Parking = ({ onChange, Event }) => {
   return (
     <>
       <PageHeading Title="Parking" />
@@ -12,6 +12,7 @@ const Parking = () => {
         placeholder="Parking slots"
         type="number"
         min="0"
+        onChange={(e) => onChange(e)}
       />
     </>
   );

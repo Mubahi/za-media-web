@@ -2,7 +2,7 @@ import React from "react";
 import Divider from "../../components/Divider";
 import PageHeading from "../../components/PageHeadng";
 import FormField from "../../components/FormField";
-const Visitor = () => {
+const Visitor = ({ onChange, Event }) => {
   return (
     <>
       <PageHeading Title="Visitors Info" />
@@ -12,12 +12,14 @@ const Visitor = () => {
         placeholder="Total visitors"
         type="number"
         min="0"
+        onChange={(e) => onChange(e)}
       />
       <FormField
         name="visitors_last_year"
         placeholder="visitors last year"
         type="number"
         min="0"
+        onChange={(e) => onChange(e)}
       />
     </>
   );
