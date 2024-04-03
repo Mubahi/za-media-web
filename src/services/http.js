@@ -25,6 +25,26 @@ axios.interceptors.request.use(
   }
 );
 
+axios.interceptors.response.use(
+  (response) => {
+    // Handle successful response
+    return response;
+  },
+  (error) => {
+    // Handle error
+    console.log(error);
+    const expectedErrors =
+      error.response &&
+      error.response.status >= 400 &&
+      error.response.status < 500;
+
+    if (!expectedErrors) {
+      alert("An unexpected error occurred!");
+    }
+    return Promise.reject(error);
+  }
+);
+
 export const getData = async (pk, sk, begin_with) => {
   try {
     const data = { pk, sk, begin_with };
@@ -53,4 +73,11 @@ export const saveData = async (PK, SK, item_data) => {
     console.error("Error saving data:", error);
     throw error;
   }
+};
+
+export default {
+  get: axios.get,
+  post: axios.post,
+  put: axios.put,
+  delete: axios.delete,
 };

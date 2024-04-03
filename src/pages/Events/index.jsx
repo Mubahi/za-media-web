@@ -42,7 +42,6 @@ const AllEvents = ({ onItemAdded }) => {
                 view={setView}
                 onItemAdded={onItemAdded}
                 Event={Event}
-                onChange={handleChange}
               />
             )}
           </div>
