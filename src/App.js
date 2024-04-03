@@ -170,6 +170,7 @@ export function App() {
   console.log(IsLoggedIn(), User, View);
   return (
     <>
+       {/* <LoadingComponent /> */}
       {View === "Loading" && <LoadingComponent />}
       {!IsLoggedIn() && <LoginForm onLogin={handleLogin} />}
       {View === "Pages" && IsLoggedIn() && (
