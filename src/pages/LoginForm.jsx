@@ -5,13 +5,28 @@ import { useEffect } from "react";
 import FormButton from "../components/FomButton";
 import FormField from "../components/FormField";
 import PageHeading from "../components/PageHeadng";
+import { loginUser } from "../services/auth";
 const LoginForm = ({ onLogin }) => {
   useEffect(() => {
     Aos.init({ duration: 1000 });
   });
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
-  const [Role, setRole] = useState("001");
+  const [Error, setError] = useState("");
+
+  const handleLogin = async () => {
+    const loginInfo = { user_email: Email, user_password: Password };
+
+    try {
+      const user = await loginUser(loginInfo);
+      // return console.log(user);
+      onLogin(user);
+    } catch (e) {
+      // console.log(e.message);
+      setError(e.message);
+    }
+  };
+
   return (
     <div className="container mx-auto flex justify-center items-center h-screen py-40 bg-slate-100">
       <div className="flex flex-col lg:flex-row w-10/12 lg:w-8/12 bg-[#D8D9DA] rounded-xl mx-auto shadow-lg overflow-hidden">
@@ -38,11 +53,9 @@ const LoginForm = ({ onLogin }) => {
               type="Password"
               onChange={(e) => setPassword(e.target.value)}
             />
+            {Error && <p className="text-red-500">{Error}</p>}
           </form>
-          <FormButton
-            onClick={() => onLogin(Email, Password, Role)}
-            Title="LOGIN"
-          ></FormButton>
+          <FormButton onClick={handleLogin} Title="LOGIN"></FormButton>
         </div>
       </div>
     </div>
