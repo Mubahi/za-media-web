@@ -40,9 +40,10 @@ const LoginForm = ({ onLogin }) => {
             />
           </form>
           <FormButton
+            width="100%"
             onClick={() => onLogin(Email, Password, Role)}
-            Title="LOGIN"
-          ></FormButton>
+            value="LOGIN"
+          />
         </div>
       </div>
     </div>

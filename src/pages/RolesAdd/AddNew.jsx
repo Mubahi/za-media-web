@@ -39,7 +39,11 @@ const AddNew = ({ Roles, onSetPerm, onItemAdded }) => {
                   setRole({ ...Role, [e.target.name]: e.target.value })
                 }
               />
-              <FormButton Title={"submit"} onClick={handleSubmit} />
+              <FormButton
+                width="100%"
+                value={"submit"}
+                onClick={handleSubmit}
+              />
             </form>
           </div>
         </div>
@@ -55,10 +59,10 @@ const AddNew = ({ Roles, onSetPerm, onItemAdded }) => {
             <tbody>
               {Roles.map((role, index) => (
                 <tr key={index}>
-                  <td className="border-b border-orange-500">
+                  <td className="border-b border-r border-orange-500">
                     {role.role_name}
                   </td>
-                  <td className="border-b border-orange-500">
+                  <td className="border-b border-r border-orange-500">
                     <button onClick={() => handleEdit(role)}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -72,7 +76,7 @@ const AddNew = ({ Roles, onSetPerm, onItemAdded }) => {
                       </svg>
                     </button>
                   </td>
-                  <td className="border-b border-orange-500">
+                  <td className="border-b border-r border-orange-500">
                     <button
                       onClick={() => onSetPerm(role)}
                       className="bg-orange-400 px-2 rounded-md hover:bg-orange-600 transition-all duration-300 pb-2 my-1 text-white font-bold"

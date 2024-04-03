@@ -16,7 +16,11 @@ const Basic = ({ onChange, Event }) => {
         onChange={(e) => onChange(e)}
       />
       {/* <FormField name="event_date" placeholder="mm/dd/yyyy" type="date" /> */}
-      <Date name={"event_date"} onChange={(e) => onChange(e)} />
+      <Date
+        name="event_date"
+        value="Event Date"
+        onChange={(e) => onChange(e)}
+      />
       <FormField
         name="event_days"
         placeholder="Event days"

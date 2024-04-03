@@ -16,6 +16,9 @@ const RolesAdd = ({ Roles, Modules, onItemAdded }) => {
     setView("AddNew");
     console.log(role);
   };
+  const backToRoles = () => {
+    setView("AddNew");
+  };
   return (
     <>
       {View === "AddNew" && (
@@ -33,6 +36,7 @@ const RolesAdd = ({ Roles, Modules, onItemAdded }) => {
           View={setView}
           onSavePerm={onSavePerm}
           SelectedRole={SelectedRole}
+          backToRoles={backToRoles}
         />
       )}
     </>

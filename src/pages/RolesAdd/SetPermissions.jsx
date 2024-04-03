@@ -3,7 +3,13 @@ import Divider from "../../components/Divider";
 import FormButton from "../../components/FomButton";
 import PageHeading from "../../components/PageHeadng";
 
-const SetPermissions = ({ Modules, View, SelectedRole, onSavePerm }) => {
+const SetPermissions = ({
+  Modules,
+  View,
+  SelectedRole,
+  onSavePerm,
+  backToRoles,
+}) => {
   const [Perm, setPerm] = useState(
     SelectedRole.permissions ? [...SelectedRole.permissions] : []
   );
@@ -142,7 +148,19 @@ const SetPermissions = ({ Modules, View, SelectedRole, onSavePerm }) => {
             })}
           </tbody>
         </table>
-        <FormButton Title="Save" onClick={() => onSavePerm(Perm)} />
+        <div className="flex justify-center items-center">
+          <button
+            onClick={() => backToRoles(backToRoles)}
+            className="border-2 border-orange-500 bg-orange-500 text-black py-1 rounded-md hover:bg-white hover:text-black hover:border-orange-600 transition duration-700 font-base font-bold mt-3 w-44 mr-2"
+          >
+            Cancel
+          </button>
+          <FormButton
+            width="200px"
+            value="Save"
+            onClick={() => onSavePerm(Perm)}
+          />
+        </div>
       </div>
     </div>
   );

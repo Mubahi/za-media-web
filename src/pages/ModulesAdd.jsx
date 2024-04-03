@@ -56,7 +56,7 @@ const ModulesAdd = ({ Modules, onItemAdded }) => {
               />
             </form>
 
-            <FormButton Title="Submit" />
+            <FormButton width="100%" value="Submit" />
           </div>
         </div>
         <div className="bg-[#D8D9DA] overflow-hidden ml-4 flex-1">
@@ -70,10 +70,10 @@ const ModulesAdd = ({ Modules, onItemAdded }) => {
             <tbody>
               {Modules.map((module, index) => (
                 <tr key={index}>
-                  <td className="border-b border-orange-500">
+                  <td className="border-b border-r border-orange-500">
                     {module.module_name}
                   </td>
-                  <td className="border-b border-orange-500">
+                  <td className="border-b border-r border-orange-500">
                     {module.module_title}
                   </td>
                 </tr>

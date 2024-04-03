@@ -4,10 +4,10 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Homescreen from "../pages/Homescreen";
 import ShopData from "../ShopData/ShopData";
-import Users from "./Users";
 import Events from "./Events";
 import ModulesAdd from "./ModulesAdd";
 import RolesAdd from "./RolesAdd";
+import Users from "./users";
 const Pages = ({
   Shops,
   Countries,
@@ -57,7 +57,7 @@ const Pages = ({
       {View === "ModulesAdd" && (
         <ModulesAdd Modules={Modules} onItemAdded={onItemAdded} />
       )}
-      {View === "Users" && <Users onClick={Users} onItemAdded={onItemAdded} />}
+      {View === "Users" && <Users />}
       <Footer />
     </>
   );
