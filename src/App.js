@@ -170,8 +170,8 @@ export function App() {
 
   return (
     <>
-      {/* <LoadingComponent /> */}
-      {View === "Loading" && <LoadingComponent />}
+      <LoadingComponent />
+      {/* {View === "Loading" && <LoadingComponent />}
       {!IsLoggedIn() && <LoginForm onLogin={handleLogin} />}
       {View === "Pages" && IsLoggedIn() && (
         <Pages
@@ -185,7 +185,7 @@ export function App() {
           Modules={Modules}
           Roles={Roles}
         />
-      )}
+      )} */}
       <ToastContainer />
     </>
   );

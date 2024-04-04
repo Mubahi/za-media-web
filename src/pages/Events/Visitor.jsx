@@ -12,6 +12,7 @@ const Visitor = ({ onChange, Event }) => {
         placeholder="Total visitors"
         type="number"
         min="0"
+        value={Event.total_visitors}
         onChange={(e) => onChange(e)}
       />
       <FormField
@@ -19,6 +20,7 @@ const Visitor = ({ onChange, Event }) => {
         placeholder="visitors last year"
         type="number"
         min="0"
+        value={Event.visitors_last_year}
         onChange={(e) => onChange(e)}
       />
     </>

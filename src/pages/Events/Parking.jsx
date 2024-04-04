@@ -12,6 +12,7 @@ const Parking = ({ onChange, Event }) => {
         placeholder="Parking slots"
         type="number"
         min="0"
+        value={Event.parking_slots}
         onChange={(e) => onChange(e)}
       />
     </>

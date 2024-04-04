@@ -18,7 +18,7 @@ const Basic = ({ onChange, Event }) => {
       {/* <FormField name="event_date" placeholder="mm/dd/yyyy" type="date" /> */}
       <Date
         name="event_date"
-        value="Event Date"
+        value={Event.event_date}
         onChange={(e) => onChange(e)}
       />
       <FormField
@@ -26,6 +26,7 @@ const Basic = ({ onChange, Event }) => {
         placeholder="Event days"
         type="number"
         min="1"
+        value={Event.event_days}
         onChange={(e) => onChange(e)}
       />
       <FormField
@@ -33,6 +34,7 @@ const Basic = ({ onChange, Event }) => {
         placeholder="Event starting hour"
         type="number"
         min="0"
+        value={Event.event_starting_hour}
         onChange={(e) => onChange(e)}
       />
       <FormField
@@ -40,6 +42,7 @@ const Basic = ({ onChange, Event }) => {
         placeholder="Event closing hour"
         type="number"
         min="0"
+        value={Event.event_closing_hour}
         onChange={(e) => onChange(e)}
       />
     </>

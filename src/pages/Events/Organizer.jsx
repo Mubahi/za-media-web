@@ -12,12 +12,14 @@ const Organizer = ({ onChange, Event }) => {
         name="organizer_name"
         placeholder="Organizer name"
         type="text"
+        value={Event.organizer_name}
         onChange={(e) => onChange(e)}
       />
       <FormField
         name="organizer_nationality"
         placeholder="Organizer nationality"
         type="text"
+        value={Event.organizer_nationality}
         onChange={(e) => onChange(e)}
       />
       <FormField
@@ -25,6 +27,7 @@ const Organizer = ({ onChange, Event }) => {
         placeholder="Organizer phone"
         type="number"
         min="0"
+        value={Event.organizer_phone}
         onChange={(e) => onChange(e)}
       />
       <FormField
@@ -32,6 +35,7 @@ const Organizer = ({ onChange, Event }) => {
         placeholder="Organizer whatsapp"
         type="number"
         min="0"
+        value={Event.organizer_whatsapp}
         onChange={(e) => onChange(e)}
       />
     </>
