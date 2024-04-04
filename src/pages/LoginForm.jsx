@@ -55,7 +55,11 @@ const LoginForm = ({ onLogin }) => {
             />
             {Error && <p className="text-red-500">{Error}</p>}
           </form>
-          <FormButton onClick={handleLogin} value="LOGIN"></FormButton>
+          <FormButton
+            width="100%"
+            onClick={handleLogin}
+            value="LOGIN"
+          ></FormButton>
         </div>
       </div>
     </div>

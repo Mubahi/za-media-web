@@ -29,7 +29,7 @@ const ModulesAdd = ({ Modules, onItemAdded }) => {
       >
         <div className="flex-1 border-r border-orange-500 pr-5">
           <div>
-            <PageHeading Title="Modules" />
+            <PageHeading Title="Module" />
             <Divider />
             <form className="flex flex-col">
               <FormField

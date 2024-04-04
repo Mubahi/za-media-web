@@ -18,10 +18,10 @@ const UsersAdd = ({ onInfoEdit }) => {
         className="bg-[#D8D9DA] p-8 rounded-md shadow-lg w-4/5 flex flex-col md:flex-row"
       >
         <div className="flex-1 border-r border-orange-500 pr-5">
-          <PageHeading Title="Users Add" />
+          <PageHeading Title="User" />
           <Divider />
           <form className="flex flex-col">
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between">
               <FormField
                 name="user_fullname"
                 placeholder="Fullname"
@@ -44,8 +44,8 @@ const UsersAdd = ({ onInfoEdit }) => {
               <tr>
                 <th className="border-b border-orange-500">Full Name</th>
                 <th className="border-b border-orange-500">Email</th>
-                <th className="border-b border-orange-500">Roles</th>
-                <th className="border-b border-orange-500">Edit User</th>
+                <th className="border-b border-orange-500">Role</th>
+                <th className="border-b border-orange-500">User Info</th>
               </tr>
             </thead>
             <tbody className="border border-orange-500">

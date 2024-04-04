@@ -11,10 +11,15 @@ const Users = () => {
   const goToUserAdd = () => {
     setView("UsersAdd");
   };
+  const backToUser = () => {
+    setView("UsersAdd");
+  };
   return (
     <>
       {View === "UsersAdd" && <UsersAdd onInfoEdit={onInfoEdit} />}
-      {View === "UserInfo" && <UserInfo goToUserAdd={goToUserAdd} />}
+      {View === "UserInfo" && (
+        <UserInfo goToUserAdd={goToUserAdd} backToUser={backToUser} />
+      )}
     </>
   );
 };

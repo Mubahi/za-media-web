@@ -28,7 +28,7 @@ const AddNew = ({ Roles, onSetPerm, onItemAdded }) => {
       >
         <div className="flex-1 border-r border-orange-500 pr-5">
           <div>
-            <PageHeading Title="Roles" />
+            <PageHeading Title="Role" />
             <Divider />
             <form className="flex flex-col">
               <FormField
