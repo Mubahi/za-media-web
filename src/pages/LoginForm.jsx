@@ -55,10 +55,7 @@ const LoginForm = ({ onLogin }) => {
             />
             {Error && <p className="text-red-500">{Error}</p>}
           </form>
-          <FormButton
-            onClick={() => onLogin(Email, Password, Role)}
-            Title="LOGIN"
-          ></FormButton>
+          <FormButton onClick={handleLogin} value="LOGIN"></FormButton>
         </div>
       </div>
     </div>

@@ -164,13 +164,13 @@ export function App() {
   };
 
   const handleLogout = () => {
-    setView("LoginForm");
+    localStorage.removeItem("zm_user");
+    window.location.reload();
   };
 
-  console.log(IsLoggedIn(), User, View);
   return (
     <>
-       {/* <LoadingComponent /> */}
+      {/* <LoadingComponent /> */}
       {View === "Loading" && <LoadingComponent />}
       {!IsLoggedIn() && <LoginForm onLogin={handleLogin} />}
       {View === "Pages" && IsLoggedIn() && (
