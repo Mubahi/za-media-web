@@ -7,7 +7,7 @@ import ShopData from "../ShopData/ShopData";
 import Events from "./Events";
 import ModulesAdd from "./ModulesAdd";
 import RolesAdd from "./RolesAdd";
-import Users from "./users";
+import UserAdd from "./UserAdd";
 const Pages = ({
   Shops,
   Countries,
@@ -18,6 +18,7 @@ const Pages = ({
   Modules,
   Roles,
   onItemAdded,
+  Users,
 }) => {
   const [View, setView] = useState("Home");
   const [Shop, setShop] = useState([]);
@@ -51,13 +52,13 @@ const Pages = ({
         />
       )}
       {View === "Events" && <Events onItemAdded={onItemAdded} />}
+      {View === "Users" && <UserAdd Users={Users} />}
       {View === "Roles" && (
         <RolesAdd onItemAdded={onItemAdded} Modules={Modules} Roles={Roles} />
       )}
       {View === "ModulesAdd" && (
         <ModulesAdd Modules={Modules} onItemAdded={onItemAdded} />
       )}
-      {View === "Users" && <Users />}
       <Footer />
     </>
   );

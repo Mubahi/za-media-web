@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-import UsersAdd from "./UsersAdd";
 import UserInfo from "./UserInfo";
-const Users = () => {
+import AddNew from "./AddNew";
+const UserAdd = ({ Users }) => {
   const [View, setView] = useState("UsersAdd");
   const onInfoEdit = () => {
     console.log("chane");
@@ -16,11 +16,11 @@ const Users = () => {
   };
   return (
     <>
-      {View === "UsersAdd" && <UsersAdd onInfoEdit={onInfoEdit} />}
+      {View === "UsersAdd" && <AddNew onInfoEdit={onInfoEdit} Users={Users} />}
       {View === "UserInfo" && (
         <UserInfo goToUserAdd={goToUserAdd} backToUser={backToUser} />
       )}
     </>
   );
 };
-export default Users;
+export default UserAdd;

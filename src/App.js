@@ -184,6 +184,7 @@ export function App() {
           onLogout={handleLogout}
           Modules={Modules}
           Roles={Roles}
+          Users={Users}
         />
       )}
       <ToastContainer />

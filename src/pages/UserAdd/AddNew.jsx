@@ -7,7 +7,7 @@ import FormButton from "../../components/FomButton";
 import FormField from "../../components/FormField";
 import Dropdown from "../../components/Dropdown";
 
-const UsersAdd = ({ onInfoEdit }) => {
+const AddNew = ({ onInfoEdit }) => {
   useEffect(() => {
     Aos.init({ duration: 2000 });
   }, []);
@@ -82,4 +82,4 @@ const UsersAdd = ({ onInfoEdit }) => {
   );
 };
 
-export default UsersAdd;
+export default AddNew;
