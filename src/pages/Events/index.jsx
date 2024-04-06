@@ -6,6 +6,8 @@ import Parking from "./Parking";
 import DigitalInfo from "./DigitalInfo";
 import EventFlowButtons from "./compnent/EventFlowButtons";
 import Basic from "./Basic";
+import Videos from "./Videos";
+import EventVideos from "./Videos";
 const { v4: uuidv4 } = require("uuid");
 
 const AllEvents = ({ onItemAdded }) => {
@@ -44,6 +46,9 @@ const AllEvents = ({ onItemAdded }) => {
                 onItemAdded={onItemAdded}
                 Event={Event}
               />
+            )}
+            {view === "EventVideos" && (
+              <EventVideos view={setView} Event={Event} />
             )}
           </div>
         </div>
