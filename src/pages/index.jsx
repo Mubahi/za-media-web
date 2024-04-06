@@ -52,7 +52,9 @@ const Pages = ({
         />
       )}
       {View === "Events" && <Events onItemAdded={onItemAdded} />}
-      {View === "Users" && <UserAdd Users={Users} />}
+      {View === "Users" && (
+        <UserAdd Users={Users} Roles={Roles} onItemAdded={onItemAdded} />
+      )}
       {View === "Roles" && (
         <RolesAdd onItemAdded={onItemAdded} Modules={Modules} Roles={Roles} />
       )}
