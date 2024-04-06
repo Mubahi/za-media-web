@@ -4,9 +4,10 @@ import UserInfo from "./UserInfo";
 import AddNew from "./AddNew";
 const UserAdd = ({ Users, Roles, onItemAdded }) => {
   const [View, setView] = useState("UsersAdd");
-
-  const onInfoEdit = () => {
-    console.log("chane");
+  const [SelectedUser, setSelectedUser] = useState({});
+  const onInfoEdit = (user) => {
+    console.log("change");
+    setSelectedUser(user);
     setView("UserInfo");
   };
   const goToUserAdd = () => {
@@ -15,6 +16,15 @@ const UserAdd = ({ Users, Roles, onItemAdded }) => {
   const backToUser = () => {
     setView("UsersAdd");
   };
+  const handleInfoChange = (name, value) => {
+    setSelectedUser({ ...SelectedUser, [name]: value });
+    console.log(SelectedUser);
+  };
+  const handleSave = () => {
+    onItemAdded("user", SelectedUser);
+  };
+  console.log(SelectedUser);
+
   return (
     <>
       {View === "UsersAdd" && (
@@ -27,9 +37,13 @@ const UserAdd = ({ Users, Roles, onItemAdded }) => {
       )}
       {View === "UserInfo" && (
         <UserInfo
+          Roles={Roles}
           goToUserAdd={goToUserAdd}
           backToUser={backToUser}
           onItemAdded={onItemAdded}
+          SelectedUser={SelectedUser}
+          onInfoChange={handleInfoChange}
+          onSave={handleSave}
         />
       )}
     </>

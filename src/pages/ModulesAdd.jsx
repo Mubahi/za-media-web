@@ -19,8 +19,6 @@ const ModulesAdd = ({ Modules, onItemAdded }) => {
     setCurrentModule({ ...CurrentModule, module_id: uuidv4() });
   };
   const [CurrentModule, setCurrentModule] = useState({ module_id });
-  console.log(CurrentModule);
-  console.log(Modules);
   return (
     <div className="min-h-screen flex justify-center items-center">
       <div
@@ -56,7 +54,7 @@ const ModulesAdd = ({ Modules, onItemAdded }) => {
               />
             </form>
 
-            <FormButton width="100%" value="Submit" />
+            <FormButton width="100%" value="Submit" onClick={handleSubmit} />
           </div>
         </div>
         <div className="bg-[#D8D9DA] overflow-hidden ml-4 flex-1">

@@ -57,9 +57,11 @@ export function App() {
   };
 
   useEffect(() => {
-    if (User) {
-      setView("Loading");
-      fetchData();
+    if (View === "LoginForm") {
+      if (User) {
+        setView("Loading");
+        fetchData();
+      }
     }
 
     // fetchData();
@@ -69,30 +71,30 @@ export function App() {
     // setItems((prevItems) => [...prevItems, item]);
     let PK, SK, item_data, resp;
     switch (type) {
-      case "users":
-        PK = "USERS#";
-        SK = `USERS#${item.id}`;
-        item_data = { ...item };
-        console.log(resp);
+      case "user":
         try {
+          PK = "USERS#";
+          SK = `USERS#${item.user_email}`;
+          item_data = { ...item };
           resp = await saveData(PK, SK, item_data);
           if (resp.success) {
-            let users = [...Users];
-            if (item.user_id) {
-              const found = users.find((user) => user.user_id === item.user_id);
-              const index = users.indexOf(found);
-              users[index] = item;
-              console.log("old");
+            const founduser = Users.find(
+              (user) => user.user_id === item.user_id
+            );
+            const index = Users.indexOf(founduser);
+            if (founduser) {
+              Users[index] = item;
+              toast.success("User is edited.");
             } else {
-              users = [resp.data, ...users];
-              console.log("new");
+              setUsers((prevItem) => [item, ...prevItem]);
+              toast.success("User is saved.");
             }
-
-            setUsers(users);
+            console.log(founduser, index);
           }
           console.log(resp);
         } catch (e) {
-          console.log(e);
+          console.log(e.message);
+          toast.error(e.message);
         }
         break;
 
@@ -108,17 +110,20 @@ export function App() {
             if (item.role_id) {
               const found = roles.find((role) => role.role_id === item.role_id);
               const index = roles.indexOf(found);
-              roles[index] = item;
-              console.log("old");
+              roles[index] = resp.data;
+              console.log(index);
+              toast.success("Role Edited successfully!");
             } else {
-              roles = [resp.data, ...roles];
+              roles = [...roles, resp.data];
               console.log("new");
+              toast.success("Role added successfully!");
             }
 
             setRoles(roles);
           }
           console.log(resp);
         } catch (e) {
+          toast.success(e.message);
           console.log(e);
         }
         break;

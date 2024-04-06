@@ -5,7 +5,7 @@ import PageHeading from "../../components/PageHeadng";
 import Divider from "../../components/Divider";
 import FormButton from "../../components/FomButton";
 import FormField from "../../components/FormField";
-import Dropdown from "../../components/Dropdown";
+import SelectField from "../../components/SelectField";
 const { v4: uuidv4 } = require("uuid");
 
 const AddNew = ({ onInfoEdit, Users, Roles, onchange, onItemAdded }) => {
@@ -13,19 +13,18 @@ const AddNew = ({ onInfoEdit, Users, Roles, onchange, onItemAdded }) => {
     Aos.init({ duration: 2000 });
   }, []);
   const user_id = uuidv4();
-  const [User, setUser] = useState({ user_id });
+  const [user, setUser] = useState({ user_id });
   const GetRoleName = (id) => {
     const foundRole = Roles.find((role) => role.role_id === id);
     return foundRole ? foundRole.role_name : "";
-    console.log("User");
   };
-  console.log(User);
+  console.log(user);
   const handleUserAdd = () => {
-    if (User.role_name) {
-      if (User.role_id) {
-        onItemAdded("user", User);
-      }
+    if (user.role_id || user.user_email) {
+      onItemAdded("user", user);
       setUser({ user_id });
+    } else {
+      alert("Please fill out all fields!");
     }
   };
   return (
@@ -43,8 +42,9 @@ const AddNew = ({ onInfoEdit, Users, Roles, onchange, onItemAdded }) => {
                 name="user_fullname"
                 placeholder="Fullname"
                 type="text"
+                value={user.user_fullname}
                 onChange={(e) =>
-                  setUser({ ...User, [e.target.name]: e.target.value })
+                  setUser({ ...user, [e.target.name]: e.target.value })
                 }
               />
               <FormField
@@ -52,7 +52,7 @@ const AddNew = ({ onInfoEdit, Users, Roles, onchange, onItemAdded }) => {
                 placeholder="Password"
                 type="password"
                 onChange={(e) =>
-                  setUser({ ...User, [e.target.name]: e.target.value })
+                  setUser({ ...user, [e.target.name]: e.target.value })
                 }
               />
             </div>
@@ -61,12 +61,20 @@ const AddNew = ({ onInfoEdit, Users, Roles, onchange, onItemAdded }) => {
               placeholder="Email"
               type="text"
               onChange={(e) =>
-                setUser({ ...User, [e.target.name]: e.target.value })
+                setUser({ ...user, [e.target.name]: e.target.value })
               }
             />
-            <Dropdown />
-            <FormButton width="100%" value="Submit" onClick={handleUserAdd} />
+            <SelectField
+              options={Roles}
+              valueKey={"role_id"}
+              labelKey={"role_name"}
+              name={"role_id"}
+              onChange={(e) =>
+                setUser({ ...user, [e.target.name]: e.target.value })
+              }
+            />
           </form>
+          <FormButton width="100%" value="Submit" onClick={handleUserAdd} />
         </div>
         <div className="bg-[#D8D9DA] overflow-hidden ml-4 flex-1">
           <table className="w-full text-center border border-orange-500">
@@ -91,7 +99,10 @@ const AddNew = ({ onInfoEdit, Users, Roles, onchange, onItemAdded }) => {
                     {GetRoleName(User.role_id)}
                   </td>
                   <td className="border-b border-r px-1 border-orange-500">
-                    <button onClick={onInfoEdit} className="px-2 my-1">
+                    <button
+                      onClick={() => onInfoEdit(User)}
+                      className="px-2 my-1"
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"

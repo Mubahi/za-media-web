@@ -18,7 +18,6 @@ const AddNew = ({ Roles, onSetPerm, onItemAdded }) => {
   const handleEdit = (role) => {
     setRole(role);
   };
-  console.log(Role);
 
   return (
     <div className="min-h-screen flex justify-center items-center">
