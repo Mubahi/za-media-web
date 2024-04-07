@@ -4,7 +4,7 @@ const AllEvents = ({ Events }) => {
   return (
     <div>
       <div className="overflow-x-auto shadow-md min-h-screen pt-8">
-        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-10">
           <thead className="text-center text-xs text-gray-700 uppercase bg-orange-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th key="Address" scope="col" className="px-6 py-3">
@@ -15,6 +15,9 @@ const AllEvents = ({ Events }) => {
               </th>
               <th key="EventDays" scope="col" className="px-6 py-3">
                 Event date
+              </th>
+              <th key="EventDays" scope="col" className="px-6 py-3">
+                Event Days
               </th>
               <th key="EventStartingHours" scope="col" className="px-6 py-3">
                 Event Starting Hours
