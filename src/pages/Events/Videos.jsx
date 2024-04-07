@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PageHeading from "../../components/PageHeadng";
 import Divider from "../../components/Divider";
 import VideoUrl from "./compnent/VideoUrl";
-const EventVideos = () => {
+const EventVideos = ({ onUrlAdd, onUrlRemove, Event }) => {
   return (
     <>
       <PageHeading Title="Video" />
@@ -22,6 +22,33 @@ const EventVideos = () => {
             </tr>
           </thead>
           <tbody className="border border-orange-500">
+            {Event.event_videos.map(function (video, index) {
+              return (
+                <tr key={index}>
+                  <td className="border-b border-r px-1 border-orange-500">
+                    {{ video }}
+                  </td>
+                  <td className="border-b border-r px-1 border-orange-500">
+                    <button
+                      onClick={() => onUrlRemove(index)}
+                      className="px-2 my-1"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        fill="currentColor"
+                        className="bi bi-dash-circle-fill bg-white text-orange-500 hover:text-white hover:bg-orange-500 hover:border-2 hover:border-orange-500 rounded-full transition-colors duration-700"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1z" />
+                      </svg>
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
+
             <tr>
               <td className="border-b border-r px-1 border-orange-500">
                 https://www.google.com.pk/

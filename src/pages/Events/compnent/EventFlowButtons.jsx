@@ -51,16 +51,6 @@ const EventFlowButtons = ({ view }) => {
         Parking
       </button>{" "}
       <button
-        onClick={() => handleClick("DigitalInfo")}
-        className={`font-bold px-1 py-1  focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50 transition-colors duration-300 ${
-          selectedButton === "DigitalInfo"
-            ? "bg-orange-500  text-white"
-            : " text-black border-orange-500 hover:bg-orange-200"
-        } `}
-      >
-        Digital
-      </button>
-      <button
         onClick={() => handleClick("EventVideos")}
         className={`font-bold px-1 py-1  focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50 transition-colors duration-300 ${
           selectedButton === "EventVideos"
@@ -69,6 +59,16 @@ const EventFlowButtons = ({ view }) => {
         } `}
       >
         Video
+      </button>
+      <button
+        onClick={() => handleClick("DigitalInfo")}
+        className={`font-bold px-1 py-1  focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50 transition-colors duration-300 ${
+          selectedButton === "DigitalInfo"
+            ? "bg-orange-500  text-white"
+            : " text-black border-orange-500 hover:bg-orange-200"
+        } `}
+      >
+        Digital
       </button>
     </div>
   );

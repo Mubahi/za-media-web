@@ -10,7 +10,6 @@ const FetchData = async () => {
   sk = "COUNTRIES#";
   begin_with = true;
   resp = await getData(pk, sk, begin_with);
-  // setCountries(resp.Items);
   data.countries = resp.Items;
 
   // cities data
@@ -20,7 +19,6 @@ const FetchData = async () => {
   sk = "SHOPS#";
   begin_with = true;
   resp = await getData(pk, sk, begin_with);
-  // setAllShops(resp.Items);
   data.shops = resp.Items;
 
   // shops categories data
@@ -28,7 +26,6 @@ const FetchData = async () => {
   sk = "SHOPCATEGORIES#";
   begin_with = true;
   resp = await getData(pk, sk, begin_with);
-  // setShopCategories(resp.Items);
   data.shopcategories = resp.Items;
 
   // Brands data
@@ -36,7 +33,6 @@ const FetchData = async () => {
   sk = "BRANDS#";
   begin_with = true;
   resp = await getData(pk, sk, begin_with);
-  // setBrands(resp.Items);
   data.brands = resp.Items;
 
   // Areas data
@@ -44,7 +40,6 @@ const FetchData = async () => {
   sk = "AREAS#";
   begin_with = true;
   resp = await getData(pk, sk, begin_with);
-  // setAreas(resp.Items);
   data.areas = resp.Items;
 
   // Roles data
@@ -52,7 +47,6 @@ const FetchData = async () => {
   sk = "ROLES#";
   begin_with = true;
   resp = await getData(pk, sk, begin_with);
-  // setRoles(resp.Items);
   data.roles = resp.Items;
 
   // Users data
@@ -60,7 +54,6 @@ const FetchData = async () => {
   sk = "USERS#";
   begin_with = true;
   resp = await getData(pk, sk, begin_with);
-  // setUsers(resp.Items);
   data.users = resp.Items;
 
   // Modules data
@@ -68,8 +61,14 @@ const FetchData = async () => {
   sk = "MODULES#";
   begin_with = true;
   resp = await getData(pk, sk, begin_with);
-  // setModules(resp.Items);
   data.modules = resp.Items;
+
+  // Modules data
+  pk = "EVENTS#";
+  sk = "EVENTS#";
+  begin_with = true;
+  resp = await getData(pk, sk, begin_with);
+  data.events = resp.Items;
 
   return data;
 };

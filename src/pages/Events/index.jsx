@@ -12,11 +12,22 @@ const { v4: uuidv4 } = require("uuid");
 
 const AllEvents = ({ onItemAdded }) => {
   const [view, setView] = useState("Event");
-  const [Event, setEvent] = useState({ id: uuidv4() });
+  const event_id = uuidv4();
+  const [Event, setEvent] = useState({ event_id });
   const handleChange = (e) => {
     setEvent({ ...Event, [e.target.name]: e.target.value });
   };
   console.log(Event);
+  const handleUrlAdd = (Url) => {
+    let newVids = [...Event.event_videos];
+    newVids.push(Url);
+    setEvent({ ...Event, event_videos: newVids });
+  };
+  const handleUrlRemove = (index) => {
+    let newVids = [...Event.event_videos];
+    newVids.remove(index);
+    setEvent({ ...Event, event_videos: newVids });
+  };
   return (
     <>
       <div className="pt-28 min-h-screen flex justify-center bg-white pb-10">
@@ -48,7 +59,12 @@ const AllEvents = ({ onItemAdded }) => {
               />
             )}
             {view === "EventVideos" && (
-              <EventVideos view={setView} Event={Event} />
+              <EventVideos
+                view={setView}
+                Event={Event}
+                onUrlAdd={handleUrlAdd}
+                onUrlRemove={handleUrlRemove}
+              />
             )}
           </div>
         </div>

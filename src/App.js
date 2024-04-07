@@ -24,6 +24,7 @@ export function App() {
   const [Users, setUsers] = useLocalStorage("zm_users", []);
   const [User, setUser] = useLocalStorage("zm_user");
   const [Modules, setModules] = useLocalStorage("zm_module", []);
+  const [Events, setEvents] = useLocalStorage("zm_events", []);
 
   const fetchData = async () => {
     try {
@@ -36,6 +37,7 @@ export function App() {
         roles,
         users,
         modules,
+        events,
       } = await FetchData();
 
       setCountries(countries);
@@ -46,6 +48,7 @@ export function App() {
       setRoles(roles);
       setUsers(users);
       setModules(modules);
+      setEvents(events);
 
       // Data loaded successfully, set isLoading to false
       setView("Pages");
@@ -145,14 +148,29 @@ export function App() {
         break;
 
       case "Event":
-        PK = "EVENTS#";
-        SK = `EVENTS#${item.id}`;
-        item_data = { ...item };
-        // resp = await saveData(PK, SK, item_data);
-        // if (resp.success) {
-        //   setUsers((prevItem) => [item, ...prevItem]);
-        // }
-        console.log(item_data, PK, SK);
+        try {
+          PK = "EVENTS#";
+          SK = `EVENTS#${item.event_id}`;
+          item_data = { ...item };
+          resp = await saveData(PK, SK, item_data);
+          if (resp.success) {
+            const found_event = Events.find(
+              (event) => event.event_id === item.event_id
+            );
+            const index = Events.indexOf(found_event);
+            if (found_event) {
+              Events[index] = item;
+              toast.success("Event Saved : ");
+            } else {
+              Events.push(item);
+              toast.success("Event Saved : ");
+            }
+          }
+          console.log(item_data, PK, SK);
+        } catch (e) {
+          toast.error(e.message);
+          console.log(e);
+        }
         break;
 
       default:
