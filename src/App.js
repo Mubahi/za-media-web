@@ -170,10 +170,10 @@ export function App() {
 
   return (
     <>
-      <LoadingComponent />
-      {/* {View === "Loading" && <LoadingComponent />}
-      {!IsLoggedIn() && <LoginForm onLogin={handleLogin} />}
-      {View === "Pages" && IsLoggedIn() && (
+      {/* <LoadingComponent /> */}
+      {View === "Loading" && <LoadingComponent />}
+       {!IsLoggedIn() && <LoginForm onLogin={handleLogin} />}
+       {View === "Pages" && IsLoggedIn() && (
         <Pages
           Shops={AllShops}
           Countries={Countries}
@@ -185,7 +185,7 @@ export function App() {
           Modules={Modules}
           Roles={Roles}
         />
-      )} */}
+      )}
       <ToastContainer />
     </>
   );
