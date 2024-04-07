@@ -86,7 +86,7 @@ const UserInfo = ({
               <div className="flex justify-center items-center">
                 <button
                   onClick={() => backToUser(backToUser)}
-                  className="border-2 border-orange-500 bg-orange-500 text-black py-1 rounded-md hover:bg-white hover:text-black hover:border-orange-600 transition duration-700 font-base font-bold mt-3 w-44 mr-2"
+                  className="border-2 border-orange-500 bg-orange-500 text-white py-1 rounded-md hover:bg-orange-600 hover:border-orange-600 transition duration-700 font-base font-bold mt-3 w-44 mr-2"
                 >
                   Back
                 </button>
