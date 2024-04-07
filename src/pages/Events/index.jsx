@@ -10,7 +10,7 @@ import Videos from "./Videos";
 import EventVideos from "./Videos";
 const { v4: uuidv4 } = require("uuid");
 
-const AllEvents = ({ onItemAdded }) => {
+const EventsForm = ({ onItemAdded }) => {
   const [view, setView] = useState("Event");
   const event_id = uuidv4();
   const [Event, setEvent] = useState({ event_id });
@@ -72,4 +72,4 @@ const AllEvents = ({ onItemAdded }) => {
     </>
   );
 };
-export default AllEvents;
+export default EventsForm;

@@ -8,6 +8,7 @@ import Events from "./Events";
 import ModulesAdd from "./ModulesAdd";
 import RolesAdd from "./RolesAdd";
 import UserAdd from "./UserAdd";
+import AllEvents from "./Events/AllEvents/AllEvents";
 const Pages = ({
   Shops,
   Countries,
@@ -19,6 +20,7 @@ const Pages = ({
   Roles,
   onItemAdded,
   Users,
+  Events,
 }) => {
   const [View, setView] = useState("Home");
   const [Shop, setShop] = useState([]);
@@ -42,6 +44,7 @@ const Pages = ({
       {View === "ShopData" && (
         <ShopData shop={Shop} Countries={Countries} Areas={Areas} />
       )}
+      {View === "AllEvents" && <AllEvents Events={Events} />}
       {View === "AllShops" && (
         <AllShops
           Shops={Shops}

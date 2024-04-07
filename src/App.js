@@ -208,6 +208,7 @@ export function App() {
           Modules={Modules}
           Roles={Roles}
           Users={Users}
+          Events={Events}
         />
       )}
       <ToastContainer />

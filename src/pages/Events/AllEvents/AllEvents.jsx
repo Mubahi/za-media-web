@@ -1,11 +1,15 @@
 import React from "react";
-const AllEvents = ({ Event }) => {
+import EventRow from "./EventRow";
+const AllEvents = ({ Events }) => {
   return (
     <div>
       <div className="overflow-x-auto shadow-md min-h-screen pt-8">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead className="text-center text-xs text-gray-700 uppercase bg-orange-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
+              <th key="Address" scope="col" className="px-6 py-3">
+                Event index
+              </th>
               <th key="Address" scope="col" className="px-6 py-3">
                 Address
               </th>
@@ -57,11 +61,13 @@ const AllEvents = ({ Event }) => {
             </tr>
           </thead>
           <tbody>
-            {Event.map(function (events) {
+            {Events.map(function (event, index) {
               // Pass shop data as props to ShopRow
               return (
-                <ShopRow
-                  key={events.event_id}
+                <EventRow
+                  key={event.event_id}
+                  event={event}
+                  index={index}
                   //   shop={shop}
                   //   Countries={Countries}
                   //   Areas={Areas}
