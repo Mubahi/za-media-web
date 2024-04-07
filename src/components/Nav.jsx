@@ -140,7 +140,7 @@ const Nav = ({ setActive, View, onLogout }) => {
                     }}
                     className=" pb-1 px-4 flex items-center hover:bg-gray-400 hover:rounded-md hover:text-white w-full text-left"
                   >
-                    Users
+                    User
                   </button>
                 </li>
                 <li>
@@ -151,7 +151,7 @@ const Nav = ({ setActive, View, onLogout }) => {
                     }}
                     className="pb-1 flex items-center px-4 hover:bg-gray-400 hover:rounded-md hover:text-white w-full text-left"
                   >
-                    Roles
+                    Role
                   </button>
                 </li>
                 <li>
@@ -162,7 +162,7 @@ const Nav = ({ setActive, View, onLogout }) => {
                     }}
                     className="pb-1 flex items-center px-4 hover:bg-gray-400 hover:rounded-md hover:text-white w-full text-left"
                   >
-                    Modules
+                    Module
                   </button>
                 </li>
               </ul>
@@ -170,14 +170,14 @@ const Nav = ({ setActive, View, onLogout }) => {
           )}
           <button
             onClick={onLogout}
-            className="  py-1 px-1 w-full md:w-auto rounded-full bg-[#FF7D31] hover:bg-orange-300 outline-none font-base font-bold transition duration-500 ease-in-out"
+            className="  py-1 px-1 w-full md:w-auto rounded-full outline-none font-base font-bold transition duration-500 ease-in-out"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
+              width="22"
+              height="22"
               fill="currentColor"
-              className="bi bi-box-arrow-left text-white"
+              className="bi bi-box-arrow-left text-[#FF7D31] hover:text-orange-300 transition-colors duration-700"
               viewBox="0 0 16 16"
             >
               <path

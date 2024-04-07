@@ -47,7 +47,8 @@ const DigitalInfo = ({ onItemAdded, Event }) => {
         onChange={HandleChange}
       />
       <FormButton
-        Title={"submit"}
+        width="200px"
+        value={"submit"}
         name="save_btn"
         onClick={() => onItemAdded("Event", Event)}
       />

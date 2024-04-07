@@ -18,7 +18,6 @@ const AddNew = ({ Roles, onSetPerm, onItemAdded }) => {
   const handleEdit = (role) => {
     setRole(role);
   };
-  console.log(Role);
 
   return (
     <div className="min-h-screen flex justify-center items-center">
@@ -28,7 +27,7 @@ const AddNew = ({ Roles, onSetPerm, onItemAdded }) => {
       >
         <div className="flex-1 border-r border-orange-500 pr-5">
           <div>
-            <PageHeading Title="Roles" />
+            <PageHeading Title="Role" />
             <Divider />
             <form className="flex flex-col">
               <FormField

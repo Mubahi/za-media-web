@@ -19,6 +19,7 @@ const Basic = ({ onChange, Event }) => {
       <Date
         name="event_date"
         value={Event.event_date}
+        label="Event date"
         onChange={(e) => onChange(e)}
       />
       <FormField
