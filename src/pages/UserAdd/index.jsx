@@ -6,7 +6,6 @@ const UserAdd = ({ Users, Roles, onItemAdded }) => {
   const [View, setView] = useState("UsersAdd");
   const [SelectedUser, setSelectedUser] = useState({});
   const onInfoEdit = (user) => {
-    console.log("change");
     setSelectedUser(user);
     setView("UserInfo");
   };
@@ -18,12 +17,10 @@ const UserAdd = ({ Users, Roles, onItemAdded }) => {
   };
   const handleInfoChange = (name, value) => {
     setSelectedUser({ ...SelectedUser, [name]: value });
-    console.log(SelectedUser);
   };
   const handleSave = () => {
     onItemAdded("user", SelectedUser);
   };
-  console.log(SelectedUser);
 
   return (
     <>

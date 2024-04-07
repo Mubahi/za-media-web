@@ -4,11 +4,11 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Homescreen from "../pages/Homescreen";
 import ShopData from "../ShopData/ShopData";
-import Events from "./Events";
 import ModulesAdd from "./ModulesAdd";
 import RolesAdd from "./RolesAdd";
 import UserAdd from "./UserAdd";
 import AllEvents from "./Events/AllEvents/AllEvents";
+import EventsForm from "./Events";
 const Pages = ({
   Shops,
   Countries,
@@ -54,7 +54,7 @@ const Pages = ({
           Brands={Brands}
         />
       )}
-      {View === "Events" && <Events onItemAdded={onItemAdded} />}
+      {View === "Events" && <EventsForm onItemAdded={onItemAdded} />}
       {View === "Users" && (
         <UserAdd Users={Users} Roles={Roles} onItemAdded={onItemAdded} />
       )}

@@ -26,6 +26,9 @@ const AllEvents = ({ Events }) => {
                 Event Closing Hours
               </th>
               <th key="OrganiserName" scope="col" className="px-6 py-3">
+                Organiser Address
+              </th>
+              <th key="OrganiserName" scope="col" className="px-6 py-3">
                 Organiser Name
               </th>
               <th key="OrganiserNationality" scope="col" className="px-6 py-3">

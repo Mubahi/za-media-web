@@ -18,15 +18,15 @@ const AddNew = ({ onInfoEdit, Users, Roles, onchange, onItemAdded }) => {
     const foundRole = Roles.find((role) => role.role_id === id);
     return foundRole ? foundRole.role_name : "";
   };
-  console.log(user);
   const handleUserAdd = () => {
     if (user.role_id || user.user_email) {
-      onItemAdded("user", user);
+      // onItemAdded("user", user);
       setUser({ user_id });
     } else {
       alert("Please fill out all fields!");
     }
   };
+  console.log(user);
   return (
     <div className="min-h-screen flex justify-center items-center">
       <div

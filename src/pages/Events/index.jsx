@@ -6,8 +6,9 @@ import Parking from "./Parking";
 import DigitalInfo from "./DigitalInfo";
 import EventFlowButtons from "./compnent/EventFlowButtons";
 import Basic from "./Basic";
-import Videos from "./Videos";
 import EventVideos from "./Videos";
+import { ToastContainer, toast } from "react-toastify";
+
 const { v4: uuidv4 } = require("uuid");
 
 const EventsForm = ({ onItemAdded }) => {
@@ -17,16 +18,28 @@ const EventsForm = ({ onItemAdded }) => {
   const handleChange = (e) => {
     setEvent({ ...Event, [e.target.name]: e.target.value });
   };
-  console.log(Event);
   const handleUrlAdd = (Url) => {
-    let newVids = [...Event.event_videos];
-    newVids.push(Url);
-    setEvent({ ...Event, event_videos: newVids });
+    if (Url) {
+      const newVids = [...(Event.event_videos || [])]; // Copy the array if it exists or create a new one if it doesn't
+      newVids.push(Url);
+      setEvent({ ...Event, event_videos: newVids });
+      toast.success("saved url");
+    } else {
+      toast.error(" Please Enter a Valid Url");
+    }
   };
   const handleUrlRemove = (index) => {
     let newVids = [...Event.event_videos];
-    newVids.remove(index);
-    setEvent({ ...Event, event_videos: newVids });
+    newVids.splice(index, 1);
+    if (newVids.length === Event.event_videos.length) {
+      toast.error("error removing video");
+    }
+    setEvent((prevEvent) => ({ ...prevEvent, event_videos: newVids }));
+  };
+  const handleDigitalChange = (name, value) => {
+    const newDigitals = { ...(Event.event_digital_info || {}), [name]: value };
+
+    setEvent({ ...Event, event_digital_info: newDigitals });
   };
   return (
     <>
@@ -54,8 +67,9 @@ const EventsForm = ({ onItemAdded }) => {
             {view === "DigitalInfo" && (
               <DigitalInfo
                 view={setView}
-                onItemAdded={onItemAdded}
                 Event={Event}
+                onItemAdded={onItemAdded}
+                onDigitalChange={handleDigitalChange}
               />
             )}
             {view === "EventVideos" && (
@@ -69,6 +83,7 @@ const EventsForm = ({ onItemAdded }) => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 };

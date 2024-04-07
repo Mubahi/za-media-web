@@ -13,7 +13,6 @@ const SetPermissions = ({
   const [Perm, setPerm] = useState(
     SelectedRole.permissions ? [...SelectedRole.permissions] : []
   );
-  console.log(SelectedRole);
   const initializePermissions = () => {
     if (Perm.length === 0) {
       console.log("zero");
@@ -56,7 +55,6 @@ const SetPermissions = ({
     }
     setPerm(updatedPerm);
   };
-  console.log(Perm);
 
   const getValue = (name, id) => {
     const foundPerm = Perm.find((permission) => permission.module_id === id);
