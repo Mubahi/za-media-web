@@ -110,19 +110,15 @@ export function App() {
           resp = await saveData(PK, SK, item_data);
           if (resp.success) {
             let roles = [...Roles];
-            if (item.role_id) {
-              const found = roles.find((role) => role.role_id === item.role_id);
-              const index = roles.indexOf(found);
-              roles[index] = resp.data;
-              console.log(index);
+            const found = roles.find((role) => role.role_id === item.role_id);
+            const index = roles.indexOf(found);
+            if (found) {
+              Roles[index] = resp.data;
               toast.success("Role Edited successfully!");
             } else {
-              roles = [...roles, resp.data];
-              console.log("new");
+              setRoles((prevItem) => [item, ...prevItem]);
               toast.success("Role added successfully!");
             }
-
-            setRoles(roles);
           }
           console.log(resp);
         } catch (e) {
