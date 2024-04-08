@@ -100,7 +100,7 @@ const Nav = ({ setActive, View, onLogout }) => {
             </svg>
             <p className="ml-1">Events</p>
           </button>
-          <button
+          {/* <button
             onClick={() => setActive("AllEvents")}
             className={` ${
               View === "AllEvents"
@@ -120,7 +120,7 @@ const Nav = ({ setActive, View, onLogout }) => {
               <path d="M11 7.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z" />
             </svg>
             <p className="ml-1">All Events</p>
-          </button>
+          </button> */}
         </div>
         <div
           className=" relative mb-4 md:mb-0 flex items-center justify-center"
