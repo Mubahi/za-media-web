@@ -20,7 +20,7 @@ const AddNew = ({ onInfoEdit, Users, Roles, onchange, onItemAdded }) => {
   };
   const handleUserAdd = () => {
     if (user.role_id || user.user_email) {
-      // onItemAdded("user", user);
+      onItemAdded("user", user);
       setUser({ user_id });
     } else {
       alert("Please fill out all fields!");
@@ -39,19 +39,20 @@ const AddNew = ({ onInfoEdit, Users, Roles, onchange, onItemAdded }) => {
           <form className="flex flex-col">
             <div className="flex gap-5">
               <FormField
-                width="100%"
+                className="w-full"
                 name="user_fullname"
                 placeholder="Fullname"
                 type="text"
-                value={user.user_fullname}
+                value={user.user_fullname ? user.user_fullname : ""}
                 onChange={(e) =>
                   setUser({ ...user, [e.target.name]: e.target.value })
                 }
               />
               <FormField
-                width="100%"
+                className="w-full "
                 name="user_password"
                 placeholder="Password"
+                value={user.user_password ? user.user_password : ""}
                 type="password"
                 onChange={(e) =>
                   setUser({ ...user, [e.target.name]: e.target.value })
@@ -62,6 +63,7 @@ const AddNew = ({ onInfoEdit, Users, Roles, onchange, onItemAdded }) => {
               name="user_email"
               placeholder="Email"
               type="text"
+              value={user.user_email ? user.user_email : ""}
               onChange={(e) =>
                 setUser({ ...user, [e.target.name]: e.target.value })
               }
@@ -70,6 +72,7 @@ const AddNew = ({ onInfoEdit, Users, Roles, onchange, onItemAdded }) => {
               options={Roles}
               valueKey={"role_id"}
               labelKey={"role_name"}
+              value={user.role_id}
               name={"role_id"}
               onChange={(e) =>
                 setUser({ ...user, [e.target.name]: e.target.value })

@@ -29,6 +29,7 @@ const UserInfo = ({
                 value={SelectedUser.user_email}
                 placeholder="Email"
                 type="text"
+                readOnly={true}
               />
               <SelectField
                 options={Roles}

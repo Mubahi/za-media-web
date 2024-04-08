@@ -6,9 +6,11 @@ const FormField = ({
   type,
   min,
   width,
+  className,
+  readOnly,
 }) => {
   return (
-    <div className="relative mt-5">
+    <div className={`relative mt-5 ${className ? className : ""}`}>
       <input
         onChange={onChange}
         id={name}
@@ -19,6 +21,7 @@ const FormField = ({
         placeholder={placeholder}
         width={width}
         required
+        readOnly={readOnly === true}
         className="text-black peer placeholder-transparent border-l-2 border-red-500 w-full py-2 px-4 focus:outline-none inputFeild"
       />
       <label
