@@ -37,8 +37,9 @@ const AddNew = ({ onInfoEdit, Users, Roles, onchange, onItemAdded }) => {
           <PageHeading Title="User" />
           <Divider />
           <form className="flex flex-col">
-            <div className="flex justify-between">
+            <div className="flex gap-5">
               <FormField
+                width="100%"
                 name="user_fullname"
                 placeholder="Fullname"
                 type="text"
@@ -48,6 +49,7 @@ const AddNew = ({ onInfoEdit, Users, Roles, onchange, onItemAdded }) => {
                 }
               />
               <FormField
+                width="100%"
                 name="user_password"
                 placeholder="Password"
                 type="password"

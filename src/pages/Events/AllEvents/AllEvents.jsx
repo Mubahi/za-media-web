@@ -7,13 +7,13 @@ const AllEvents = ({ Events }) => {
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-10">
           <thead className="text-center text-xs text-gray-700 uppercase bg-orange-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-              <th key="Address" scope="col" className="px-6 py-3">
+              <th key="EventIndex" scope="col" className="px-6 py-3">
                 Event index
               </th>
               <th key="Address" scope="col" className="px-6 py-3">
                 Address
               </th>
-              <th key="EventDays" scope="col" className="px-6 py-3">
+              <th key="EventDate" scope="col" className="px-6 py-3">
                 Event date
               </th>
               <th key="EventDays" scope="col" className="px-6 py-3">
@@ -25,7 +25,7 @@ const AllEvents = ({ Events }) => {
               <th key="EventClosingHours" scope="col" className="px-6 py-3">
                 Event Closing Hours
               </th>
-              <th key="OrganiserName" scope="col" className="px-6 py-3">
+              <th key="OrganiserAddress" scope="col" className="px-6 py-3">
                 Organiser Address
               </th>
               <th key="OrganiserName" scope="col" className="px-6 py-3">
@@ -68,17 +68,9 @@ const AllEvents = ({ Events }) => {
           </thead>
           <tbody>
             {Events.map(function (event, index) {
-              // Pass shop data as props to ShopRow
-              return (
-                <EventRow
-                  key={event.event_id}
-                  event={event}
-                  index={index}
-                  //   shop={shop}
-                  //   Countries={Countries}
-                  //   Areas={Areas}
-                />
-              );
+              // Generating a unique key by combining event_id and index
+              const uniqueKey = event.event_id + "_" + index;
+              return <EventRow key={uniqueKey} event={event} index={index} />;
             })}
           </tbody>
         </table>

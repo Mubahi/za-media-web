@@ -4,25 +4,27 @@ const LoadingComponent = () => {
       <div className="bg-gray-200 w-2/5 h-48 flex flex-col items-center justify-center">
         {/* testing */}
         <svg
-          class="animate-spin h-10 w-10 text-orange-500"
+          className="animate-spin h-10 w-10 text-orange-500"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
-          fill="none">
+          fill="none"
+        >
           <circle
             cx="12"
             cy="12"
             r="10"
             stroke="currentColor"
-            stroke-width="4"
-            stroke-opacity="0.25"
+            strokeWidth="4"
+            strokeOpacity="0.25"
             fill="none"
           />
 
           <path
             d="M12 2.5a9.5 9.5 0 0 1 9.5 9.5"
             stroke="currentColor"
-            stroke-width="4"
-            fill="none">
+            strokeWidth="4"
+            fill="none"
+          >
             <animateTransform
               attributeName="transform"
               attributeType="XML"

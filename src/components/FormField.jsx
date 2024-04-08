@@ -1,4 +1,12 @@
-const FormField = ({ onChange, name, value, placeholder, type, min }) => {
+const FormField = ({
+  onChange,
+  name,
+  value,
+  placeholder,
+  type,
+  min,
+  width,
+}) => {
   return (
     <div className="relative mt-5">
       <input
@@ -9,6 +17,7 @@ const FormField = ({ onChange, name, value, placeholder, type, min }) => {
         min={min}
         type={type}
         placeholder={placeholder}
+        width={width}
         required
         className="text-black peer placeholder-transparent border-l-2 border-red-500 w-full py-2 px-4 focus:outline-none inputFeild"
       />
