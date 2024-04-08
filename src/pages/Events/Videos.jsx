@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PageHeading from "../../components/PageHeadng";
 import Divider from "../../components/Divider";
 import VideoUrl from "./compnent/VideoUrl";
+import FormField from "../../components/FormField";
 const EventVideos = ({ onUrlAdd, onUrlRemove, Event }) => {
   const [Url, setUrl] = useState();
   return (
@@ -22,56 +23,38 @@ const EventVideos = ({ onUrlAdd, onUrlRemove, Event }) => {
             height="25"
             fill="currentColor"
             className="pointer-cursor bi bi-plus-circle ml-1 text-orange-500 hover:bg-orange-500 hover:text-white hover:border-2 hover:border-orange-500 transition-colors duration-700 rounded-full"
-            viewBox="0 0 16 16"
-          >
+            viewBox="0 0 16 16">
             <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
             <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
           </svg>
         </button>
       </div>
-      <div className="bg-[#D8D9DA] overflow-hidden ml-4 flex-1 mt-5 mr-5">
-        <table className="w-full text-center border border-orange-500">
-          <thead className=" bg-[#CECFD1] text-[#FF7D31] font-base font-bold">
-            <tr>
-              <th className="border-b border-orange-500">index</th>
-              <th className="border-b border-orange-500">Video Url</th>
-              <th className="border-b border-orange-500">Delete</th>
-            </tr>
-          </thead>
-          <tbody className="border border-orange-500">
-            {Event.event_videos?.map(function (video, index) {
-              return (
-                <tr key={index}>
-                  <td className="border-b border-r px-1 border-orange-500">
-                    {index + 1}
-                  </td>
-                  <td className="border-b border-r px-1 border-orange-500">
-                    <a href={video} target="_blank" rel="noopener noreferrer">
-                      {video}
-                    </a>
-                  </td>
-                  <td className="border-b border-r px-1 border-orange-500">
-                    <button
-                      onClick={() => onUrlRemove(index)}
-                      className="px-2 my-1"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        fill="currentColor"
-                        className="bi bi-dash-circle-fill bg-white text-orange-500 hover:text-white hover:bg-orange-500 hover:border-2 hover:border-orange-500 rounded-full transition-colors duration-700"
-                        viewBox="0 0 16 16"
-                      >
-                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1z" />
-                      </svg>
-                    </button>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+
+      <div className=" mt-5 ">
+        {Event.event_videos?.map(function (video, index) {
+          return (
+            <div
+              key={index}
+              className="w-full bg-white  border-l-2 border-red-500  py-2 px-3 mb-4 ">
+              <div value={video} className="flex justify-between items-center">
+                {video}
+                <button
+                  onClick={() => onUrlRemove(index)}
+                  className="px-2 my-1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    fill="currentColor"
+                    className="bi bi-dash-circle-fill bg-white text-orange-500 hover:text-white hover:bg-orange-500 hover:border-2 hover:border-orange-500 rounded-full transition-colors duration-700"
+                    viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </>
   );
