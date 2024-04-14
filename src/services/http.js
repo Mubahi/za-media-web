@@ -14,7 +14,7 @@ axios.interceptors.request.use(
 
     if (
       config.url !==
-      "https://7dcldl3qo2.execute-api.us-east-1.amazonaws.com/dev/api/uploadImages"
+      "https://a9yd2tumde.execute-api.us-east-1.amazonaws.com/dev/upload-images"
     )
       config.headers["Content-Type"] = "application/json";
 
