@@ -1,87 +1,103 @@
 import React from "react";
 import { useState } from "react";
-import Organizer from "./Organizer";
-import Visitor from "./Visitor";
-import Parking from "./Parking";
-import DigitalInfo from "./DigitalInfo";
-import EventFlowButtons from "./compnent/EventFlowButtons";
-import Basic from "./Basic";
-import EventVideos from "./Videos";
 import { ToastContainer, toast } from "react-toastify";
-
+import PageHeading from "../../components/PageHeadng";
+import Divider from "../../components/Divider";
+import FormField from "../../components/FormField";
+import Date from "../../components/Date";
+import VideoUrl from "./compnent/VideoUrl";
+import FormButton from "../../components/FomButton";
 const { v4: uuidv4 } = require("uuid");
 
-const EventsForm = ({ onItemAdded }) => {
-  const [view, setView] = useState("Event");
+const EventsForm = () => {
   const event_id = uuidv4();
-  const [Event, setEvent] = useState({ event_id });
-  const handleChange = (e) => {
-    setEvent({ ...Event, [e.target.name]: e.target.value });
-  };
-  const handleUrlAdd = (Url) => {
-    if (Url) {
-      const newVids = [...(Event.event_videos || [])]; // Copy the array if it exists or create a new one if it doesn't
-      newVids.push(Url);
-      setEvent({ ...Event, event_videos: newVids });
-      toast.success("saved url");
-    } else {
-      toast.error(" Please Enter a Valid Url");
-    }
-  };
-  const handleUrlRemove = (index) => {
-    let newVids = [...Event.event_videos];
-    newVids.splice(index, 1);
-    if (newVids.length === Event.event_videos.length) {
-      toast.error("error removing video");
-    }
-    setEvent((prevEvent) => ({ ...prevEvent, event_videos: newVids }));
-  };
-  const handleDigitalChange = (name, value) => {
-    const newDigitals = { ...(Event.event_digital_info || {}), [name]: value };
 
-    setEvent({ ...Event, event_digital_info: newDigitals });
-  };
   return (
     <>
       <div className="pt-28 min-h-screen flex justify-center bg-white pb-10">
-        <div
-          data-aos="fade-down"
-          className="bg-[#D8D9DA] shadow-lg flex flex-col md:flex-row w-11/12 rounded-md"
-        >
-          <div className="w-full md:w-32 border-b md:border-b-0 md:border-r-2 bg-[#CECFD1] border-orange-500 rounded-l-md">
-            <EventFlowButtons view={setView} />
+        <div className="bg-[#D8D9DA] shadow-lg w-11/12 rounded-md px-10 pb-5 relative">
+          <PageHeading Title="Events Form" />
+          <Divider />
+          <h1 className="font-bold text-[#FF7D31] mt-2 text-center">Events</h1>
+          <div className="flex gap-4 m-0 p-0">
+            <FormField
+              className="w-full"
+              name="event_title"
+              placeholder="Event title"
+              type="text"
+              // value={Event.event_title}
+              // onChange={(e) => onChange(e)}
+            />
+            <FormField
+              className="w-full leading-5"
+              marginTop={5}
+              name="event_date"
+              placeholder="Date"
+              type="date"
+            />
           </div>
-          <div className="w-full md:w-5/6 ml-0 md:ml-5 my-5 md:my-10">
-            {view === "Event" && (
-              <Basic view={setView} Event={Event} onChange={handleChange} />
-            )}
-            {view === "Organizer" && (
-              <Organizer view={setView} Event={Event} onChange={handleChange} />
-            )}
-            {view === "Visitor" && (
-              <Visitor view={setView} Event={Event} onChange={handleChange} />
-            )}
-            {view === "Parking" && (
-              <Parking view={setView} Event={Event} onChange={handleChange} />
-            )}
-            {view === "DigitalInfo" && (
-              <DigitalInfo
-                view={setView}
-                Event={Event}
-                onItemAdded={onItemAdded}
-                onDigitalChange={handleDigitalChange}
-              />
-            )}
-            {view === "EventVideos" && (
-              <EventVideos
-                view={setView}
-                Event={Event}
-                onUrlAdd={handleUrlAdd}
-                onUrlRemove={handleUrlRemove}
-              />
-            )}
+          {/* <Date
+                name="event_date"
+                label="Event date"
+                // value={Event.event_date}
+                // onChange={(e) => onChange(e)}
+              /> */}
+          <div className="flex gap-4">
+            <FormField
+              className="w-full"
+              name="event_starting_time"
+              placeholder="Event starting time"
+              type="text"
+              min="0"
+              // value={Event.event_starting_hour}
+              // onChange={(e) => onChange(e)}
+            />
+            <FormField
+              className="w-full"
+              name="event_closing_time"
+              placeholder="Event closing time"
+              type="text"
+              min="0"
+              // value={Event.event_closing_hour}
+              // onChange={(e) => onChange(e)}
+            />
           </div>
+          <div className="flex gap-4">
+            <FormField
+              className="w-full"
+              name="parking_slots"
+              placeholder="Parking slots"
+              type="number"
+              min="0"
+              // value={Event.parking_slots}
+              // onChange={(e) => onChange(e)}
+            />
+            <FormField
+              className="w-full"
+              name="event_address"
+              placeholder="Event address"
+              type="text"
+              // value={Event.event_address}
+              // onChange={(e) => onChange(e)}
+            />
+          </div>
+          <FormField
+            name="event_days"
+            placeholder="Event days"
+            type="number"
+            min="1"
+            // value={Event.event_days}
+            // onChange={(e) => onChange(e)}
+          />
         </div>
+
+        <FormButton
+          width="65px"
+          value="Submit"
+          name="save_btn"
+          className="fixed bottom-20 right-20"
+          // onClick={() => onItemAdded("Event", Event)}
+        />
       </div>
       <ToastContainer />
     </>

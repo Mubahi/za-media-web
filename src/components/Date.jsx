@@ -1,8 +1,8 @@
 import React from "react";
 const Date = ({ onChange, name, label, readOnly }) => {
   return (
-    <div className="bg-white border-l-2 border-red-500 mt-4 px-2 pb-2">
-      <label htmlFor="Event_date" className="font-mono text-base text-black">
+    <div className="bg-white border-l-2 border-red-500 mt-4 px-2 pb-1">
+      <label htmlFor="Event_date" className="font-mono text-sm text-black">
         {label}
       </label>
       <input
@@ -10,7 +10,7 @@ const Date = ({ onChange, name, label, readOnly }) => {
         name={name}
         onChange={onChange}
         readOnly={readOnly}
-        className="w-full py-2 px-5 outline-none bg-gray-100"
+        className="w-full px-5 outline-none bg-gray-100"
       />
     </div>
   );
