@@ -19,14 +19,14 @@ const EventsForm = ({ Countries, Areas }) => {
   };
   return (
     <>
-      <div className="pt-28 min-h-screen flex justify-center bg-white pb-10">
+      <div className="pt-48 md:pt-28 min-h-screen flex justify-center bg-white pb-10">
         <div className="bg-[#D8D9DA] shadow-lg w-11/12 rounded-md px-10 pb-5 relative">
           <PageHeading Title="Events Form" />
           <Divider />
           <h1 className="font-bold text-[#FF7D31] mt-2 text-center">Basic</h1>
-          <div className="form-section-container justify-self flex md:flex-row gap-5">
+          <div className="flex flex-wrap">
             <FormField
-              className="w-full"
+              className="w-full sm:w-[529px] md:mr-5"
               name="event_title"
               placeholder="Event title"
               type="text"
@@ -34,14 +34,14 @@ const EventsForm = ({ Countries, Areas }) => {
               // onChange={(e) => onChange(e)}
             />
             <FormField
-              className="w-full leading-5"
+              className="w-full sm:w-[529px]"
               marginTop={5}
               name="event_date"
               placeholder="Date"
               type="date"
             />
             <FormField
-              className="w-full"
+              className="w-full sm:w-[529px] md:mr-5"
               name="event_starting_time"
               placeholder="Event starting time"
               type="text"
@@ -50,7 +50,7 @@ const EventsForm = ({ Countries, Areas }) => {
               // onChange={(e) => onChange(e)}
             />
             <FormField
-              className="w-full"
+              className="w-full sm:w-[529px]"
               name="event_closing_time"
               placeholder="Event closing time"
               type="text"
@@ -59,7 +59,7 @@ const EventsForm = ({ Countries, Areas }) => {
               // onChange={(e) => onChange(e)}
             />
             <FormField
-              className="w-full"
+              className="w-full sm:w-[529px] md:mr-5"
               name="parking_slots"
               placeholder="Parking slots"
               type="number"
@@ -68,7 +68,7 @@ const EventsForm = ({ Countries, Areas }) => {
               // onChange={(e) => onChange(e)}
             />
             <FormField
-              className="w-full"
+              className="w-full sm:w-[529px]"
               name="event_address"
               placeholder="Event address"
               type="text"
@@ -76,6 +76,7 @@ const EventsForm = ({ Countries, Areas }) => {
               // onChange={(e) => onChange(e)}
             />
             <FormField
+              className="w-full sm:w-[529px] md:mr-5"
               name="event_days"
               placeholder="Event days"
               type="number"
@@ -83,37 +84,14 @@ const EventsForm = ({ Countries, Areas }) => {
               // value={Event.event_days}
               // onChange={(e) => onChange(e)}
             />
-
-            {/* <h1 className="font-bold text-[#FF7D31] mt-2 text-center">
-              Select
-            </h1>
-            <select
-              // onChange={(e) => filterCities(e.target.value)}
-              className="text-black mx-2 w-full sm:w-28 mb-2 sm:mb-0 py-1 bg-transparent outline-none "
-              value={SelectedCountry}
-            >
-              <option value="" className="bg-white text-black">
-                All Countries
-              </option>
-              {Countries.map(function (country) {
-                return (
-                  <option
-                    key={country.country_id}
-                    value={country.country_id}
-                    className="bg-white text-black"
-                  >
-                    {country.country_name}
-                  </option>
-                );
-              })}
-            </select> */}
           </div>
+
           <h1 className="font-bold text-[#FF7D31] mt-2 text-center">
             Organizer
           </h1>
-          <div className="form-section-container justify-self flex md:flex-row gap-5">
+          <div className="flex flex-wrap">
             <FormField
-              className="w-full"
+              className="w-full sm:w-[529px]  md:mr-5"
               name="organizer_name"
               placeholder="Organizer name"
               type="text"
@@ -121,7 +99,7 @@ const EventsForm = ({ Countries, Areas }) => {
               // onChange={(e) => onChange(e)}
             />
             <FormField
-              className="w-full"
+              className="w-full sm:w-[529px]"
               name="organizer_nationality"
               placeholder="Organizer nationality"
               type="text"
@@ -129,7 +107,7 @@ const EventsForm = ({ Countries, Areas }) => {
               // // onChange={(e) => onChange(e)}
             />
             <FormField
-              className="w-full"
+              className="w-full sm:w-[529px] md:mr-5"
               name="organizer_phone"
               placeholder="Organizer phone"
               type="number"
@@ -138,7 +116,7 @@ const EventsForm = ({ Countries, Areas }) => {
               // // onChange={(e) => onChange(e)}
             />
             <FormField
-              className="w-full"
+              className="w-full sm:w-[529px]"
               name="organizer_whatsapp"
               placeholder="Organizer whatsapp"
               type="number"
@@ -150,9 +128,9 @@ const EventsForm = ({ Countries, Areas }) => {
           <h1 className="font-bold text-[#FF7D31] mt-2 text-center">
             Visitors
           </h1>
-          <div className="form-section-container justify-self flex md:flex-row gap-5">
+          <div className="flex flex-wrap">
             <FormField
-              className="w-full"
+              className="w-full sm:w-[529px] md:mr-5"
               name="total_visitors"
               placeholder="Total visitors"
               type="number"
@@ -161,7 +139,7 @@ const EventsForm = ({ Countries, Areas }) => {
               // onChange={(e) => onChange(e)}
             />
             <FormField
-              className="w-full"
+              className="w-full sm:w-[529px]"
               name="visitors_last_year"
               placeholder="visitors last year"
               type="number"
@@ -171,36 +149,37 @@ const EventsForm = ({ Countries, Areas }) => {
             />
           </div>
           <h1 className="font-bold text-[#FF7D31] mt-2 text-center">Digital</h1>
-          <div className="form-section-container justify-self flex md:flex-row gap-5">
+          <div className="flex flex-wrap">
             <FormField
-              className="w-full"
+              className="w-full sm:w-[529px] md:mr-5"
               name="event_website"
               placeholder="Event website"
               type="text"
               // onChange={(e) => onDigitalChange([e.target.name], e.target.value)}
             />
             <FormField
-              className="w-full"
+              className="w-full sm:w-[529px]"
               name="event_twitter"
               placeholder="Event twitter"
               type="text"
               // onChange={(e) => onDigitalChange([e.target.name], e.target.value)}
             />
             <FormField
-              className="w-full"
+              className="w-full sm:w-[529px] md:mr-5"
               name="event_facebook"
               placeholder="Event facebook"
               type="text"
               // onChange={(e) => onDigitalChange([e.target.name], e.target.value)}
             />
             <FormField
-              className="w-full"
+              className="w-full sm:w-[529px]"
               name="event_linkedin"
               placeholder="Event linkedin"
               type="text"
               // onChange={(e) => onDigitalChange([e.target.name], e.target.value)}
             />
             <FormField
+              className="w-full sm:w-[529px] md:mr-5"
               name="event_email"
               placeholder="Event email"
               type="text"
@@ -208,7 +187,7 @@ const EventsForm = ({ Countries, Areas }) => {
             />
           </div>
           <h1 className="font-bold text-[#FF7D31] mt-2 text-center">Videos</h1>
-          <div className="form-section-container justify-self flex md:flex-row gap-5">
+          <div className="flex flex-wrap">
             <div className="flex items-center bg-orange-50 pr-1 mt-4 w-full">
               <VideoUrl
                 name="event_videos"
@@ -231,6 +210,9 @@ const EventsForm = ({ Countries, Areas }) => {
               </button>
             </div>
           </div>
+          <h1 className="font-bold text-[#FF7D31] mt-2 text-center">
+            Upload File
+          </h1>
           <MediaFile onFilesUploaded={handleFileUpload} />
         </div>
 

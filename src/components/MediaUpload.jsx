@@ -49,31 +49,30 @@ const MediaFile = ({ onFilesUploaded, onImageRemove }) => {
   };
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-      <Divider />
-      <hr />
-      <div className="flex justify-center items-center">
-        <label className="block cursor-pointer">
-          <span className="px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600">
-            Select File
-          </span>
-          <input
-            type="file"
-            className="hidden"
-            onChange={handleFileChange}
-            multiple
-          />
-        </label>
+    <div className="mt-6 flex-row items-center justify-center">
+      <div className="flex flex-row items-center justify-around">
+        <div className="flex justify-center items-center">
+          <label className="block cursor-pointer">
+            <span className="border-2 border-blue-500 hover:border-blue-600 py-1 rounded-md font-base font-bold flex justify-center items-center px-4 bg-blue-500 text-white hover:bg-blue-600 transition-colors duration-700">
+              Select File
+            </span>
+            <input
+              type="file"
+              className="hidden"
+              onChange={handleFileChange}
+              multiple
+            />
+          </label>
+        </div>
+        <div className="flex justify-center items-center">
+          <button
+            className="px-4 py-1 border-2 border-yellow-500 hover:border-yellow-600 bg-yellow-500 text-white rounded-md font-base font-bold flex justify-center items-center hover:bg-yellow-600 transition-colors duration-700"
+            onClick={handleUpload}
+          >
+            Upload
+          </button>
+        </div>
       </div>
-      <div className="flex justify-center items-center">
-        <button
-          className="px-4 py-2 bg-green-500 text-white rounded-lg shadow-md hover:bg-green-600"
-          onClick={handleUpload}
-        >
-          Upload
-        </button>
-      </div>
-
       {/* Thumbnail Preview */}
       <ThumbnailPreviews
         selectedFiles={selectedFiles}
@@ -81,9 +80,9 @@ const MediaFile = ({ onFilesUploaded, onImageRemove }) => {
       />
 
       {/* <MediaList
-        MediaFiles={SelectedShop.shop_medias}
-        onImageRemove={onShopImageRemove}
-      /> */}
+    MediaFiles={SelectedShop.shop_medias}
+    onImageRemove={onShopImageRemove}
+  /> */}
     </div>
   );
 };
