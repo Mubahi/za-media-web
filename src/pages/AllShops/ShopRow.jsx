@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ShopRow({ shop, Countries, Areas }) {
+export default function ShopRow({ shop, Countries, Areas, onViewShop }) {
   const shop_brands = shop.shop_brands || [];
   const shop_categories = shop.shop_categories || [];
   const shop_products = shop.shop_products || [];
@@ -14,8 +14,12 @@ export default function ShopRow({ shop, Countries, Areas }) {
     const area = Areas.find((a) => a.id === area_id);
     return area ? area.name : "";
   };
+  console.log(shop.shop_id);
   return (
-    <tr className="bg-white border-b hover:bg-orange-50 text-center cursor-pointer">
+    <tr
+      onClick={() => onViewShop(shop)}
+      className="bg-white border-b hover:bg-orange-50 text-center cursor-pointer"
+    >
       <th scope="row" className="px-6 py-3 text-gray-900 whitespace-nowrap">
         <p>{shop.shop_name}</p>
       </th>

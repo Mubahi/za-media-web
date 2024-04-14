@@ -1,7 +1,14 @@
 import { useEffect, useState } from "react";
-import ShopRow from "../components/ShopRow";
+import ShopRow from "./ShopRow";
 
-const AllShops = ({ Shops, Brands, Categories, Areas, Countries }) => {
+const AllShops = ({
+  Shops,
+  Brands,
+  Categories,
+  Areas,
+  Countries,
+  onViewShop,
+}) => {
   const [SelectedCountry, setSelectedCountry] = useState("");
   const [SelectedArea, setSelectedArea] = useState("all");
   const [SelectedWindows, setSelectedWindows] = useState("all");
@@ -267,6 +274,7 @@ const AllShops = ({ Shops, Brands, Categories, Areas, Countries }) => {
                   shop={shop}
                   Countries={Countries}
                   Areas={Areas}
+                  onViewShop={onViewShop}
                 />
               );
             })}

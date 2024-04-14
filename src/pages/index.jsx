@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import AllShops from "./AllShops";
+import AllShops from "./AllShops/AllShops";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Homescreen from "../pages/Homescreen";
-import ShopData from "../ShopData/ShopData";
 import ModulesAdd from "./ModulesAdd";
 import RolesAdd from "./RolesAdd";
 import UserAdd from "./UserAdd";
 import AllEvents from "./Events/AllEvents/AllEvents";
 import EventsForm from "./Events";
+import ShopData from "./AllShops/ShopData";
 const Pages = ({
   Shops,
   Countries,
@@ -52,9 +52,16 @@ const Pages = ({
           Areas={Areas}
           Categories={Categories}
           Brands={Brands}
+          onViewShop={HandleViewShop}
         />
       )}
-      {View === "Events" && <EventsForm onItemAdded={onItemAdded} />}
+      {View === "Events" && (
+        <EventsForm
+          onItemAdded={onItemAdded}
+          Countries={Countries}
+          Areas={Areas}
+        />
+      )}
       {View === "Users" && (
         <UserAdd Users={Users} Roles={Roles} onItemAdded={onItemAdded} />
       )}
