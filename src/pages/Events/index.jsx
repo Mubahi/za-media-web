@@ -12,7 +12,7 @@ const { v4: uuidv4 } = require("uuid");
 
 const EventsForm = ({ Countries, Areas }) => {
   const [SelectedCountry, setSelectedCountry] = useState("");
-  const [SelectedCity, setSelectedCity] = useState("all");
+  const [SelectedArea, setSelectedArea] = useState("all");
   const event_id = uuidv4();
   const handleFileUpload = (files) => {
     console.log(files);
@@ -84,6 +84,42 @@ const EventsForm = ({ Countries, Areas }) => {
               // value={Event.event_days}
               // onChange={(e) => onChange(e)}
             />
+            <select
+              // onChange={(e) => filterCities(e.target.value)}
+              className="text-black bg-white sm:w-[529px] mb-2 sm:mb-0 h-10 mt-5 border-l-2 border-red-500 outline-none "
+              value={SelectedCountry}
+            >
+              <option className="bg-white text-black">All Countries</option>
+              {Countries.map(function (country) {
+                return (
+                  <option
+                    key={country.country_id}
+                    value={country.country_id}
+                    className="bg-white text-black"
+                  >
+                    {country.country_name}
+                  </option>
+                );
+              })}
+            </select>
+            <select
+              value={SelectedArea}
+              onChange={(e) => setSelectedArea(e.target.value)}
+              className="text-black bg-white sm:w-[529px] mb-2 sm:mb-0 h-10 mt-5 border-l-2 border-red-500 outline-none "
+            >
+              <option className="bg-white text-black">All Areas</option>
+              {Areas.map(function (area) {
+                return (
+                  <option
+                    key={area.id}
+                    value={area.id}
+                    className="bg-white text-black"
+                  >
+                    {area.name}
+                  </option>
+                );
+              })}
+            </select>
           </div>
 
           <h1 className="font-bold text-[#FF7D31] mt-2 text-center">
