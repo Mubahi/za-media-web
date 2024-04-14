@@ -13,7 +13,6 @@ import LoadingVariant from "./pages/LoadingVariant";
 export function App() {
   const [View, setView] = useState("LoginForm");
   const [Loading, setLoading] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
   const [Countries, setCountries] = useLocalStorage("zm_countries", []);
   const [AllShops, setAllShops] = useLocalStorage("zm_shops", []);
   const [ShopCategories, setShopCategories] = useLocalStorage(
@@ -57,7 +56,6 @@ export function App() {
     } catch (error) {
       console.error("Error fetching initial data:", error);
       // Handle error here
-      setIsLoading(false); // Set isLoading to false even if there's an error
     }
   };
 

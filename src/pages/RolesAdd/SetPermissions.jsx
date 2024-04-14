@@ -42,11 +42,9 @@ const SetPermissions = ({
       if (permission.module_id === id) {
         addNewPerm = false;
         return { ...permission, [e.target.name]: e.target.checked };
-        console.log("entered new");
       } else {
         return permission;
       }
-      console.log("permissions");
     });
     // If the module is not in the list then we need to add it to the list
     if (addNewPerm) {
