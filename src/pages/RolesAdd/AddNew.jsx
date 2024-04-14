@@ -3,16 +3,23 @@ import FormField from "../../components/FormField";
 import Divider from "../../components/Divider";
 import FormButton from "../../components/FomButton";
 import { useState } from "react";
+import { toast } from "react-toastify";
+import { validateObject } from "../../Global/validationUtils";
 const { v4: uuidv4 } = require("uuid");
 const AddNew = ({ Roles, onSetPerm, onItemAdded }) => {
   const role_id = uuidv4();
   const [Role, setRole] = useState({ role_id });
+  const keysToCheck = ["role_id", "role_name"];
   const handleSubmit = () => {
-    if (Role.role_name) {
-      if (Role.role_id) {
-        onItemAdded("role", Role);
-      }
+    console.log("submit");
+
+    if (validateObject(Role, keysToCheck)) {
+      onItemAdded("role", Role);
       setRole({ role_id });
+      console.log("item adde");
+    } else {
+      toast.error(`Please fill out the name correctly`);
+      console.log("not added");
     }
   };
   const handleEdit = (role) => {
@@ -29,7 +36,7 @@ const AddNew = ({ Roles, onSetPerm, onItemAdded }) => {
           <div>
             <PageHeading Title="Role" />
             <Divider />
-            <form className="flex flex-col">
+            <div className="flex flex-col">
               <FormField
                 value={Role.role_name ? Role.role_name : ""}
                 name="role_name"
@@ -43,7 +50,7 @@ const AddNew = ({ Roles, onSetPerm, onItemAdded }) => {
                 value={"submit"}
                 onClick={handleSubmit}
               />
-            </form>
+            </div>
           </div>
         </div>
         <div className="bg-[#D8D9DA]  overflow-hidden ml-4 flex-1">

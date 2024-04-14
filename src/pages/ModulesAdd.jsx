@@ -6,7 +6,9 @@ import PageHeading from "../components/PageHeadng";
 import Divider from "../components/Divider";
 import FormField from "../components/FormField";
 import { hasFormSubmit } from "@testing-library/user-event/dist/utils";
+import { toast } from "react-toastify";
 import FormButton from "../components/FomButton";
+import { validateObject } from "../Global/validationUtils";
 const { v4: uuidv4 } = require("uuid");
 
 const ModulesAdd = ({ Modules, onItemAdded }) => {
@@ -14,11 +16,18 @@ const ModulesAdd = ({ Modules, onItemAdded }) => {
     Aos.init({ duration: 2000 });
   });
   const module_id = uuidv4();
-  const handleSubmit = () => {
-    onItemAdded("module", CurrentModule);
-    setCurrentModule({ ...CurrentModule, module_id: uuidv4() });
-  };
   const [CurrentModule, setCurrentModule] = useState({ module_id });
+  const keysToCheck = ["module_name", "module_title"];
+  const handleSubmit = () => {
+    console.log("submit");
+
+    if (validateObject(CurrentModule, keysToCheck)) {
+      onItemAdded("module", CurrentModule);
+      setCurrentModule({ ...CurrentModule, module_id: uuidv4() });
+    } else {
+      toast.error(`Please fill out the name correctly`);
+    }
+  };
   return (
     <div className="min-h-screen flex justify-center items-center">
       <div

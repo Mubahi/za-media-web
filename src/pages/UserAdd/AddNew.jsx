@@ -5,7 +5,9 @@ import PageHeading from "../../components/PageHeadng";
 import Divider from "../../components/Divider";
 import FormButton from "../../components/FomButton";
 import FormField from "../../components/FormField";
+import { ToastContainer, toast } from "react-toastify";
 import SelectField from "../../components/SelectField";
+import { validateObject } from "../../Global/validationUtils";
 const { v4: uuidv4 } = require("uuid");
 
 const AddNew = ({ onInfoEdit, Users, Roles, onchange, onItemAdded }) => {
@@ -18,12 +20,19 @@ const AddNew = ({ onInfoEdit, Users, Roles, onchange, onItemAdded }) => {
     const foundRole = Roles.find((role) => role.role_id === id);
     return foundRole ? foundRole.role_name : "";
   };
+  const keysToCheck = [
+    "user_id",
+    "user_fullname",
+    "user_email",
+    "user_password",
+    "role_id",
+  ];
   const handleUserAdd = () => {
-    if (user.role_id || user.user_email) {
+    if (validateObject(user, keysToCheck)) {
       onItemAdded("user", user);
       setUser({ user_id });
     } else {
-      alert("Please fill out all fields!");
+      toast.error("Please fill in all the required fields");
     }
   };
   console.log(user);

@@ -20,7 +20,6 @@ const FormField = ({
         type={type}
         placeholder={placeholder}
         width={width}
-        required
         readOnly={readOnly === true}
         className="text-black peer placeholder-transparent border-l-2 border-red-500 w-full py-2 px-4 focus:outline-none inputFeild"
       />

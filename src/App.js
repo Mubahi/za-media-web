@@ -8,9 +8,11 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FetchData } from "./services/load.data";
 import LoadingComponent from "./pages/Loading";
+import LoadingVariant from "./pages/LoadingVariant";
 
 export function App() {
   const [View, setView] = useState("LoginForm");
+  const [Loading, setLoading] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [Countries, setCountries] = useLocalStorage("zm_countries", []);
   const [AllShops, setAllShops] = useLocalStorage("zm_shops", []);
@@ -72,6 +74,7 @@ export function App() {
 
   const handleItemAdded = async (type, item) => {
     // setItems((prevItems) => [...prevItems, item]);
+    setLoading(true);
     let PK, SK, item_data, resp;
     switch (type) {
       case "user":
@@ -102,11 +105,10 @@ export function App() {
         break;
 
       case "role":
-        PK = "ROLES#";
-        SK = `ROLES#${item.role_id}`;
-        item_data = { ...item };
-
         try {
+          PK = "ROLES#";
+          SK = `ROLES#${item.role_id}`;
+          item_data = { ...item };
           resp = await saveData(PK, SK, item_data);
           if (resp.success) {
             let roles = [...Roles];
@@ -122,8 +124,7 @@ export function App() {
           }
           console.log(resp);
         } catch (e) {
-          toast.success(e.message);
-          console.log(e);
+          toast.error(e.message);
         }
         break;
       case "module":
@@ -132,14 +133,13 @@ export function App() {
           SK = `MODULES#${item.module_id}`;
           item_data = { ...item };
           resp = await saveData(PK, SK, item_data);
-          if (resp.success) {
-            setModules((prevItem) => [item, ...prevItem]);
-            toast.success("Module is saved.");
-          }
           console.log(resp);
-        } catch (e) {
-          console.log(e.message);
-          toast.error(e.message);
+          if (resp.success) {
+            toast.success("Module is saved.");
+            setModules((prevItem) => [item, ...prevItem]);
+          }
+        } catch (error) {
+          toast.error(error.message);
         }
         break;
 
@@ -172,6 +172,7 @@ export function App() {
       default:
       //do nothing
     }
+    setLoading(false);
   };
 
   const handleLogin = async (user) => {
@@ -190,6 +191,7 @@ export function App() {
   return (
     <>
       {/* <LoadingComponent /> */}
+      {Loading === true && <LoadingVariant />}
       {View === "Loading" && <LoadingComponent />}
       {!IsLoggedIn() && <LoginForm onLogin={handleLogin} />}
       {View === "Pages" && IsLoggedIn() && (
