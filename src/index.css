@@ -62,8 +62,8 @@
 }
 .event-feild-container > div,
 .event-feild-container > select {
-  width: calc(50% - 10px);
+  width: calc(50% - 5px);
 }
-/* .event-feild-container > div:nth-last-child(odd) {
+.event-feild-container > *:last-child:nth-child(odd) {
   width: 100%;
-} */
+}
