@@ -69,7 +69,9 @@ export function App() {
 
     // fetchData();
   }, [User]);
-
+  const handleItemDelete = async (type, Item) => {
+    setLoading(true);
+  };
   const handleItemAdded = async (type, item) => {
     // setItems((prevItems) => [...prevItems, item]);
     setLoading(true);
@@ -146,6 +148,7 @@ export function App() {
           PK = "EVENTS#";
           SK = `EVENTS#${item.event_id}`;
           item_data = { ...item };
+          console.log(item_data);
           resp = await saveData(PK, SK, item_data);
           if (resp.success) {
             const found_event = Events.find(
