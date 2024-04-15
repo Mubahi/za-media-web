@@ -59,7 +59,19 @@ export const getData = async (pk, sk, begin_with) => {
     throw error;
   }
 };
+export const deleteData = async (PK, SK) => {
+  try {
+    const data = { PK, SK };
+    // Make the DEL request to delete the category
+    const response = await axios.del(`${api_url}/data`, data);
 
+    // Return the categories from the response data
+    return response.data;
+  } catch (error) {
+    console.error("Error saving data:", error);
+    throw error;
+  }
+};
 export const saveData = async (PK, SK, item_data) => {
   try {
     const data = { PK, SK, item_data };

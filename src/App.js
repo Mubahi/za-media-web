@@ -1,7 +1,7 @@
 import "./App.css";
 import React, { useEffect, useState } from "react";
 import LoginForm from "./pages/LoginForm";
-import { saveData } from "./services/http";
+import { deleteData, saveData } from "./services/http";
 import useLocalStorage from "./services/useLocalStorage";
 import Pages from "./pages";
 import { ToastContainer, toast } from "react-toastify";
@@ -69,8 +69,27 @@ export function App() {
 
     // fetchData();
   }, [User]);
-  const handleItemDelete = async (type, Item) => {
+  const handleItemDelete = async (type, PK, SK) => {
     setLoading(true);
+    let resp;
+    switch (type) {
+      case "user":
+        try {
+          resp = await deleteData(PK, SK);
+          if (resp.success) {
+            const filteredUsers = Users.filter((user) => user.SK !== SK);
+            setUsers(filteredUsers);
+            toast.success("User is deleted.");
+          } else {
+            toast.error("User is not delted.");
+          }
+        } catch (e) {
+          console.log(e.message);
+        }
+        break;
+      default:
+      // do nothing
+    }
   };
   const handleItemAdded = async (type, item) => {
     // setItems((prevItems) => [...prevItems, item]);
