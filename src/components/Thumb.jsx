@@ -24,7 +24,12 @@ const ThumbnailPreviews = ({ selectedFiles, onRemove }) => {
   };
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 text-center mt-2">
+    <div className="flex justify-start items-center text-center mt-2 flex-wrap gap-1">
+      <div className="text-center w-full">
+        {previewUrls.length === 0 && (
+          <div className="text-red-500 font-bold">No images selected</div>
+        )}
+      </div>
       {previewUrls.map((url, index) => (
         <div key={index} className="relative w-32">
           <button

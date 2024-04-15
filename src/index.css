@@ -45,8 +45,8 @@
   width: 100%;
   background-color: #ffffffb5;
 }
-.loading *{
-  color : rgb(255 104 0);
+.loading * {
+  color: rgb(255 104 0);
 }
 .loading {
   top: 50%;
@@ -57,3 +57,13 @@
   flex-direction: column;
   align-items: center;
 }
+.event-feild-container {
+  gap: 10px;
+}
+.event-feild-container > div,
+.event-feild-container > select {
+  width: calc(50% - 10px);
+}
+/* .event-feild-container > div:nth-last-child(odd) {
+  width: 100%;
+} */

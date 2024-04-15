@@ -9,6 +9,7 @@ import VideoUrl from "./compnent/VideoUrl";
 import FormButton from "../../components/FomButton";
 import MediaFile from "../../components/MediaUpload";
 import { validateObject } from "../../Global/validationUtils";
+import PageSubHeading from "../../components/PageSubHeading";
 const { v4: uuidv4 } = require("uuid");
 
 const EventsForm = ({ Countries, Areas, onItemAdded }) => {
@@ -59,13 +60,13 @@ const EventsForm = ({ Countries, Areas, onItemAdded }) => {
   return (
     <>
       <div className="pt-48 md:pt-28 min-h-screen flex justify-center bg-white pb-10">
-        <div className="bg-[#D8D9DA] shadow-lg w-11/12 rounded-md px-10 pb-5 relative">
+        <div className="bg-[#D8D9DA] shadow-lg w-11/12 rounded-md px-10 pb-5">
           <PageHeading Title="Events Form" />
           <Divider />
-          <h1 className="font-bold text-[#FF7D31] mt-2 text-center">Basic</h1>
-          <div className="flex flex-wrap">
+          <PageSubHeading title="Basic" />
+          <div className="flex flex-wrap event-feild-container">
             <FormField
-              className="w-full sm:w-[529px] md:mr-5"
+              className="w-full"
               name="event_title"
               placeholder="Event title"
               type="text"
@@ -73,7 +74,7 @@ const EventsForm = ({ Countries, Areas, onItemAdded }) => {
               onChange={(e) => handleChange(e)}
             />
             <FormField
-              className="w-full sm:w-[529px]"
+              className="w-full"
               marginTop={5}
               name="event_date"
               placeholder="Date"
@@ -81,26 +82,26 @@ const EventsForm = ({ Countries, Areas, onItemAdded }) => {
               onChange={(e) => handleChange(e)}
             />
             <FormField
-              className="w-full sm:w-[529px] md:mr-5"
+              className="w-full"
               name="event_starting_time"
               placeholder="Event starting time"
-              type="text"
+              type="time"
               min="0"
               onChange={(e) => handleChange(e)}
               // value={Event.event_starting_hour}
             />
             <FormField
-              className="w-full sm:w-[529px]"
+              className="w-full"
               name="event_closing_time"
               placeholder="Event closing time"
-              type="text"
+              type="time"
               min="0"
               // value={Event.event_closing_hour}
               onChange={(e) => handleChange(e)}
               // onChange={(e) => onChange(e)}
             />
             <FormField
-              className="w-full sm:w-[529px] md:mr-5"
+              className="w-full"
               name="parking_slots"
               placeholder="Parking slots"
               type="number"
@@ -110,7 +111,7 @@ const EventsForm = ({ Countries, Areas, onItemAdded }) => {
               // onChange={(e) => onChange(e)}
             />
             <FormField
-              className="w-full sm:w-[529px]"
+              className="w-full"
               name="event_address"
               placeholder="Event address"
               type="text"
@@ -119,7 +120,7 @@ const EventsForm = ({ Countries, Areas, onItemAdded }) => {
               // onChange={(e) => onChange(e)}
             />
             <FormField
-              className="w-full sm:w-[529px] md:mr-5"
+              className="w-full"
               name="event_days"
               placeholder="Event days"
               type="number"
@@ -131,7 +132,7 @@ const EventsForm = ({ Countries, Areas, onItemAdded }) => {
             <select
               // onChange={(e) => filterCities(e.target.value)}
               onChange={(e) => handleChange(e)}
-              className="text-black bg-white sm:w-[529px] mb-2 sm:mb-0 h-10 mt-5 border-l-2 border-red-500 outline-none "
+              className="text-black bg-white mb-2 sm:mb-0 h-10 mt-5 border-l-2 border-red-500 outline-none "
               value={SelectedCountry}
             >
               <option className="bg-white text-black">All Countries</option>
@@ -150,7 +151,7 @@ const EventsForm = ({ Countries, Areas, onItemAdded }) => {
             <select
               value={Event.shop_area_id ? Event.shop_area_id : ""}
               name="shop_area_id"
-              className="text-black bg-white sm:w-[529px] mb-2 sm:mb-0 h-10 mt-5 border-l-2 border-red-500 outline-none "
+              className="text-black bg-white mb-2 sm:mb-0 h-10 mt-5 border-l-2 border-red-500 outline-none "
               onChange={(e) => handleChange(e)}
             >
               <option className="bg-white text-black">All Areas</option>
@@ -167,13 +168,10 @@ const EventsForm = ({ Countries, Areas, onItemAdded }) => {
               })}
             </select>
           </div>
-
-          <h1 className="font-bold text-[#FF7D31] mt-2 text-center">
-            Organizer
-          </h1>
-          <div className="flex flex-wrap">
+          <PageSubHeading title="Organizer" />
+          <div className="flex flex-wrap event-feild-container">
             <FormField
-              className="w-full sm:w-[529px]  md:mr-5"
+              className="w-full"
               name="organizer_name"
               placeholder="Organizer name"
               type="text"
@@ -182,7 +180,7 @@ const EventsForm = ({ Countries, Areas, onItemAdded }) => {
               // onChange={(e) => onChange(e)}
             />
             <FormField
-              className="w-full sm:w-[529px]"
+              className="w-full"
               name="organizer_nationality"
               placeholder="Organizer nationality"
               type="text"
@@ -191,7 +189,7 @@ const EventsForm = ({ Countries, Areas, onItemAdded }) => {
               // // onChange={(e) => onChange(e)}
             />
             <FormField
-              className="w-full sm:w-[529px] md:mr-5"
+              className="w-full"
               name="organizer_phone"
               placeholder="Organizer phone"
               type="number"
@@ -201,7 +199,7 @@ const EventsForm = ({ Countries, Areas, onItemAdded }) => {
               // // onChange={(e) => onChange(e)}
             />
             <FormField
-              className="w-full sm:w-[529px]"
+              className="w-full"
               name="organizer_whatsapp"
               placeholder="Organizer whatsapp"
               type="number"
@@ -211,12 +209,10 @@ const EventsForm = ({ Countries, Areas, onItemAdded }) => {
               // // onChange={(e) => onChange(e)}
             />
           </div>
-          <h1 className="font-bold text-[#FF7D31] mt-2 text-center">
-            Visitors
-          </h1>
-          <div className="flex flex-wrap">
+          <PageSubHeading title="Visitors" />
+          <div className="flex flex-wrap event-feild-container">
             <FormField
-              className="w-full sm:w-[529px] md:mr-5"
+              className="w-full"
               name="total_visitors"
               placeholder="Total visitors"
               type="number"
@@ -226,7 +222,7 @@ const EventsForm = ({ Countries, Areas, onItemAdded }) => {
               // onChange={(e) => onChange(e)}
             />
             <FormField
-              className="w-full sm:w-[529px]"
+              className="w-full"
               name="visitors_last_year"
               placeholder="visitors last year"
               type="number"
@@ -236,10 +232,10 @@ const EventsForm = ({ Countries, Areas, onItemAdded }) => {
               // onChange={(e) => onChange(e)}
             />
           </div>
-          <h1 className="font-bold text-[#FF7D31] mt-2 text-center">Digital</h1>
-          <div className="flex flex-wrap">
+          <PageSubHeading title="Digital" />
+          <div className="flex flex-wrap event-feild-container">
             <FormField
-              className="w-full sm:w-[529px] md:mr-5"
+              className="w-full"
               name="event_website"
               placeholder="Event website"
               type="text"
@@ -248,7 +244,7 @@ const EventsForm = ({ Countries, Areas, onItemAdded }) => {
               }
             />
             <FormField
-              className="w-full sm:w-[529px]"
+              className="w-full"
               name="event_twitter"
               placeholder="Event twitter"
               type="text"
@@ -257,7 +253,7 @@ const EventsForm = ({ Countries, Areas, onItemAdded }) => {
               }
             />
             <FormField
-              className="w-full sm:w-[529px] md:mr-5"
+              className="w-full"
               name="event_facebook"
               placeholder="Event facebook"
               type="text"
@@ -266,7 +262,7 @@ const EventsForm = ({ Countries, Areas, onItemAdded }) => {
               }
             />
             <FormField
-              className="w-full sm:w-[529px]"
+              className="w-full"
               name="event_linkedin"
               placeholder="Event linkedin"
               type="text"
@@ -275,7 +271,7 @@ const EventsForm = ({ Countries, Areas, onItemAdded }) => {
               }
             />
             <FormField
-              className="w-full sm:w-[529px] md:mr-5"
+              className="w-full"
               name="event_email"
               placeholder="Event email"
               type="text"
@@ -284,7 +280,7 @@ const EventsForm = ({ Countries, Areas, onItemAdded }) => {
               }
             />
           </div>
-          <h1 className="font-bold text-[#FF7D31] mt-2 text-center">Videos</h1>
+          <PageSubHeading title="Videos" />
           <div className="flex flex-wrap">
             <div className="flex items-center bg-orange-50 pr-1 mt-4 w-full">
               <VideoUrl
@@ -309,51 +305,44 @@ const EventsForm = ({ Countries, Areas, onItemAdded }) => {
               </button>
             </div>
           </div>
-          <div className=" mt-5 ">
+          <div className="mt-5 ">
             {Event.event_videos?.map(function (video, index) {
               return (
-                <div
-                  key={index}
-                  className="w-full bg-white  border-l-2 border-red-500  py-2 px-3 mb-4 "
-                >
-                  <div
-                    value={video}
-                    className="flex justify-between items-center"
+                <div className="flex items-center bg-orange-50 pr-1 mt-4 w-full">
+                  <VideoUrl type={"text"} value={video} />
+                  <button
+                    onClick={() => handleUrlRemove(index)}
+                    className="px-2 my-1"
                   >
-                    {video}
-                    <button
-                      onClick={() => handleUrlRemove(index)}
-                      className="px-2 my-1"
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="25"
+                      height="25"
+                      fill="currentColor"
+                      className="pointer-cursor bi bi-plus-circle ml-1 text-orange-500 hover:bg-orange-500 hover:text-white hover:border-2 hover:border-orange-500 transition-colors duration-700 rounded-full"
+                      viewBox="0 0 16 16"
                     >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        fill="currentColor"
-                        className="bi bi-dash-circle-fill bg-white text-orange-500 hover:text-white hover:bg-orange-500 hover:border-2 hover:border-orange-500 rounded-full transition-colors duration-700"
-                        viewBox="0 0 16 16"
-                      >
-                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1z" />
-                      </svg>
-                    </button>
-                  </div>
+                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1z" />
+                    </svg>
+                  </button>
                 </div>
               );
             })}
           </div>
-          <h1 className="font-bold text-[#FF7D31] mt-2 text-center">
-            Upload File
-          </h1>
-          <MediaFile onFilesUploaded={handleFileUpload} />
+          <PageSubHeading title=" Upload Media" />
+          <div className="border-dotted border-2 border-orange-400 p-2 mt-5">
+            <MediaFile onFilesUploaded={handleFileUpload} />
+          </div>
+          <div className="flex justify-end">
+            <FormButton
+              width={100}
+              value="Submit"
+              name="save_btn"
+              className=""
+              onClick={handleSave}
+            />
+          </div>
         </div>
-
-        <FormButton
-          width="65px"
-          value="Submit"
-          name="save_btn"
-          className="fixed bottom-20 right-20"
-          onClick={handleSave}
-        />
       </div>
     </>
   );

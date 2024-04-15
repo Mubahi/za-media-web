@@ -50,10 +50,10 @@ const MediaFile = ({ onFilesUploaded, onImageRemove }) => {
 
   return (
     <div className="mt-6 flex-row items-center justify-center">
-      <div className="flex flex-row items-center justify-around">
+      <div className="flex flex-row items-center justify-center">
         <div className="flex justify-center items-center">
           <label className="block cursor-pointer">
-            <span className="border-2 border-blue-500 hover:border-blue-600 py-1 rounded-md font-base font-bold flex justify-center items-center px-4 bg-blue-500 text-white hover:bg-blue-600 transition-colors duration-700">
+            <span className="border-2 border-blue-500 hover:border-blue-600 py-1 rounded-md font-base font-bold flex justify-center items-center px-4 bg-blue-500 text-white hover:bg-blue-600 transition-colors duration-700 mr-2">
               Select File
             </span>
             <input
@@ -80,9 +80,9 @@ const MediaFile = ({ onFilesUploaded, onImageRemove }) => {
       />
 
       {/* <MediaList
-    MediaFiles={SelectedShop.shop_medias}
-    onImageRemove={onShopImageRemove}
-  /> */}
+        MediaFiles={SelectedShop.shop_medias}
+        onImageRemove={onShopImageRemove}
+      /> */}
     </div>
   );
 };

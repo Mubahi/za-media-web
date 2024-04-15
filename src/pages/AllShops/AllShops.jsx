@@ -98,7 +98,7 @@ const AllShops = ({
             );
           })}
         </select>
-        <select className="text-black mx-2 w-full sm:w-28 mb-2 sm:mb-0 py-1 bg-transparent outline-none">
+        {/* <select className="text-black mx-2 w-full sm:w-28 mb-2 sm:mb-0 py-1 bg-transparent outline-none">
           <option value="all" className="bg-white text-black">
             All Brands
           </option>
@@ -113,8 +113,8 @@ const AllShops = ({
               </option>
             );
           })}
-        </select>
-        <select className="text-black mx-2 w-full sm:w-28 mb-2 sm:mb-0 py-1 bg-transparent outline-none">
+        </select> */}
+        {/* <select className="text-black mx-2 w-full sm:w-28 mb-2 sm:mb-0 py-1 bg-transparent outline-none">
           <option value="all" className="bg-white text-black">
             Categories
           </option>
@@ -129,7 +129,7 @@ const AllShops = ({
               </option>
             );
           })}
-        </select>
+        </select> */}
         <select
           value={SelectedArea}
           onChange={(e) => setSelectedArea(e.target.value)}
@@ -150,7 +150,7 @@ const AllShops = ({
             );
           })}
         </select>
-        <select
+        {/* <select
           value={SelectedWindows}
           onChange={(e) => setSelectedWindows(e.target.value)}
           className="text-black mx-2 w-full sm:w-28 mb-2 sm:mb-0 py-1 bg-transparent outline-none"
@@ -188,7 +188,7 @@ const AllShops = ({
           <option value="10" className="bg-white text-black">
             10
           </option>
-        </select>
+        </select> */}
       </div>
       <div className="overflow-x-auto shadow-md min-h-screen pt-8">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">

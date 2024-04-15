@@ -6,6 +6,30 @@ import { useEffect, useState, useRef } from "react";
 const Nav = ({ setActive, View, onLogout }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const closeDropdown = () => {
+    setIsDropdownOpen(false);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        closeDropdown();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
   const menuRef = useRef(null);
   const buttonRef = useRef(null);
 
@@ -79,7 +103,73 @@ const Nav = ({ setActive, View, onLogout }) => {
             </svg>
             <p className="ml-1">Shops</p>
           </button>
-          <button
+
+          <div className="relative" ref={dropdownRef}>
+            <button
+              onClick={toggleDropdown}
+              className="text-black text-base font-bold rounded-lg py-1 px-2 inline-flex items-center transition-colors duration-500"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fillRule="currentColor"
+                className="bi bi-calendar4-event mr-1"
+                viewBox="0 0 16 16"
+              >
+                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M2 2a1 1 0 0 0-1 1v1h14V3a1 1 0 0 0-1-1zm13 3H1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z" />
+                <path d="M11 7.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z" />
+              </svg>
+              Events
+              <svg
+                className={`w-2.5 h-2.5 ms-3 transform transition-transform duration-300 ${
+                  isDropdownOpen ? "rotate-180" : ""
+                }`}
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 10 6"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="m1 1 4 4 4-4"
+                />
+              </svg>
+            </button>
+            {/* Render the dropdown menu conditionally based on state */}
+            {isDropdownOpen && (
+              <div className="absolute top-full left-0 border border-gray-300 shadow divide-y divide-gray-100 bg-[#D8D9DA] rounded-lg w-44">
+                <ul className="font-semibold text-black">
+                  <li>
+                    <button
+                      onClick={() => {
+                        setActive("Events");
+                        closeDropdown();
+                      }}
+                      className=" pb-1 px-4 flex items-center hover:bg-gray-400 hover:rounded-md hover:text-white w-full text-left"
+                    >
+                      Events Form
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      onClick={() => {
+                        setActive("AllEvents");
+                        closeDropdown();
+                      }}
+                      className=" pb-1 px-4 flex items-center hover:bg-gray-400 hover:rounded-md hover:text-white w-full text-left"
+                    >
+                      All Events
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            )}
+          </div>
+
+          {/* <button
             onClick={() => setActive("Events")}
             className={` ${
               View === "Events"
@@ -100,7 +190,7 @@ const Nav = ({ setActive, View, onLogout }) => {
             </svg>
             <p className="ml-1">Events</p>
           </button>
-          {/* <button
+          <button
             onClick={() => setActive("AllEvents")}
             className={` ${
               View === "AllEvents"

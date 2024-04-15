@@ -14,7 +14,7 @@ export default function ShopRow({ shop, Countries, Areas, onViewShop }) {
     const area = Areas.find((a) => a.id === area_id);
     return area ? area.name : "";
   };
-  console.log(shop.shop_id);
+  // console.log(shop.shop_id);
   return (
     <tr
       onClick={() => onViewShop(shop)}
