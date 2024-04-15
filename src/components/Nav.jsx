@@ -150,7 +150,7 @@ const Nav = ({ setActive, View, onLogout }) => {
                       }}
                       className=" pb-1 px-4 flex items-center hover:bg-gray-400 hover:rounded-md hover:text-white w-full text-left"
                     >
-                      Events Form
+                      Add Event
                     </button>
                   </li>
                   <li>

@@ -18,6 +18,14 @@ const EventsForm = ({ Countries, Areas, onItemAdded }) => {
   const [Event, setEvent] = useState({ event_id });
   const [Url, setUrl] = useState([]);
   const handleFileUpload = (files) => {
+    let event_media = [...files];
+    if (Event.event_media) {
+      const prevMedia = [...Event.event_media];
+      console.log(prevMedia);
+      setEvent({ ...Event, event_media: [...prevMedia, ...event_media] });
+    } else {
+      setEvent({ ...Event, event_media });
+    }
     console.log(files);
   };
   const handleChange = (e) => {
@@ -54,7 +62,6 @@ const EventsForm = ({ Countries, Areas, onItemAdded }) => {
       toast.error("Enter a correct Event Title ");
     }
   };
-  console.log(keysToCheck);
 
   console.log(Event);
   return (

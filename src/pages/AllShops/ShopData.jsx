@@ -1,4 +1,7 @@
 import React from "react";
+import PageHeading from "../../components/PageHeadng";
+import { Rating, ThinRoundedStar, ThinStar } from "@smastrom/react-rating";
+import "@smastrom/react-rating/style.css";
 const ShopData = ({ shop, Countries, Areas }) => {
   const shop_brands = shop.shop_brands || [];
   const shop_categories = shop.shop_categories || [];
@@ -13,9 +16,15 @@ const ShopData = ({ shop, Countries, Areas }) => {
     const area = Areas.find((a) => a.id === area_id);
     return area ? area.name : "";
   };
+  const myStyles = {
+    itemShapes: ThinRoundedStar,
+    activeFillColor: "#f29224",
+    inactiveFillColor: "#fbf1a9",
+  };
   return (
     <div className="flex justify-center min-h-screen bg-orange-100 pt-16">
       <div className="container p-6 text-center ">
+        <PageHeading Title={shop.shop_name} />
         <div className="min-h-screen flex items-start justify-center">
           <div className="bg-white p-6 rounded-lg w-full shadow-md flex border-t-4 border-orange-500">
             {/* <!-- Table --> */}
@@ -177,7 +186,17 @@ const ShopData = ({ shop, Countries, Areas }) => {
                               <th className="border w-1/4 border-gray-300 text-center px-2">
                                 {brand.out_of_stock}
                               </th>
-                              <th className="border w-1/4 border-gray-300 text-center px-2"></th>
+                              <th className="border w-1/4 border-gray-300 text-center px-2">
+                                <Rating
+                                  readOnly
+                                  style={{
+                                    maxWidth: 110,
+                                    margin: "auto",
+                                  }}
+                                  itemStyles={myStyles}
+                                  value={brand.rating}
+                                />
+                              </th>
                             </tr>
                           );
                         })}
@@ -212,7 +231,17 @@ const ShopData = ({ shop, Countries, Areas }) => {
                               <th className="border w-1/4 border-gray-300 text-center px-2">
                                 {product.product_price} €
                               </th>
-                              <th className="border w-1/4 border-gray-300 text-center px-2"></th>
+                              <th className="border w-1/4 border-gray-300 text-center px-2">
+                                <Rating
+                                  readOnly
+                                  style={{
+                                    maxWidth: 110,
+                                    margin: "auto",
+                                  }}
+                                  itemStyles={myStyles}
+                                  value={product.rating}
+                                />
+                              </th>
                             </tr>
                           );
                         })}
@@ -248,7 +277,9 @@ const ShopData = ({ shop, Countries, Areas }) => {
                                 {category.total_products}
                               </th>
                               <th className="border w-1/3 border-gray-300 text-center px-2">
-                                {category.out_of_stock}
+                                {category.out_of_stock
+                                  ? category.out_of_stock
+                                  : 0}
                               </th>
                             </tr>
                           );
