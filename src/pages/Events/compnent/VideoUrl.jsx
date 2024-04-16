@@ -1,5 +1,13 @@
 import React from "react";
-const VideoUrl = ({ onChange, name, value, placeholder, type, min }) => {
+const VideoUrl = ({
+  onChange,
+  name,
+  value,
+  placeholder,
+  type,
+  min,
+  readOnly,
+}) => {
   return (
     <div className="relative w-full">
       <input
@@ -11,6 +19,7 @@ const VideoUrl = ({ onChange, name, value, placeholder, type, min }) => {
         type={type}
         placeholder={placeholder}
         required
+        readOnly={readOnly === true}
         className="text-black peer placeholder-transparent border-l-2 border-red-500 w-full py-2 px-4 focus:outline-none inputFeild"
       />
       <label

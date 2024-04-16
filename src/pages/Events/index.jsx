@@ -13,20 +13,26 @@ import PageSubHeading from "../../components/PageSubHeading";
 const { v4: uuidv4 } = require("uuid");
 
 const EventsForm = ({ Countries, Areas, onItemAdded }) => {
-  const [SelectedCountry, setSelectedCountry] = useState("");
   const event_id = uuidv4();
   const [Event, setEvent] = useState({ event_id });
+  const [Cities, setCities] = useState("");
   const [Url, setUrl] = useState([]);
+
+  const handleCountryChange = (country_id) => {
+    const country = Countries.find((c) => c.country_id === country_id);
+    setCities(country ? country.cities : []);
+    setEvent({ ...Event, country_id: country_id, shop_city_id: "" }); // Reset city selection when country changes
+  };
   const handleFileUpload = (files) => {
     let event_media = [...files];
     if (Event.event_media) {
       const prevMedia = [...Event.event_media];
-      console.log(prevMedia);
+      // console.log(prevMedia);
       setEvent({ ...Event, event_media: [...prevMedia, ...event_media] });
     } else {
       setEvent({ ...Event, event_media });
     }
-    console.log(files);
+    // console.log(files);
   };
   const handleChange = (e) => {
     setEvent({ ...Event, [e.target.name]: e.target.value });
@@ -63,7 +69,7 @@ const EventsForm = ({ Countries, Areas, onItemAdded }) => {
     }
   };
 
-  console.log(Event);
+  // console.log(Event);
   return (
     <>
       <div className="pt-48 md:pt-28 min-h-screen flex justify-center bg-white pb-10">
@@ -138,11 +144,13 @@ const EventsForm = ({ Countries, Areas, onItemAdded }) => {
             />
             <select
               // onChange={(e) => filterCities(e.target.value)}
-              onChange={(e) => handleChange(e)}
+              onChange={(e) => handleCountryChange(e.target.value)}
               className="text-black bg-white mb-2 sm:mb-0 h-10 mt-5 border-l-2 border-red-500 outline-none "
-              value={SelectedCountry}
+              value={Event.country_id ? Event.country_id : ""}
             >
-              <option className="bg-white text-black">All Countries</option>
+              <option className="bg-white text-black" value="">
+                All Countries
+              </option>
               {Countries.map(function (country) {
                 return (
                   <option
@@ -156,12 +164,35 @@ const EventsForm = ({ Countries, Areas, onItemAdded }) => {
               })}
             </select>
             <select
-              value={Event.shop_area_id ? Event.shop_area_id : ""}
-              name="shop_area_id"
+              name="city_id"
+              onChange={(e) => handleChange(e)}
+              value={Event.city_id ? Event.city_id : ""}
+              className="text-black bg-white mb-2 sm:mb-0 h-10 mt-5 border-l-2 border-red-500 outline-none "
+            >
+              <option value="" className="bg-white text-black">
+                All Cities{" "}
+              </option>
+              {Cities.map(function (City) {
+                return (
+                  <option
+                    key={City.city_id}
+                    value={City.city_id}
+                    className="bg-white text-black"
+                  >
+                    {City.city_name}
+                  </option>
+                );
+              })}
+            </select>
+            <select
+              value={Event.area_id ? Event.area_id : ""}
+              name="area_id"
               className="text-black bg-white mb-2 sm:mb-0 h-10 mt-5 border-l-2 border-red-500 outline-none "
               onChange={(e) => handleChange(e)}
             >
-              <option className="bg-white text-black">All Areas</option>
+              <option className="bg-white text-black" value="">
+                All Areas
+              </option>
               {Areas.map(function (area) {
                 return (
                   <option
@@ -316,7 +347,7 @@ const EventsForm = ({ Countries, Areas, onItemAdded }) => {
             {Event.event_videos?.map(function (video, index) {
               return (
                 <div className="flex items-center bg-orange-50 pr-1 mt-4 w-full">
-                  <VideoUrl type={"text"} value={video} />
+                  <VideoUrl type={"text"} value={video} readOnly={true} />
                   <button
                     onClick={() => handleUrlRemove(index)}
                     className="px-2 my-1"
