@@ -67,7 +67,9 @@ const SetPermissions = ({
         data-aos="fade-down"
         className="bg-[#D8D9DA] p-8 rounded-md shadow-lg w-11/12 "
       >
+        {/* <div className="flex justify-center items-center"> */}
         <PageHeading Title={"Premissions for : " + SelectedRole.role_name} />
+        {/* </div> */}
         <Divider />
 
         <table className="w-full border-collapse border border-orange-400">
@@ -144,6 +146,22 @@ const SetPermissions = ({
             })}
           </tbody>
         </table>
+        {/* <div className="flex justify-end mt-1">
+          <button className=" mr-2 bg-yellow-400 hover:bg-yellow-500 text-white rounded-md transition-colors duration-700 px-1 flex items-center">
+            <p>Check All</p>
+
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="30"
+              height="30"
+              fill="currentColor"
+              class="bi bi-check-all"
+              viewBox="0 0 16 16"
+            >
+              <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486z" />
+            </svg>
+          </button>
+        </div> */}
         <div className="flex justify-center items-center">
           <button
             onClick={() => backToRoles(backToRoles)}

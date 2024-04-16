@@ -15,7 +15,7 @@ const { v4: uuidv4 } = require("uuid");
 const EventsForm = ({ Countries, Areas, onItemAdded }) => {
   const event_id = uuidv4();
   const [Event, setEvent] = useState({ event_id });
-  const [Cities, setCities] = useState("");
+  const [Cities, setCities] = useState([]);
   const [Url, setUrl] = useState([]);
 
   const handleCountryChange = (country_id) => {

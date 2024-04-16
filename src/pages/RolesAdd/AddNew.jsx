@@ -60,6 +60,7 @@ const AddNew = ({ Roles, onSetPerm, onItemAdded }) => {
                 <th className="border-b border-orange-500">Name</th>
                 <th className="border-b border-orange-500">Edit</th>
                 <th className="border-b border-orange-500">Permissions</th>
+                <th className="border-b border-orange-500">Delete</th>
               </tr>
             </thead>
             <tbody>
@@ -88,6 +89,20 @@ const AddNew = ({ Roles, onSetPerm, onItemAdded }) => {
                       className="bg-orange-400 px-2 rounded-md hover:bg-orange-600 transition-all duration-300 pb-2 my-1 text-white font-bold"
                     >
                       p
+                    </button>
+                  </td>
+                  <td className="border-b border-r px-1 border-orange-500">
+                    <button className="px-2 my-1">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        fill="currentColor"
+                        className="bi bi-trash-fill text-red-500 hover:text-red-600"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0" />
+                      </svg>
                     </button>
                   </td>
                 </tr>

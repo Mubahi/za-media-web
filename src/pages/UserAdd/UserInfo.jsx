@@ -3,8 +3,8 @@ import PageHeading from "../../components/PageHeadng";
 import Divider from "../../components/Divider";
 import FormField from "../../components/FormField";
 import FormButton from "../../components/FomButton";
-import Date from "../../components/Date";
 import SelectField from "../../components/SelectField";
+import PageSubHeading from "../../components/PageSubHeading";
 const UserInfo = ({
   goToUserAdd,
   backToUser,
@@ -23,7 +23,15 @@ const UserInfo = ({
           <div className="flex-1 ">
             <PageHeading Title="User Info" />
             <Divider />
+            <PageSubHeading title="Basic" />
             <div className="flex flex-col">
+              <FormField
+                name="user_fullname"
+                placeholder="Fullname"
+                type="text"
+                value={SelectedUser.user_fullname}
+                onChange={(e) => onInfoChange(e.target.name, e.target.value)}
+              />
               <FormField
                 name="user_email"
                 value={SelectedUser.user_email}
@@ -31,26 +39,14 @@ const UserInfo = ({
                 type="text"
                 readOnly={true}
               />
-              <SelectField
-                options={Roles}
-                valueKey={"role_id"}
-                labelKey={"role_name"}
-                name={"role_id"}
-                value={SelectedUser.role_id}
-                onChange={(e) => onInfoChange(e.target.name, e.target.value)}
-              />
+            </div>
+            <PageSubHeading title="Permissions" />
+            <div className="flex flex-col">
               <FormField
                 name="user_password"
                 placeholder="Password"
                 type="password"
                 value={SelectedUser.user_password}
-                onChange={(e) => onInfoChange(e.target.name, e.target.value)}
-              />
-              <FormField
-                name="user_fullname"
-                placeholder="Fullname"
-                type="text"
-                value={SelectedUser.user_fullname}
                 onChange={(e) => onInfoChange(e.target.name, e.target.value)}
               />
               <FormField
@@ -61,12 +57,58 @@ const UserInfo = ({
                 value={SelectedUser.user_phone}
                 onChange={(e) => onInfoChange(e.target.name, e.target.value)}
               />
+              <SelectField
+                options={Roles}
+                valueKey={"role_id"}
+                labelKey={"role_name"}
+                name={"role_id"}
+                value={SelectedUser.role_id}
+                onChange={(e) => onInfoChange(e.target.name, e.target.value)}
+              />
               <FormField
                 onChange={(e) => onInfoChange(e.target.name, e.target.value)}
                 name="user_bio"
                 value={SelectedUser.user_bio}
                 placeholder="Bio"
                 type="text"
+              />
+            </div>
+            <PageSubHeading title="Digital" />
+            <div className="flex flex-col">
+              <FormField
+                className="w-full"
+                name="user_website"
+                placeholder="User website"
+                type="text"
+                onChange={(e) => onInfoChange([e.target.name], e.target.value)}
+              />
+              <FormField
+                className="w-full"
+                name="user_twitter"
+                placeholder="User twitter"
+                type="text"
+                onChange={(e) => onInfoChange([e.target.name], e.target.value)}
+              />
+              <FormField
+                className="w-full"
+                name="user_facebook"
+                placeholder="User facebook"
+                type="text"
+                onChange={(e) => onInfoChange([e.target.name], e.target.value)}
+              />
+              <FormField
+                className="w-full"
+                name="user_linkedin"
+                placeholder="User linkedin"
+                type="text"
+                onChange={(e) => onInfoChange([e.target.name], e.target.value)}
+              />
+              <FormField
+                className="w-full"
+                name="user_email"
+                placeholder="User email"
+                type="text"
+                onChange={(e) => onInfoChange([e.target.name], e.target.value)}
               />
               {/* <Date
                 onChange={(e) => onInfoChange(e.target.name, e.target.value)}
