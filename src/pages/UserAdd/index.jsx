@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import UserInfo from "./UserInfo";
 import AddNew from "./AddNew";
-const UserAdd = ({ Users, Roles, onItemAdded }) => {
+const UserAdd = ({ Users, Roles, onItemAdded, onItemDelete }) => {
   const [View, setView] = useState("UsersAdd");
   const [SelectedUser, setSelectedUser] = useState({});
   const onInfoEdit = (user) => {
@@ -30,6 +30,7 @@ const UserAdd = ({ Users, Roles, onItemAdded }) => {
           Users={Users}
           Roles={Roles}
           onItemAdded={onItemAdded}
+          onItemDelete={onItemDelete}
         />
       )}
       {View === "UserInfo" && (

@@ -10,7 +10,14 @@ import SelectField from "../../components/SelectField";
 import { validateObject } from "../../Global/validationUtils";
 const { v4: uuidv4 } = require("uuid");
 
-const AddNew = ({ onInfoEdit, Users, Roles, onchange, onItemAdded }) => {
+const AddNew = ({
+  onInfoEdit,
+  Users,
+  Roles,
+  onchange,
+  onItemAdded,
+  onItemDelete,
+}) => {
   useEffect(() => {
     Aos.init({ duration: 2000 });
   }, []);
@@ -132,7 +139,10 @@ const AddNew = ({ onInfoEdit, Users, Roles, onchange, onItemAdded }) => {
                     </button>
                   </td>
                   <td className="border-b border-r px-1 border-orange-500">
-                    <button className="px-2 my-1">
+                    <button
+                      className="px-2 my-1"
+                      onClick={() => onItemDelete("user", User.PK, User.SK)}
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="18"

@@ -21,6 +21,7 @@ const Pages = ({
   onItemAdded,
   Users,
   Events,
+  onItemDelete,
 }) => {
   const [View, setView] = useState("Home");
   const [Shop, setShop] = useState([]);
@@ -63,7 +64,12 @@ const Pages = ({
         />
       )}
       {View === "Users" && (
-        <UserAdd Users={Users} Roles={Roles} onItemAdded={onItemAdded} />
+        <UserAdd
+          Users={Users}
+          Roles={Roles}
+          onItemAdded={onItemAdded}
+          onItemDelete={onItemDelete}
+        />
       )}
       {View === "Roles" && (
         <RolesAdd onItemAdded={onItemAdded} Modules={Modules} Roles={Roles} />

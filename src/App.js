@@ -69,13 +69,17 @@ export function App() {
 
     // fetchData();
   }, [User]);
+
   const handleItemDelete = async (type, PK, SK) => {
     setLoading(true);
     let resp;
+    console.log(type, PK, SK);
     switch (type) {
       case "user":
+        console.log("here");
         try {
           resp = await deleteData(PK, SK);
+          console.log(resp.data);
           if (resp.success) {
             const filteredUsers = Users.filter((user) => user.SK !== SK);
             setUsers(filteredUsers);
@@ -90,6 +94,7 @@ export function App() {
       default:
       // do nothing
     }
+    setLoading(false);
   };
   const handleItemAdded = async (type, item) => {
     // setItems((prevItems) => [...prevItems, item]);
@@ -227,6 +232,7 @@ export function App() {
           Roles={Roles}
           Users={Users}
           Events={Events}
+          onItemDelete={handleItemDelete}
         />
       )}
       <ToastContainer />

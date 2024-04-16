@@ -71,7 +71,7 @@ const ModulesAdd = ({ Modules, onItemAdded }) => {
               <tr className="bg-[#CECFD1] text-[#FF7D31]">
                 <th className="border-b border-orange-500">Name</th>
                 <th className="border-b border-orange-500">Title</th>
-                <th className="border-b border-orange-500">Delete</th>
+                {/* <th className="border-b border-orange-500">Delete</th> */}
               </tr>
             </thead>
             <tbody>
@@ -83,7 +83,7 @@ const ModulesAdd = ({ Modules, onItemAdded }) => {
                   <td className="border-b border-r border-orange-500">
                     {module.module_title}
                   </td>
-                  <td className="border-b border-r px-1 border-orange-500">
+                  {/* <td className="border-b border-r px-1 border-orange-500">
                     <button className="px-2 my-1">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -96,7 +96,7 @@ const ModulesAdd = ({ Modules, onItemAdded }) => {
                         <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0" />
                       </svg>
                     </button>
-                  </td>
+                  </td> */}
                 </tr>
               ))}
             </tbody>
